@@ -67,7 +67,6 @@ All sessions are held on **Sundays at 9:00 PM BDT** via Google Meet.
 - **Sessions:** Every Sunday, 9:00 PM BDT
 - **Format:** 3-hour live workshops via Google Meet
 - **Dashboard:** [nextphd.elitelab.ai](https://nextphd.elitelab.ai)
-- **Discord:** [Join our community](https://discord.gg/x9VJSSaKnr)
 
 ---
 
