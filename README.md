@@ -8,7 +8,7 @@ Welcome to the official resource repository for the NextPhD Bangladesh program. 
 
 ---
 
-## 📅 Session Plan (22 Weeks)
+## 📅 Session Plan (22 Weeks) — Tentative
 
 All sessions are held on **Sundays at 9:00 PM BDT** via Google Meet.
 
