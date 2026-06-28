@@ -1,0 +1,1834 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Week 1 Handout — Academic CV Prep & Personal Website Building | NextPhD Bangladesh</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --green: #1a5632;
+      --green-light: #e8f2ed;
+      --green-mid: #2d7a4e;
+      --text: #1c1c1c;
+      --text-muted: #555;
+      --border: #d0ddd6;
+      --white: #ffffff;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      line-height: 1.6;
+      color: var(--text);
+      background: #f4f6f4;
+    }
+
+    .page {
+      max-width: 800px;
+      margin: 2rem auto;
+      background: var(--white);
+      padding: 48px 56px;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+    }
+
+    /* ── Header ── */
+    .header {
+      border-bottom: 3px solid var(--green);
+      padding-bottom: 20px;
+      margin-bottom: 32px;
+    }
+
+    .header-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .header-logo-block {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo-badge {
+      width: 44px;
+      height: 44px;
+      background: var(--green);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .logo-badge svg {
+      width: 24px;
+      height: 24px;
+      fill: white;
+    }
+
+    .org-name {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--green);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .cohort-tag {
+      font-size: 11px;
+      color: var(--text-muted);
+      font-weight: 400;
+    }
+
+    .header-date {
+      text-align: right;
+      font-size: 12px;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    .header-date strong {
+      display: block;
+      color: var(--green);
+      font-weight: 600;
+    }
+
+    .header-title {
+      margin-top: 16px;
+    }
+
+    .week-label {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--green-mid);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    .session-title {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--green);
+      line-height: 1.3;
+    }
+
+    /* ── Sections ── */
+    .section {
+      margin-bottom: 32px;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+
+    .section-number {
+      width: 26px;
+      height: 26px;
+      background: var(--green);
+      color: white;
+      border-radius: 50%;
+      font-size: 12px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .section-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--green);
+      letter-spacing: 0.01em;
+    }
+
+    /* ── Checklist ── */
+    .checklist {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .checklist li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 8px 12px;
+      border-radius: 6px;
+      background: var(--green-light);
+      font-size: 13px;
+    }
+
+    .checklist li:nth-child(even) {
+      background: #f0f7f3;
+    }
+
+    .checkbox {
+      width: 16px;
+      height: 16px;
+      border: 2px solid var(--green);
+      border-radius: 3px;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .checklist-label {
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .checklist-detail {
+      color: var(--text-muted);
+      font-weight: 400;
+    }
+
+    /* ── Formatting Guidelines ── */
+    .guidelines-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .guidelines-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      font-size: 13px;
+      color: var(--text);
+      padding: 2px 0;
+    }
+
+    .bullet-dot {
+      width: 6px;
+      height: 6px;
+      background: var(--green);
+      border-radius: 50%;
+      flex-shrink: 0;
+      margin-top: 7px;
+    }
+
+    /* ── Table ── */
+    .resource-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+
+    .resource-table th {
+      background: var(--green);
+      color: white;
+      padding: 9px 12px;
+      text-align: left;
+      font-weight: 600;
+      font-size: 12px;
+      letter-spacing: 0.03em;
+    }
+
+    .resource-table th:first-child { border-radius: 6px 0 0 0; }
+    .resource-table th:last-child  { border-radius: 0 6px 0 0; }
+
+    .resource-table td {
+      padding: 8px 12px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+
+    .resource-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .resource-table tr:nth-child(even) td {
+      background: var(--green-light);
+    }
+
+    .resource-table a {
+      color: var(--green-mid);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .table-wrap {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    /* ── Step-by-step ── */
+    .steps {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .step {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+    }
+
+    .step-num {
+      width: 28px;
+      height: 28px;
+      background: var(--green);
+      color: white;
+      border-radius: 50%;
+      font-size: 13px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .step-content {
+      flex: 1;
+    }
+
+    .step-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 5px;
+    }
+
+    .step-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    .step-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      font-size: 12.5px;
+      color: var(--text-muted);
+    }
+
+    .step-list .option-tag {
+      background: var(--green-light);
+      color: var(--green);
+      font-size: 11px;
+      font-weight: 600;
+      padding: 1px 6px;
+      border-radius: 3px;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    code {
+      font-family: 'Courier New', Courier, monospace;
+      background: var(--green-light);
+      color: var(--green);
+      padding: 1px 5px;
+      border-radius: 3px;
+      font-size: 12px;
+    }
+
+    .config-block {
+      background: #f4f6f4;
+      border-left: 3px solid var(--green);
+      border-radius: 0 4px 4px 0;
+      padding: 8px 12px;
+      margin-top: 6px;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 12px;
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    .config-block .key { color: var(--green); }
+    .config-block .val { color: #555; }
+
+    /* ── Assignments table ── */
+    .assign-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+
+    .assign-table th {
+      background: var(--green);
+      color: white;
+      padding: 9px 12px;
+      text-align: left;
+      font-weight: 600;
+      font-size: 12px;
+    }
+
+    .assign-table th:first-child { border-radius: 6px 0 0 0; width: 32px; }
+    .assign-table th:last-child  { border-radius: 0 6px 0 0; }
+
+    .assign-table td {
+      padding: 10px 12px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+
+    .assign-table tr:last-child td { border-bottom: none; }
+    .assign-table tr:nth-child(even) td { background: var(--green-light); }
+
+    .assign-num {
+      font-weight: 700;
+      color: var(--green);
+      font-size: 14px;
+    }
+
+    .due-banner {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--green);
+      color: white;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 5px 12px;
+      border-radius: 20px;
+      margin-bottom: 12px;
+    }
+
+    /* ── Footer ── */
+    .footer {
+      border-top: 2px solid var(--green);
+      padding-top: 16px;
+      margin-top: 36px;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .footer-left {
+      font-size: 11px;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    .footer-left strong {
+      color: var(--green);
+      font-size: 12px;
+    }
+
+    .footer-right {
+      font-size: 11px;
+      color: var(--text-muted);
+      text-align: right;
+      line-height: 1.6;
+      font-style: italic;
+    }
+
+    /* ── Divider ── */
+    .divider {
+      height: 1px;
+      background: var(--border);
+      margin: 28px 0;
+    }
+
+    /* ── CV Mockup (Paper-style) ── */
+    .cv-mock {
+      border: 1px solid #c8c8c8;
+      border-radius: 4px;
+      overflow: hidden;
+      margin: 14px 0 6px;
+      background: #ffffff;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+
+    .cv-mock-bar {
+      background: #f0f0f0;
+      border-bottom: 1px solid #ddd;
+      padding: 6px 12px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      color: #888;
+    }
+
+    .cv-mock-bar .dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; }
+    .cv-mock-bar .dot.r { background: #ff5f57; }
+    .cv-mock-bar .dot.y { background: #febc2e; }
+    .cv-mock-bar .dot.g { background: #28c840; }
+    .cv-mock-bar .file-name { margin-left: 8px; font-weight: 500; color: #555; }
+
+    .cv-paper {
+      padding: 28px 36px;
+      font-family: 'Times New Roman', Georgia, serif;
+      font-size: 12px;
+      line-height: 1.5;
+      color: #222;
+    }
+
+    .cv-paper .cv-name {
+      font-size: 20px;
+      font-weight: 700;
+      text-align: center;
+      color: #111;
+      margin-bottom: 2px;
+    }
+
+    .cv-paper .cv-contact {
+      text-align: center;
+      font-size: 10.5px;
+      color: #555;
+      margin-bottom: 14px;
+    }
+
+    .cv-paper .cv-contact a {
+      color: #0969da;
+      text-decoration: none;
+    }
+
+    .cv-paper .cv-section-title {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: #111;
+      border-bottom: 1.5px solid #111;
+      padding-bottom: 2px;
+      margin: 14px 0 8px;
+    }
+
+    .cv-paper .cv-entry {
+      margin-bottom: 10px;
+    }
+
+    .cv-paper .cv-entry-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+
+    .cv-paper .cv-entry-left {
+      font-weight: 700;
+      font-size: 12px;
+      color: #111;
+    }
+
+    .cv-paper .cv-entry-right {
+      font-size: 10.5px;
+      color: #555;
+      font-style: italic;
+      text-align: right;
+      white-space: nowrap;
+    }
+
+    .cv-paper .cv-entry-sub {
+      font-size: 11px;
+      color: #444;
+      font-style: italic;
+      margin-top: 1px;
+    }
+
+    .cv-paper .cv-entry-detail {
+      font-size: 11px;
+      color: #333;
+      margin-top: 1px;
+    }
+
+    .cv-paper .cv-bullets {
+      list-style: none;
+      padding: 0;
+      margin: 4px 0 0 12px;
+    }
+
+    .cv-paper .cv-bullets li {
+      font-size: 11px;
+      color: #333;
+      padding: 1px 0;
+      position: relative;
+      padding-left: 10px;
+    }
+
+    .cv-paper .cv-bullets li::before {
+      content: '\2022';
+      position: absolute;
+      left: 0;
+      color: #555;
+    }
+
+    .cv-paper .cv-pub {
+      font-size: 11px;
+      color: #333;
+      margin-bottom: 6px;
+      line-height: 1.5;
+      padding-left: 16px;
+      text-indent: -16px;
+    }
+
+    .cv-paper .cv-pub .author-bold {
+      font-weight: 700;
+    }
+
+    .cv-paper .cv-skills-row {
+      font-size: 11px;
+      color: #333;
+      margin-bottom: 3px;
+    }
+
+    .cv-paper .cv-skills-row strong {
+      color: #111;
+      min-width: 130px;
+      display: inline-block;
+    }
+
+    .cv-paper .cv-ref {
+      font-size: 11px;
+      color: #333;
+      margin-bottom: 8px;
+    }
+
+    .cv-paper .cv-ref .ref-name {
+      font-weight: 700;
+      color: #111;
+    }
+
+    .cv-mock-caption {
+      font-size: 11px;
+      color: var(--green-mid);
+      font-weight: 600;
+      font-style: italic;
+      text-align: center;
+      margin-top: 4px;
+      margin-bottom: 10px;
+    }
+
+    .cv-annotation {
+      display: inline-block;
+      background: #fff3cd;
+      border: 1px solid #f9c513;
+      color: #6a5000;
+      font-size: 9px;
+      font-weight: 700;
+      font-family: 'Inter', sans-serif;
+      padding: 1px 6px;
+      border-radius: 3px;
+      margin-left: 6px;
+      vertical-align: middle;
+    }
+
+    .cv-annotation.good {
+      background: #dcffe4;
+      border-color: #2da44e;
+      color: #1a7f37;
+    }
+
+    @media print {
+      .cv-mock {
+        box-shadow: none !important;
+        border: 1px solid #ccc !important;
+        page-break-inside: avoid;
+      }
+      .cv-mock-bar {
+        background: #eee !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+      .cv-annotation {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+      .cv-annotation.good {
+        background: #dcffe4 !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+    }
+
+    /* ── Platform Mockups ── */
+    .platform-mock {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+      margin: 10px 0;
+      background: #fff;
+    }
+
+    .platform-bar {
+      padding: 7px 12px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      font-weight: 600;
+      color: white;
+    }
+
+    .platform-body {
+      padding: 14px 16px;
+      font-size: 12.5px;
+      color: var(--text);
+    }
+
+    .email-sig {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 14px 18px;
+      background: #fafafa;
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 12.5px;
+      line-height: 1.5;
+      margin: 10px 0;
+    }
+
+    .email-sig .sig-line {
+      border-top: 2px solid var(--green);
+      padding-top: 8px;
+      margin-top: 4px;
+    }
+
+    .email-bad {
+      background: #fef2f2;
+      border-color: #fca5a5;
+      color: #7f1d1d;
+      font-family: 'Courier New', monospace;
+      font-size: 12px;
+      padding: 8px 12px;
+      border-radius: 4px;
+      margin: 4px 0;
+    }
+
+    .email-good {
+      background: #f0fdf4;
+      border-color: #86efac;
+      color: #14532d;
+      font-family: 'Courier New', monospace;
+      font-size: 12px;
+      padding: 8px 12px;
+      border-radius: 4px;
+      margin: 4px 0;
+      border: 1px solid #86efac;
+    }
+
+    .profile-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .mock-caption {
+      font-size: 11px;
+      color: var(--green-mid);
+      font-weight: 600;
+      font-style: italic;
+      text-align: center;
+      margin-top: 4px;
+      margin-bottom: 8px;
+    }
+
+    @media print {
+      .platform-mock {
+        page-break-inside: avoid;
+        border: 1px solid #ccc !important;
+      }
+      .platform-bar {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+      .email-bad, .email-good {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .profile-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ── Print styles ── */
+    @media print {
+      @page {
+        size: A4;
+        margin: 16mm 18mm;
+      }
+
+      body {
+        background: white;
+        font-size: 12px;
+      }
+
+      .page {
+        max-width: 100%;
+        margin: 0;
+        padding: 0;
+        box-shadow: none;
+      }
+
+      .section {
+        page-break-inside: avoid;
+      }
+
+      .step {
+        page-break-inside: avoid;
+      }
+
+      .header {
+        margin-bottom: 20px;
+      }
+
+      .session-title {
+        font-size: 18px;
+      }
+
+      .checklist li {
+        background: transparent !important;
+        border: 1px solid #ccc;
+        margin-bottom: 2px;
+      }
+
+      .resource-table tr:nth-child(even) td,
+      .assign-table tr:nth-child(even) td {
+        background: #f9f9f9 !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      .resource-table th,
+      .assign-table th {
+        background: #1a5632 !important;
+        color: white !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      .section-number,
+      .step-num {
+        background: #1a5632 !important;
+        color: white !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      .due-banner {
+        background: #1a5632 !important;
+        color: white !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      a {
+        color: #1a5632 !important;
+        text-decoration: none;
+      }
+
+      .logo-badge {
+        background: #1a5632 !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      .divider {
+        margin: 16px 0;
+      }
+
+      .section {
+        margin-bottom: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+
+    <!-- ── HEADER ── -->
+    <header class="header">
+      <div class="header-top">
+        <div class="header-logo-block">
+          <div class="logo-badge">
+            <!-- Graduation cap icon -->
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zM5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z"/>
+            </svg>
+          </div>
+          <div>
+            <div class="org-name">NextPhD Bangladesh</div>
+            <div class="cohort-tag">Cohort 01 · ELITE Research Lab</div>
+          </div>
+        </div>
+        <div class="header-date">
+          <strong>June 28, 2026</strong>
+          Week 1 Session<br>
+          Participant Handout
+        </div>
+      </div>
+      <div class="header-title">
+        <div class="week-label">Week 1</div>
+        <div class="session-title">Academic CV Prep &amp; Personal Website Building</div>
+      </div>
+    </header>
+
+    <!-- ── SECTION 1: CV Checklist ── -->
+    <section class="section">
+      <div class="section-header">
+        <div class="section-number">1</div>
+        <div class="section-title">Academic CV Checklist</div>
+      </div>
+      <ul class="checklist">
+        <li>
+          <div class="checkbox"></div>
+          <div>
+            <span class="checklist-label">Contact Information</span>
+            <span class="checklist-detail"> — name, email, phone, LinkedIn URL, personal website</span>
+          </div>
+        </li>
+        <li>
+          <div class="checkbox"></div>
+          <div>
+            <span class="checklist-label">Education</span>
+            <span class="checklist-detail"> — degrees, institutions, dates, GPA (if strong), thesis titles</span>
+          </div>
+        </li>
+        <li>
+          <div class="checkbox"></div>
+          <div>
+            <span class="checklist-label">Research Experience</span>
+            <span class="checklist-detail"> — lab name, role, dates, 2–3 descriptive bullet points each</span>
+          </div>
+        </li>
+        <li>
+          <div class="checkbox"></div>
+          <div>
+            <span class="checklist-label">Publications &amp; Conferences</span>
+            <span class="checklist-detail"> — full citation format; include "in prep" or "submitted" works</span>
+          </div>
+        </li>
+        <li>
+          <div class="checkbox"></div>
+          <div>
+            <span class="checklist-label">Technical Skills</span>
+            <span class="checklist-detail"> — programming languages, tools, frameworks, methodologies</span>
+          </div>
+        </li>
+        <li>
+          <div class="checkbox"></div>
+          <div>
+            <span class="checklist-label">Awards, Fellowships &amp; Grants</span>
+            <span class="checklist-detail"> — name, awarding body, year</span>
+          </div>
+        </li>
+        <li>
+          <div class="checkbox"></div>
+          <div>
+            <span class="checklist-label">Teaching &amp; Mentoring Experience</span>
+            <span class="checklist-detail"> — course name, role (TA/instructor), institution, semester</span>
+          </div>
+        </li>
+        <li>
+          <div class="checkbox"></div>
+          <div>
+            <span class="checklist-label">Professional Service</span>
+            <span class="checklist-detail"> — conference reviews, student organizations, committee roles</span>
+          </div>
+        </li>
+        <li>
+          <div class="checkbox"></div>
+          <div>
+            <span class="checklist-label">References</span>
+            <span class="checklist-detail"> — 2–3 academic referees with name, title, institution, email</span>
+          </div>
+        </li>
+      </ul>
+
+      <!-- Full CV Mockup Example -->
+      <div class="cv-mock" style="margin-top:18px;">
+        <div class="cv-mock-bar">
+          <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+          <span class="file-name">CV_Fatima_Rahman.pdf</span>
+        </div>
+        <div class="cv-paper">
+
+          <div class="cv-name">Fatima Rahman</div>
+          <div class="cv-contact">
+            Dhaka, Bangladesh &nbsp;|&nbsp; fatima.rahman@du.ac.bd &nbsp;|&nbsp; +880-1XX-XXXXXXX<br>
+            <a>linkedin.com/in/fatimarahman</a> &nbsp;|&nbsp; <a>fatimarahman.github.io</a> &nbsp;|&nbsp; <a>scholar.google.com/fatimarahman</a>
+          </div>
+
+          <!-- Education -->
+          <div class="cv-section-title">Education</div>
+          <div class="cv-entry">
+            <div class="cv-entry-header">
+              <span class="cv-entry-left">MSc in Computer Science</span>
+              <span class="cv-entry-right">Sep 2022 – Jun 2024</span>
+            </div>
+            <div class="cv-entry-sub">University of Dhaka, Dhaka, Bangladesh</div>
+            <div class="cv-entry-detail">Thesis: "Deep Learning Approaches for Low-Resource Bangla NLP" <span class="cv-annotation good">Include thesis title!</span></div>
+            <div class="cv-entry-detail">GPA: 3.85 / 4.00</div>
+          </div>
+          <div class="cv-entry">
+            <div class="cv-entry-header">
+              <span class="cv-entry-left">BSc in Computer Science &amp; Engineering</span>
+              <span class="cv-entry-right">Aug 2017 – Jun 2022</span>
+            </div>
+            <div class="cv-entry-sub">Bangladesh University of Engineering &amp; Technology (BUET), Dhaka</div>
+            <div class="cv-entry-detail">Capstone: "Real-Time Bengali Speech Recognition using End-to-End Deep Learning"</div>
+            <div class="cv-entry-detail">GPA: 3.72 / 4.00</div>
+          </div>
+
+          <!-- Research Experience -->
+          <div class="cv-section-title">Research Experience</div>
+          <div class="cv-entry">
+            <div class="cv-entry-header">
+              <span class="cv-entry-left">Graduate Research Assistant</span>
+              <span class="cv-entry-right">Jan 2023 – Jun 2024</span>
+            </div>
+            <div class="cv-entry-sub">NLP Lab, University of Dhaka &nbsp;|&nbsp; Supervisor: Prof. Ahmed Khan</div>
+            <ul class="cv-bullets">
+              <li>Designed transformer-based models for Bangla Named Entity Recognition, achieving 91.3% F1 score <span class="cv-annotation good">Quantified!</span></li>
+              <li>Curated and annotated a 50,000-sentence Bangla NER dataset with 12 entity types</li>
+              <li>Published findings at EMNLP 2024 (acceptance rate: 22%)</li>
+            </ul>
+          </div>
+          <div class="cv-entry">
+            <div class="cv-entry-header">
+              <span class="cv-entry-left">Undergraduate Research Assistant</span>
+              <span class="cv-entry-right">Jun 2021 – May 2022</span>
+            </div>
+            <div class="cv-entry-sub">Speech &amp; Language Lab, BUET &nbsp;|&nbsp; Supervisor: Dr. Nusrat Jahan</div>
+            <ul class="cv-bullets">
+              <li>Developed end-to-end speech recognition system for Bengali with 8.3% word error rate</li>
+              <li>Collected 200+ hours of conversational Bengali audio data across 5 dialects</li>
+            </ul>
+          </div>
+
+          <!-- Publications -->
+          <div class="cv-section-title">Publications</div>
+          <div class="cv-pub">
+            [1] <span class="author-bold">F. Rahman</span>, A. Khan, S. Islam. "BanglaNER: A Transformer-Based Approach for Low-Resource Bangla Named Entity Recognition." <em>Proc. EMNLP 2024</em>, pp. 1234–1245.
+          </div>
+          <div class="cv-pub">
+            [2] <span class="author-bold">F. Rahman</span>, N. Jahan. "End-to-End Bengali Speech Recognition: A Comparative Study." <em>IEEE Access</em>, vol. 12, 2023. <span class="cv-annotation good">Bold your name</span>
+          </div>
+          <div class="cv-pub" style="color:#666;">
+            [3] <span class="author-bold">F. Rahman</span>, A. Khan. "Cross-Lingual Transfer for South Asian NER." <em>In preparation</em>, 2025. <span class="cv-annotation">OK to include!</span>
+          </div>
+
+          <!-- Technical Skills -->
+          <div class="cv-section-title">Technical Skills</div>
+          <div class="cv-skills-row"><strong>Programming:</strong> Python, Java, C++, SQL, MATLAB</div>
+          <div class="cv-skills-row"><strong>ML / NLP:</strong> PyTorch, TensorFlow, Hugging Face, spaCy, NLTK, scikit-learn</div>
+          <div class="cv-skills-row"><strong>Tools:</strong> Git, Docker, LaTeX, Linux, Google Cloud Platform, Weights &amp; Biases</div>
+
+          <!-- Awards -->
+          <div class="cv-section-title">Awards &amp; Fellowships</div>
+          <div class="cv-entry">
+            <div class="cv-entry-header">
+              <span class="cv-entry-left">University Gold Medal — MSc Computer Science</span>
+              <span class="cv-entry-right">2024</span>
+            </div>
+          </div>
+          <div class="cv-entry">
+            <div class="cv-entry-header">
+              <span class="cv-entry-left">ICT Ministry Fellowship — Graduate Research</span>
+              <span class="cv-entry-right">2022 – 2024</span>
+            </div>
+          </div>
+          <div class="cv-entry">
+            <div class="cv-entry-header">
+              <span class="cv-entry-left">Dean's List — 6 semesters at BUET</span>
+              <span class="cv-entry-right">2018 – 2022</span>
+            </div>
+          </div>
+
+          <!-- Teaching -->
+          <div class="cv-section-title">Teaching Experience</div>
+          <div class="cv-entry">
+            <div class="cv-entry-header">
+              <span class="cv-entry-left">Teaching Assistant — Introduction to NLP (CSE 472)</span>
+              <span class="cv-entry-right">Spring 2024</span>
+            </div>
+            <div class="cv-entry-sub">University of Dhaka — 65 students</div>
+            <ul class="cv-bullets">
+              <li>Designed 5 programming assignments covering tokenization, POS tagging, and text classification</li>
+              <li>Conducted weekly office hours and graded assignments and final projects</li>
+            </ul>
+          </div>
+
+          <!-- References -->
+          <div class="cv-section-title">References</div>
+          <div style="display:flex; gap:24px;">
+            <div class="cv-ref" style="flex:1;">
+              <div class="ref-name">Prof. Ahmed Khan</div>
+              <div>Professor, Dept. of CSE</div>
+              <div>University of Dhaka</div>
+              <div style="color:#0969da;">ahmed.khan@du.ac.bd</div>
+            </div>
+            <div class="cv-ref" style="flex:1;">
+              <div class="ref-name">Dr. Nusrat Jahan</div>
+              <div>Associate Professor, Dept. of CSE</div>
+              <div>BUET</div>
+              <div style="color:#0969da;">nusrat@cse.buet.ac.bd</div>
+            </div>
+            <div class="cv-ref" style="flex:1;">
+              <div class="ref-name">Dr. Sarah Chen</div>
+              <div>Research Scientist</div>
+              <div>Google DeepMind</div>
+              <div style="color:#0969da;">schen@google.com</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <div class="cv-mock-caption">Sample Academic CV — Note the annotations highlighting best practices</div>
+
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- ── SECTION 2: Formatting Guidelines ── -->
+    <section class="section">
+      <div class="section-header">
+        <div class="section-number">2</div>
+        <div class="section-title">CV Formatting Guidelines</div>
+      </div>
+      <ul class="guidelines-list">
+        <li>
+          <div class="bullet-dot"></div>
+          <span>Use a clean, professional font: <strong>Times New Roman</strong>, <strong>Garamond</strong>, or the LaTeX default (Computer Modern).</span>
+        </li>
+        <li>
+          <div class="bullet-dot"></div>
+          <span>Font size <strong>10–12pt</strong>; margins <strong>0.5–1 inch</strong> on all sides.</span>
+        </li>
+        <li>
+          <div class="bullet-dot"></div>
+          <span>Use a <strong>consistent date format</strong> throughout — e.g., "Sep 2022 – Jun 2024".</span>
+        </li>
+        <li>
+          <div class="bullet-dot"></div>
+          <span>List entries in <strong>reverse chronological order</strong> within every section.</span>
+        </li>
+        <li>
+          <div class="bullet-dot"></div>
+          <span><strong>Bold your name</strong> wherever it appears in publication citations.</span>
+        </li>
+        <li>
+          <div class="bullet-dot"></div>
+          <span>Keep to <strong>2–3 pages maximum</strong> for student / early-researcher CVs.</span>
+        </li>
+        <li>
+          <div class="bullet-dot"></div>
+          <span>Always <strong>save and submit as PDF</strong> — never send a .docx file to a professor or program.</span>
+        </li>
+        <li>
+          <div class="bullet-dot"></div>
+          <span>Start every bullet point with a <strong>strong action verb</strong> — analyzed, developed, designed, implemented.</span>
+        </li>
+        <li>
+          <div class="bullet-dot"></div>
+          <span>Follow the formula: <strong>Action Verb + Core Content + Result/Impact</strong> (e.g., "Developed X, achieving Y").</span>
+        </li>
+        <li>
+          <div class="bullet-dot"></div>
+          <span><strong>Quantify results</strong> wherever possible — percentages, counts, rankings, publication metrics.</span>
+        </li>
+        <li>
+          <div class="bullet-dot"></div>
+          <span>Use <strong>present tense</strong> for current positions and <strong>past tense</strong> for previous ones.</span>
+        </li>
+      </ul>
+
+      <!-- Bad vs Good CV comparison -->
+      <div style="display:flex; gap:14px; margin-top:18px; flex-wrap:wrap;">
+
+        <!-- BAD Example -->
+        <div style="flex:1; min-width:280px;">
+          <div style="font-size:11px; font-weight:700; color:#cf222e; margin-bottom:4px; font-family:'Inter',sans-serif; text-transform:uppercase; letter-spacing:1px;">&#10007; Common Mistakes</div>
+          <div class="cv-mock" style="border-color:#f87171;">
+            <div class="cv-mock-bar" style="background:#fef2f2; border-color:#fca5a5;">
+              <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+              <span class="file-name" style="color:#b91c1c;">bad_cv_example.docx</span>
+            </div>
+            <div class="cv-paper" style="padding:18px 24px;">
+              <div class="cv-name" style="font-size:16px;">MD KARIM</div>
+              <div class="cv-contact" style="font-size:9.5px;">
+                karim_rocks_99@yahoo.com <span class="cv-annotation" style="background:#fee2e2;border-color:#f87171;color:#b91c1c;">Unprofessional email</span>
+              </div>
+
+              <div class="cv-section-title" style="color:#cf222e; border-color:#cf222e;">About Me</div>
+              <div style="font-size:10.5px; color:#555; line-height:1.5; margin-bottom:8px;">
+                I am a hardworking and dedicated student who is passionate about computer science. I love to code and solve problems. I am looking for a PhD position where I can grow and learn.
+                <span class="cv-annotation" style="background:#fee2e2;border-color:#f87171;color:#b91c1c;">Too vague — no specifics</span>
+              </div>
+
+              <div class="cv-section-title" style="color:#cf222e; border-color:#cf222e;">Work Experience</div>
+              <div style="font-size:10.5px; color:#555; margin-bottom:4px;">
+                <strong>Freelance Web Developer</strong> — 2020-2023<br>
+                Made websites for clients using WordPress.
+                <span class="cv-annotation" style="background:#fee2e2;border-color:#f87171;color:#b91c1c;">Irrelevant for PhD</span>
+              </div>
+
+              <div class="cv-section-title" style="color:#cf222e; border-color:#cf222e;">Skills</div>
+              <div style="font-size:10.5px; color:#555;">
+                MS Word, MS Excel, MS PowerPoint, Facebook, YouTube
+                <span class="cv-annotation" style="background:#fee2e2;border-color:#f87171;color:#b91c1c;">Not academic skills</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- GOOD Example -->
+        <div style="flex:1; min-width:280px;">
+          <div style="font-size:11px; font-weight:700; color:#1a7f37; margin-bottom:4px; font-family:'Inter',sans-serif; text-transform:uppercase; letter-spacing:1px;">&#10003; What to Do Instead</div>
+          <div class="cv-mock" style="border-color:#2da44e;">
+            <div class="cv-mock-bar" style="background:#f0fff4; border-color:#86efac;">
+              <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+              <span class="file-name" style="color:#1a7f37;">CV_Fatima_Rahman.pdf</span>
+            </div>
+            <div class="cv-paper" style="padding:18px 24px;">
+              <div class="cv-name" style="font-size:16px;">Fatima Rahman</div>
+              <div class="cv-contact" style="font-size:9.5px;">
+                fatima.rahman@du.ac.bd &nbsp;|&nbsp; fatimarahman.github.io
+                <span class="cv-annotation good">Professional email + website</span>
+              </div>
+
+              <div class="cv-section-title">Research Interests</div>
+              <div style="font-size:10.5px; color:#333; line-height:1.5; margin-bottom:8px;">
+                Natural Language Processing, Low-Resource Languages, Named Entity Recognition, Multilingual Transfer Learning
+                <span class="cv-annotation good">Specific &amp; targeted</span>
+              </div>
+
+              <div class="cv-section-title">Research Experience</div>
+              <div style="font-size:10.5px; color:#333; margin-bottom:2px;">
+                <strong>Graduate Research Assistant</strong> — NLP Lab, Univ. of Dhaka <span style="float:right; font-style:italic; color:#666;">Jan 2023 – Jun 2024</span>
+              </div>
+              <ul class="cv-bullets" style="margin-top:2px;">
+                <li style="font-size:10px;">Designed transformer-based Bangla NER model, achieving 91.3% F1 <span class="cv-annotation good">Quantified result</span></li>
+              </ul>
+
+              <div class="cv-section-title">Technical Skills</div>
+              <div style="font-size:10.5px; color:#333;">
+                <strong>ML/NLP:</strong> PyTorch, Hugging Face, spaCy &nbsp; <strong>Languages:</strong> Python, Java, C++
+                <span class="cv-annotation good">Relevant to field</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="cv-mock-caption">Side-by-side: Common mistakes (left) vs. a strong academic CV (right)</div>
+
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- ── SECTION 3: Real CV Examples & References ── -->
+    <section class="section">
+      <div class="section-header">
+        <div class="section-number">3</div>
+        <div class="section-title">Real CV Examples &amp; References</div>
+      </div>
+
+      <div class="table-wrap">
+        <table class="resource-table">
+          <thead>
+            <tr>
+              <th>Resource</th>
+              <th>What It Includes</th>
+              <th>Link</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>PhD Application CV Template</strong><br><span style="font-size:11px;color:var(--text-muted);">by Mohammad Amir Lotfi</span></td>
+              <td>11 sections: Research Interests, Education, Academic Experience, Projects, Publications, Selected Courses, Awards, Test Scores (IELTS/GRE), Skills, References. Compact 9pt font, 0.75" margins.</td>
+              <td><a href="https://www.overleaf.com/latex/templates/phd-application-cv-template/mrvjhycbdytr" target="_blank">Open on Overleaf</a></td>
+            </tr>
+            <tr>
+              <td><strong>Awesome-PhD-CV</strong><br><span style="font-size:11px;color:var(--text-muted);">by Hyungtae Lim (KAIST/MIT)</span></td>
+              <td>Three LaTeX templates: Awesome-CV format (academic), Jake's format (industry), Deedy format (experienced tech). Fork and customise directly on GitHub.</td>
+              <td><a href="https://github.com/LimHyungTae/Awesome-PhD-CV" target="_blank">View on GitHub</a></td>
+            </tr>
+            <tr>
+              <td><strong>Rice CCD PhD Resume Guide</strong><br><span style="font-size:11px;color:var(--text-muted);">Rice University Career Center</span></td>
+              <td>19-page guide: CV vs Resume comparison, bullet point formula, 100+ action verbs, resume checklist, PhD CV template with 3 pages, sample resumes.</td>
+              <td><span style="color:var(--green);font-weight:500;">Shared as PDF</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div style="margin-top:16px; padding:14px 16px; background:var(--green-light); border-radius:6px; border-left:3px solid var(--green);">
+        <div style="font-size:13px; font-weight:700; color:var(--green); margin-bottom:6px;">Bullet Point Formula (from Rice CCD Guide)</div>
+        <div style="font-size:12.5px; color:var(--text); display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
+          <span style="background:white; padding:4px 10px; border-radius:4px; font-weight:600; color:var(--green); border:1px solid var(--border);">Action Verb</span>
+          <span style="font-weight:700; color:var(--green);">+</span>
+          <span style="background:white; padding:4px 10px; border-radius:4px; font-weight:600; color:var(--green); border:1px solid var(--border);">Core Content</span>
+          <span style="font-weight:700; color:var(--green);">+</span>
+          <span style="background:white; padding:4px 10px; border-radius:4px; font-weight:600; color:var(--green); border:1px solid var(--border);">Result / Purpose / Impact</span>
+        </div>
+        <div style="margin-top:10px; font-size:12px; color:var(--text-muted); line-height:1.5;">
+          <strong>Example:</strong> "Developed a transformer-based NER model for Bangla text, achieving 91.3% F1 score and surpassing prior state-of-the-art by 4.2 percentage points."
+        </div>
+      </div>
+
+      <div style="margin-top:14px; padding:12px 16px; background:#fff; border:1px solid var(--border); border-radius:6px;">
+        <div style="font-size:12px; font-weight:600; color:var(--green); margin-bottom:6px;">Action Verb Quick Reference</div>
+        <div style="font-size:12px; color:var(--text-muted); line-height:1.7;">
+          <strong>Research:</strong> analyzed, investigated, designed, evaluated, synthesized, formulated, tested, validated<br>
+          <strong>Technical:</strong> developed, implemented, programmed, computed, engineered, automated, optimized<br>
+          <strong>Communication:</strong> presented, published, authored, lectured, reported, demonstrated, articulated<br>
+          <strong>Leadership:</strong> coordinated, supervised, mentored, directed, managed, spearheaded, pioneered<br>
+          <strong>Teaching:</strong> instructed, tutored, facilitated, assessed, coached, trained, guided
+        </div>
+      </div>
+
+      <!-- Overleaf mockup -->
+      <div class="cv-mock" style="margin-top:16px;">
+        <div class="cv-mock-bar">
+          <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+          <span class="file-name">overleaf.com — PhD Application CV Template</span>
+        </div>
+        <div style="display:flex; border-top:1px solid #ddd;">
+          <div style="width:45%; background:#2b2b2b; padding:14px 12px; font-family:'Courier New',monospace; font-size:10px; line-height:1.7; color:#d4d4d4; overflow:hidden;">
+            <div><span style="color:#c586c0;">\documentclass</span>[10pt]{article}</div>
+            <div><span style="color:#c586c0;">\usepackage</span>{geometry}</div>
+            <div><span style="color:#c586c0;">\geometry</span>{margin=0.75in}</div>
+            <div style="color:#6a9955;">% --- Your Info ---</div>
+            <div><span style="color:#c586c0;">\name</span>{<span style="color:#ce9178;">Your Full Name</span>}</div>
+            <div><span style="color:#c586c0;">\email</span>{<span style="color:#ce9178;">you@email.com</span>}</div>
+            <div style="margin-top:6px; color:#6a9955;">% --- Education ---</div>
+            <div><span style="color:#c586c0;">\section</span>{Education}</div>
+            <div><span style="color:#c586c0;">\entry</span>{MSc, CS}</div>
+            <div>&nbsp;&nbsp;{University of Dhaka}</div>
+            <div>&nbsp;&nbsp;{2022 -- 2024}</div>
+            <div>&nbsp;&nbsp;{GPA: 3.85/4.00}</div>
+          </div>
+          <div style="width:55%; padding:18px 20px; font-family:'Times New Roman',serif; font-size:11px; line-height:1.5; color:#222; background:#fff; border-left:1px solid #ddd;">
+            <div style="text-align:center; font-size:16px; font-weight:700; margin-bottom:2px;">Your Full Name</div>
+            <div style="text-align:center; font-size:9.5px; color:#555; margin-bottom:10px;">you@email.com | yoursite.github.io | linkedin.com/in/you</div>
+            <div style="font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:1.5px; border-bottom:1px solid #111; padding-bottom:2px; margin-bottom:6px;">Education</div>
+            <div style="display:flex; justify-content:space-between; font-size:10.5px;">
+              <strong>MSc in Computer Science</strong>
+              <span style="color:#555; font-style:italic;">Sep 2022 – Jun 2024</span>
+            </div>
+            <div style="font-size:10px; color:#444; font-style:italic;">University of Dhaka</div>
+            <div style="font-size:10px; color:#333;">GPA: 3.85 / 4.00</div>
+            <div style="font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:1.5px; border-bottom:1px solid #111; padding-bottom:2px; margin:10px 0 6px;">Research Interests</div>
+            <div style="font-size:10px; color:#333;">NLP, Low-Resource Languages, Transfer Learning</div>
+          </div>
+        </div>
+      </div>
+      <div class="cv-mock-caption">Overleaf: Edit LaTeX on the left, see the formatted PDF preview on the right — no installation needed</div>
+
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- ── SECTION 4: CV Template Resources ── -->
+    <section class="section">
+      <div class="section-header">
+        <div class="section-number">4</div>
+        <div class="section-title">CV Template Resources</div>
+      </div>
+      <div class="table-wrap">
+        <table class="resource-table">
+          <thead>
+            <tr>
+              <th>Template</th>
+              <th>Platform</th>
+              <th>Best For</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><a href="https://www.overleaf.com/gallery/tagged/cv">Overleaf Academic CV</a></td>
+              <td>overleaf.com</td>
+              <td>LaTeX users, CS / Engineering</td>
+            </tr>
+            <tr>
+              <td><a href="https://www.overleaf.com/latex/templates/altacv-template/trgqjpwnmtgv">AltaCV (Overleaf)</a></td>
+              <td>overleaf.com</td>
+              <td>Modern two-column layout</td>
+            </tr>
+            <tr>
+              <td><a href="https://docs.google.com/templates">Google Docs Academic CV</a></td>
+              <td>docs.google.com</td>
+              <td>Non-LaTeX users, quick start</td>
+            </tr>
+            <tr>
+              <td><a href="https://europass.europa.eu">Europass CV</a></td>
+              <td>europa.eu</td>
+              <td>European university applications</td>
+            </tr>
+            <tr>
+              <td><a href="https://www.overleaf.com/latex/templates/phd-application-cv-template/mrvjhycbdytr">PhD Application CV Template</a></td>
+              <td>overleaf.com</td>
+              <td>PhD applicants — 11 sections, compact layout</td>
+            </tr>
+            <tr>
+              <td><a href="https://github.com/LimHyungTae/Awesome-PhD-CV">Awesome-PhD-CV (3 templates)</a></td>
+              <td>github.com</td>
+              <td>Academic, industry &amp; tech roles — LaTeX</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- ── SECTION 5: Academic Digital Identity ── -->
+    <section class="section">
+      <div class="section-header">
+        <div class="section-number">5</div>
+        <div class="section-title">Academic Digital Identity Setup</div>
+      </div>
+
+      <!-- 5.1 Professional Email -->
+      <div style="font-size:13px; font-weight:700; color:var(--green); margin-bottom:8px;">5.1 — Professional Email</div>
+
+      <div style="display:flex; gap:12px; margin-bottom:12px; flex-wrap:wrap;">
+        <div style="flex:1; min-width:200px;">
+          <div style="font-size:11px; font-weight:700; color:#b91c1c; margin-bottom:4px; text-transform:uppercase; letter-spacing:0.5px;">&#10007; Don't Use</div>
+          <div class="email-bad">
+            karim_rocks_99@yahoo.com<br>
+            mdkarim123@gmail.com<br>
+            cool.researcher@hotmail.com
+          </div>
+        </div>
+        <div style="flex:1; min-width:200px;">
+          <div style="font-size:11px; font-weight:700; color:#1a7f37; margin-bottom:4px; text-transform:uppercase; letter-spacing:0.5px;">&#10003; Use Instead</div>
+          <div class="email-good">
+            fatima.rahman@du.ac.bd <span style="font-size:10px; color:#555; font-family:Inter,sans-serif;">(institutional)</span><br>
+            fatima.rahman@gmail.com <span style="font-size:10px; color:#555; font-family:Inter,sans-serif;">(backup)</span><br>
+            f.rahman.research@gmail.com
+          </div>
+        </div>
+      </div>
+
+      <!-- Email Signature Mockup -->
+      <div style="font-size:12px; font-weight:600; color:var(--text); margin-bottom:4px;">Email Signature Template:</div>
+      <div class="email-sig">
+        <div class="sig-line">
+          <div style="font-weight:700; color:#111;">Fatima Rahman</div>
+          <div style="color:#555; font-size:11.5px;">MSc in Computer Science | University of Dhaka</div>
+          <div style="color:#555; font-size:11.5px;">Research: NLP, Low-Resource Languages, Transfer Learning</div>
+          <div style="margin-top:5px; font-size:11px;">
+            <span style="color:var(--green-mid);">fatimarahman.github.io</span> &nbsp;|&nbsp;
+            <span style="color:var(--green-mid);">Google Scholar</span> &nbsp;|&nbsp;
+            <span style="color:var(--green-mid);">ORCID: 0000-0002-XXXX-XXXX</span>
+          </div>
+        </div>
+      </div>
+      <div class="mock-caption">Copy this format into Gmail Settings &rarr; Signature or Outlook &rarr; Compose &rarr; Signature</div>
+
+      <!-- 5.2 Google Scholar -->
+      <div style="font-size:13px; font-weight:700; color:var(--green); margin:18px 0 8px;">5.2 — Google Scholar Profile</div>
+
+      <div class="profile-grid">
+        <div>
+          <div class="platform-mock">
+            <div class="platform-bar" style="background:#4285f4;">
+              Google Scholar — Your Profile
+            </div>
+            <div class="platform-body">
+              <div style="display:flex; gap:10px; align-items:flex-start;">
+                <div style="width:42px; height:42px; border-radius:50%; background:linear-gradient(135deg,var(--green-light),#bbf7d0); display:flex; align-items:center; justify-content:center; font-size:16px; color:var(--green); font-weight:700; flex-shrink:0;">F</div>
+                <div>
+                  <div style="font-size:13px; font-weight:700; color:#1a237e;">Fatima Rahman</div>
+                  <div style="font-size:10.5px; color:#555;">University of Dhaka</div>
+                  <div style="font-size:10px; color:#555;">Verified email at du.ac.bd</div>
+                  <div style="font-size:10px; color:#1565c0; margin-top:2px;">NLP - Low-Resource Languages - Deep Learning</div>
+                </div>
+              </div>
+              <div style="display:flex; gap:16px; margin-top:10px; padding-top:8px; border-top:1px solid #eee; font-size:10.5px; text-align:center;">
+                <div><div style="font-size:15px; font-weight:700; color:#1a237e;">23</div><div style="color:#888;">Citations</div></div>
+                <div><div style="font-size:15px; font-weight:700; color:#1a237e;">3</div><div style="color:#888;">h-index</div></div>
+                <div><div style="font-size:15px; font-weight:700; color:#1a237e;">2</div><div style="color:#888;">i10-index</div></div>
+              </div>
+            </div>
+          </div>
+          <div class="mock-caption">What your Google Scholar profile will look like</div>
+        </div>
+
+        <div>
+          <div style="font-size:12px; font-weight:600; color:var(--text); margin-bottom:6px;">Setup Steps:</div>
+          <div class="steps" style="gap:8px;">
+            <div class="step">
+              <div class="step-num" style="width:22px; height:22px; font-size:10px;">1</div>
+              <div class="step-content"><div style="font-size:12px;">Go to <strong>scholar.google.com</strong> and sign in with your Google account</div></div>
+            </div>
+            <div class="step">
+              <div class="step-num" style="width:22px; height:22px; font-size:10px;">2</div>
+              <div class="step-content"><div style="font-size:12px;">Click your profile icon (top right) &rarr; <strong>"My profile"</strong></div></div>
+            </div>
+            <div class="step">
+              <div class="step-num" style="width:22px; height:22px; font-size:10px;">3</div>
+              <div class="step-content"><div style="font-size:12px;">Fill in: <strong>Name, Affiliation, Research Interests</strong>, upload photo</div></div>
+            </div>
+            <div class="step">
+              <div class="step-num" style="width:22px; height:22px; font-size:10px;">4</div>
+              <div class="step-content"><div style="font-size:12px;">Add your articles — search by title or add manually</div></div>
+            </div>
+            <div class="step">
+              <div class="step-num" style="width:22px; height:22px; font-size:10px;">5</div>
+              <div class="step-content"><div style="font-size:12px;">Make your profile <strong>public</strong> (check the visibility setting)</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5.3 ORCID -->
+      <div style="font-size:13px; font-weight:700; color:var(--green); margin:18px 0 8px;">5.3 — ORCID iD</div>
+
+      <div class="profile-grid">
+        <div>
+          <div class="platform-mock">
+            <div class="platform-bar" style="background:#a6ce39;">
+              ORCID — Your Researcher ID
+            </div>
+            <div class="platform-body">
+              <div style="display:flex; gap:10px; align-items:center; margin-bottom:8px;">
+                <div style="width:36px; height:36px; border-radius:50%; background:#a6ce39; display:flex; align-items:center; justify-content:center; color:white; font-weight:700; font-size:13px;">F</div>
+                <div>
+                  <div style="font-size:12.5px; font-weight:700; color:#333;">Fatima Rahman</div>
+                  <div style="font-size:11px; color:#a6ce39; font-family:monospace;">0000-0002-1234-5678</div>
+                </div>
+              </div>
+              <div style="font-size:10.5px; color:#555; line-height:1.6;">
+                <strong>Affiliation:</strong> University of Dhaka<br>
+                <strong>Works:</strong> 3 publications linked<br>
+                <strong>Keywords:</strong> NLP, Machine Learning, Deep Learning
+              </div>
+            </div>
+          </div>
+          <div class="mock-caption">Your unique ORCID iD — like a DOI for researchers</div>
+        </div>
+
+        <div>
+          <div style="font-size:12px; font-weight:600; color:var(--text); margin-bottom:6px;">Setup Steps (2 minutes!):</div>
+          <div class="steps" style="gap:8px;">
+            <div class="step">
+              <div class="step-num" style="width:22px; height:22px; font-size:10px;">1</div>
+              <div class="step-content"><div style="font-size:12px;">Go to <strong>orcid.org/register</strong></div></div>
+            </div>
+            <div class="step">
+              <div class="step-num" style="width:22px; height:22px; font-size:10px;">2</div>
+              <div class="step-content"><div style="font-size:12px;">Enter your name, email, and create a password</div></div>
+            </div>
+            <div class="step">
+              <div class="step-num" style="width:22px; height:22px; font-size:10px;">3</div>
+              <div class="step-content"><div style="font-size:12px;">You get a unique 16-digit ORCID iD instantly</div></div>
+            </div>
+            <div class="step">
+              <div class="step-num" style="width:22px; height:22px; font-size:10px;">4</div>
+              <div class="step-content"><div style="font-size:12px;">Add it to your <strong>CV header, website, and email signature</strong></div></div>
+            </div>
+          </div>
+          <div style="margin-top:10px; padding:8px 12px; background:var(--green-light); border-radius:5px; font-size:11.5px; border-left:3px solid var(--green);">
+            <strong style="color:var(--green);">Why?</strong> Many journals and funders require ORCID. It links all your publications across platforms.
+          </div>
+        </div>
+      </div>
+
+      <!-- 5.4 ResearchGate -->
+      <div style="font-size:13px; font-weight:700; color:var(--green); margin:18px 0 8px;">5.4 — ResearchGate</div>
+
+      <div class="profile-grid">
+        <div>
+          <div class="platform-mock">
+            <div class="platform-bar" style="background:#00ccbb;">
+              ResearchGate — Your Research Network
+            </div>
+            <div class="platform-body">
+              <div style="display:flex; gap:10px; align-items:center; margin-bottom:8px;">
+                <div style="width:36px; height:36px; border-radius:50%; background:#00ccbb; display:flex; align-items:center; justify-content:center; color:white; font-weight:700; font-size:12px;">FR</div>
+                <div>
+                  <div style="font-size:12.5px; font-weight:700; color:#333;">Fatima Rahman</div>
+                  <div style="font-size:10.5px; color:#555;">University of Dhaka · Computer Science</div>
+                </div>
+              </div>
+              <div style="display:flex; gap:14px; padding-top:8px; border-top:1px solid #eee; font-size:10.5px; text-align:center;">
+                <div><div style="font-size:14px; font-weight:700; color:#00897b;">3</div><div style="color:#888;">Pubs</div></div>
+                <div><div style="font-size:14px; font-weight:700; color:#00897b;">23</div><div style="color:#888;">Citations</div></div>
+                <div><div style="font-size:14px; font-weight:700; color:#00897b;">45</div><div style="color:#888;">Reads</div></div>
+                <div><div style="font-size:14px; font-weight:700; color:#00897b;">2.5</div><div style="color:#888;">Score</div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div style="font-size:12px; font-weight:600; color:var(--text); margin-bottom:6px;">Setup Steps:</div>
+          <div class="steps" style="gap:8px;">
+            <div class="step">
+              <div class="step-num" style="width:22px; height:22px; font-size:10px;">1</div>
+              <div class="step-content"><div style="font-size:12px;">Go to <strong>researchgate.net</strong> &rarr; Sign up</div></div>
+            </div>
+            <div class="step">
+              <div class="step-num" style="width:22px; height:22px; font-size:10px;">2</div>
+              <div class="step-content"><div style="font-size:12px;">Add institution, department, research interests</div></div>
+            </div>
+            <div class="step">
+              <div class="step-num" style="width:22px; height:22px; font-size:10px;">3</div>
+              <div class="step-content"><div style="font-size:12px;">Upload publications (full-text PDFs if allowed)</div></div>
+            </div>
+            <div class="step">
+              <div class="step-num" style="width:22px; height:22px; font-size:10px;">4</div>
+              <div class="step-content"><div style="font-size:12px;">Follow researchers in your target field</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5.5 Consistency Checklist -->
+      <div style="font-size:13px; font-weight:700; color:var(--green); margin:18px 0 8px;">5.5 — Cross-Platform Consistency Checklist</div>
+
+      <div style="border:1px solid var(--border); border-radius:6px; padding:14px 16px; background:var(--green-light);">
+        <div style="font-size:12px; color:var(--text); line-height:1.8;">
+          <div style="display:flex; align-items:center; gap:8px; padding:2px 0;">
+            <div class="checkbox" style="width:14px; height:14px;"></div>
+            <span>Same <strong>full name</strong> on all platforms (not "Fatima" on one and "F. Rahman" on another)</span>
+          </div>
+          <div style="display:flex; align-items:center; gap:8px; padding:2px 0;">
+            <div class="checkbox" style="width:14px; height:14px;"></div>
+            <span>Same <strong>professional photo</strong> everywhere — professors should recognise you instantly</span>
+          </div>
+          <div style="display:flex; align-items:center; gap:8px; padding:2px 0;">
+            <div class="checkbox" style="width:14px; height:14px;"></div>
+            <span><strong>CV header</strong> includes: email, website URL, Google Scholar, ORCID, LinkedIn</span>
+          </div>
+          <div style="display:flex; align-items:center; gap:8px; padding:2px 0;">
+            <div class="checkbox" style="width:14px; height:14px;"></div>
+            <span><strong>Website contact page</strong> links to all profiles</span>
+          </div>
+          <div style="display:flex; align-items:center; gap:8px; padding:2px 0;">
+            <div class="checkbox" style="width:14px; height:14px;"></div>
+            <span><strong>Email signature</strong> includes website, Scholar, and ORCID links</span>
+          </div>
+          <div style="display:flex; align-items:center; gap:8px; padding:2px 0;">
+            <div class="checkbox" style="width:14px; height:14px;"></div>
+            <span><strong>"Google yourself"</strong> — search results show your website, Scholar, and LinkedIn</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Also Consider -->
+      <div style="margin-top:14px; padding:10px 14px; background:#fff; border:1px solid var(--border); border-radius:6px; font-size:12px; color:var(--text-muted); line-height:1.7;">
+        <strong style="color:var(--green);">Also consider:</strong>
+        <strong>Semantic Scholar</strong> (auto-discovers CS papers) &nbsp;&bull;&nbsp;
+        <strong>DBLP</strong> (auto-indexed for CS publications) &nbsp;&bull;&nbsp;
+        <strong>LinkedIn</strong> (academic-style profile)
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- ── SECTION 6: Website Setup Guide ── -->
+    <section class="section">
+      <div class="section-header">
+        <div class="section-number">6</div>
+        <div class="section-title">Personal Website Setup Guide</div>
+      </div>
+      <div class="steps">
+
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-content">
+            <div class="step-title">Create a GitHub Account</div>
+            <ul class="step-list">
+              <li><div class="bullet-dot"></div><span>Go to <strong>github.com</strong> and sign up for a free account.</span></li>
+              <li><div class="bullet-dot"></div><span>Choose a professional username — e.g., <code>firstname-lastname</code> or <code>firstnamelastname</code>.</span></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-content">
+            <div class="step-title">Choose a Template</div>
+            <ul class="step-list">
+              <li>
+                <span class="option-tag">A</span>
+                <span><strong>academicpages.github.io</strong> — Recommended. Jekyll-based, widely used in academia.</span>
+              </li>
+              <li>
+                <span class="option-tag">B</span>
+                <span><strong>al-folio</strong> — Feature-rich, excellent built-in publications support.</span>
+              </li>
+              <li>
+                <span class="option-tag">C</span>
+                <span><strong>Minimal theme</strong> — Simpler and lighter; less setup required.</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-content">
+            <div class="step-title">Fork &amp; Rename the Repository</div>
+            <ul class="step-list">
+              <li><div class="bullet-dot"></div><span>Navigate to the template repository on GitHub.</span></li>
+              <li><div class="bullet-dot"></div><span>Click <strong>Fork</strong> (top-right corner).</span></li>
+              <li><div class="bullet-dot"></div><span>Rename the forked repo to exactly <code>yourusername.github.io</code>.</span></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num">4</div>
+          <div class="step-content">
+            <div class="step-title">Configure Your Site</div>
+            <span style="font-size:12.5px;color:var(--text-muted);">Edit <code>_config.yml</code> in your repository:</span>
+            <div class="config-block">
+              <span class="key">title:</span> <span class="val">Your Name</span><br>
+              <span class="key">description:</span> <span class="val">PhD Candidate | Computer Science | BUET</span><br>
+              <span class="key">url:</span> <span class="val">https://yourusername.github.io</span><br>
+              <span class="key">twitter_username:</span> <span class="val">yourhandle</span><br>
+              <span class="key">linkedin_username:</span> <span class="val">yourprofile</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num">5</div>
+          <div class="step-content">
+            <div class="step-title">Customize Your Pages</div>
+            <ul class="step-list">
+              <li><div class="bullet-dot"></div><span><strong>About page:</strong> Write a 2–3 paragraph bio covering your background, research focus, and goals.</span></li>
+              <li><div class="bullet-dot"></div><span><strong>Publications:</strong> Add your papers (journal, conference, preprint, or "in prep").</span></li>
+              <li><div class="bullet-dot"></div><span><strong>CV:</strong> Upload your PDF to the <code>/files/</code> folder and link it from the nav.</span></li>
+              <li><div class="bullet-dot"></div><span><strong>Research:</strong> Describe your current projects and research interests.</span></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num">6</div>
+          <div class="step-content">
+            <div class="step-title">Deploy via GitHub Pages</div>
+            <ul class="step-list">
+              <li><div class="bullet-dot"></div><span>Go to your repo → <strong>Settings → Pages</strong>.</span></li>
+              <li><div class="bullet-dot"></div><span>Under <em>Source</em>, select <strong>Deploy from branch</strong> → branch: <code>main</code>.</span></li>
+              <li><div class="bullet-dot"></div><span>Wait 2–3 minutes for the build to complete.</span></li>
+              <li><div class="bullet-dot"></div><span>Visit <code>https://yourusername.github.io</code> — your site is live!</span></li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- ── SECTION 7: Website Content Checklist ── -->
+    <section class="section">
+      <div class="section-header">
+        <div class="section-number">7</div>
+        <div class="section-title">Website Content Checklist</div>
+      </div>
+      <ul class="checklist">
+        <li>
+          <div class="checkbox"></div>
+          <span><span class="checklist-label">Professional photo</span><span class="checklist-detail"> — headshot, appropriate background, clear lighting</span></span>
+        </li>
+        <li>
+          <div class="checkbox"></div>
+          <span><span class="checklist-label">About / Bio section</span><span class="checklist-detail"> — 2–3 paragraphs covering background, research focus, and goals</span></span>
+        </li>
+        <li>
+          <div class="checkbox"></div>
+          <span><span class="checklist-label">Research interests and current projects</span><span class="checklist-detail"> — brief descriptions with keywords</span></span>
+        </li>
+        <li>
+          <div class="checkbox"></div>
+          <span><span class="checklist-label">Education history</span><span class="checklist-detail"> — degrees, institutions, years</span></span>
+        </li>
+        <li>
+          <div class="checkbox"></div>
+          <span><span class="checklist-label">Publications list</span><span class="checklist-detail"> — if any; include preprints or "in preparation" papers</span></span>
+        </li>
+        <li>
+          <div class="checkbox"></div>
+          <span><span class="checklist-label">Downloadable CV</span><span class="checklist-detail"> — PDF link, clearly labeled in the navigation</span></span>
+        </li>
+        <li>
+          <div class="checkbox"></div>
+          <span><span class="checklist-label">Contact information</span><span class="checklist-detail"> — email address at minimum</span></span>
+        </li>
+        <li>
+          <div class="checkbox"></div>
+          <span><span class="checklist-label">Google Scholar link</span><span class="checklist-detail"> — if applicable; create a profile if you have publications</span></span>
+        </li>
+        <li>
+          <div class="checkbox"></div>
+          <span><span class="checklist-label">Social / academic links</span><span class="checklist-detail"> — LinkedIn, ResearchGate, ORCID, GitHub</span></span>
+        </li>
+      </ul>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- ── SECTION 8: Assignments ── -->
+    <section class="section">
+      <div class="section-header">
+        <div class="section-number">8</div>
+        <div class="section-title">Assignments</div>
+      </div>
+      <div class="due-banner">
+        Due: July 3, 2026
+      </div>
+      <div class="table-wrap">
+        <table class="assign-table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Assignment</th>
+              <th>Deliverable</th>
+              <th>Submit On</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="assign-num">1</span></td>
+              <td><strong>Academic CV</strong></td>
+              <td>PDF, 2–3 pages, PhD-application style</td>
+              <td>Platform upload</td>
+            </tr>
+            <tr>
+              <td><span class="assign-num">2</span></td>
+              <td><strong>Personal Website</strong></td>
+              <td>Live GitHub Pages URL with at least About, CV, and Contact pages</td>
+              <td>Platform submit</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ── FOOTER ── -->
+    <footer class="footer">
+      <div class="footer-left">
+        <strong>NextPhD Bangladesh · ELITE Research Lab</strong><br>
+        Cohort 01 · Week 1 Handout · June 28, 2026
+      </div>
+      <div class="footer-right">
+        Questions? Post in the community forum<br>
+        or ask during office hours.
+      </div>
+    </footer>
+
+  </div>
+</body>
+</html>

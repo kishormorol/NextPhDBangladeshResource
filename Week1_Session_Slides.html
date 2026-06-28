@@ -1,0 +1,1161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Week 1 — Academic CV Prep & Personal Website · NextPhD Bangladesh</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', sans-serif; color: #1a1a1a; background: #0a0a0a; }
+
+  /* Slide system */
+  .slide {
+    min-height: 100vh; display: flex; align-items: center; justify-content: center;
+    padding: 60px 40px; position: relative;
+  }
+  .slide-inner { max-width: 960px; width: 100%; }
+
+  /* Slide themes */
+  .slide.dark { background: linear-gradient(135deg, #0a1a10 0%, #0d2818 50%, #0a1a10 100%); color: #e8f0e8; }
+  .slide.white { background: #fafffe; color: #1a1a1a; }
+  .slide.green { background: linear-gradient(135deg, #1a5632 0%, #2d7a4f 100%); color: white; }
+  .slide.dark-alt { background: linear-gradient(135deg, #111827 0%, #1f2937 100%); color: #f3f4f6; }
+
+  /* Typography */
+  .slide-num { position: absolute; top: 30px; right: 40px; font-size: 14px; opacity: 0.4; font-weight: 600; }
+  .eyebrow { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 3px; opacity: 0.6; margin-bottom: 16px; }
+  h1.hero { font-size: 3.5em; font-weight: 900; line-height: 1.1; margin-bottom: 16px; }
+  h1.hero .accent { color: #4ade80; }
+  h2.slide-title { font-size: 2.2em; font-weight: 800; margin-bottom: 24px; line-height: 1.2; }
+  h2.slide-title .accent { color: #4ade80; }
+  .slide.white h2.slide-title .accent { color: #1a5632; }
+  h3.sub { font-size: 1.2em; font-weight: 600; margin-bottom: 12px; color: #4ade80; }
+  .slide.white h3.sub { color: #1a5632; }
+  p.lead { font-size: 1.15em; line-height: 1.7; opacity: 0.85; margin-bottom: 20px; }
+  p.hero-sub { font-size: 1.3em; opacity: 0.7; margin-bottom: 8px; }
+
+  /* Lists */
+  .checklist { list-style: none; padding: 0; }
+  .checklist li { padding: 12px 0; font-size: 1.05em; border-bottom: 1px solid rgba(255,255,255,0.08); display: flex; align-items: flex-start; gap: 12px; }
+  .slide.white .checklist li { border-bottom-color: rgba(0,0,0,0.06); }
+  .checklist li .check { color: #4ade80; font-weight: 700; font-size: 1.1em; flex-shrink: 0; margin-top: 1px; }
+  .slide.white .checklist li .check { color: #16a34a; }
+  .checklist li:last-child { border-bottom: none; }
+
+  /* Grid layouts */
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-top: 20px; }
+  .three-col { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; margin-top: 20px; }
+  .four-col { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 16px; margin-top: 20px; }
+
+  /* Cards */
+  .card { padding: 24px; border-radius: 12px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08); }
+  .slide.white .card { background: #f0fdf4; border-color: #d1e7d8; }
+  .card .card-title { font-weight: 700; font-size: 1em; margin-bottom: 6px; }
+  .card .card-desc { font-size: 0.85em; opacity: 0.7; line-height: 1.5; }
+  .card .card-num { font-size: 2em; font-weight: 800; color: #4ade80; margin-bottom: 4px; }
+  .slide.white .card .card-num { color: #1a5632; }
+
+  /* Feature grid */
+  .feat-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 20px; }
+  .feat { padding: 16px; border-radius: 8px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.06); text-align: center; }
+  .slide.white .feat { background: #f8faf8; border-color: #e0e8e0; }
+  .feat .feat-name { font-weight: 700; font-size: 0.8em; margin-top: 6px; }
+  .feat .feat-icon { font-size: 1.4em; }
+
+  /* Stat bar */
+  .stat-bar { display: flex; gap: 32px; margin: 24px 0; flex-wrap: wrap; }
+  .stat { text-align: center; }
+  .stat .stat-num { font-size: 2.5em; font-weight: 900; color: #4ade80; }
+  .stat .stat-label { font-size: 0.8em; opacity: 0.6; margin-top: 2px; }
+
+  /* Info box */
+  .info-box { padding: 20px 24px; border-radius: 10px; margin: 20px 0; font-size: 0.95em; line-height: 1.6; }
+  .info-box.glow { background: rgba(74,222,128,0.08); border: 1px solid rgba(74,222,128,0.2); }
+  .slide.white .info-box.glow { background: #f0fdf4; border-color: #bbf7d0; }
+
+  /* Flow diagram */
+  .flow { display: flex; align-items: center; gap: 0; margin: 24px 0; flex-wrap: wrap; justify-content: center; }
+  .flow-item { padding: 14px 20px; border-radius: 10px; background: rgba(74,222,128,0.1); border: 1px solid rgba(74,222,128,0.2); font-size: 0.85em; font-weight: 600; text-align: center; }
+  .slide.white .flow-item { background: #f0fdf4; border-color: #bbf7d0; color: #1a5632; }
+  .flow-arrow { font-size: 1.2em; color: #4ade80; padding: 0 8px; font-weight: 700; }
+  .slide.white .flow-arrow { color: #16a34a; }
+
+  /* Role badge */
+  .role-badge { display: inline-block; padding: 4px 12px; border-radius: 20px; font-size: 0.7em; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
+  .role-badge.candidate { background: rgba(74,222,128,0.15); color: #4ade80; }
+  .role-badge.mentor { background: rgba(96,165,250,0.15); color: #60a5fa; }
+  .role-badge.admin { background: rgba(251,146,60,0.15); color: #fb923c; }
+  .slide.white .role-badge.candidate { background: #dcfce7; color: #16a34a; }
+  .slide.white .role-badge.mentor { background: #dbeafe; color: #2563eb; }
+  .slide.white .role-badge.admin { background: #ffedd5; color: #ea580c; }
+
+  /* Navigation dots */
+  .nav-dots { position: fixed; right: 20px; top: 50%; transform: translateY(-50%); display: flex; flex-direction: column; gap: 8px; z-index: 100; }
+  .nav-dots a { width: 8px; height: 8px; border-radius: 50%; background: rgba(255,255,255,0.2); display: block; transition: all 0.3s; }
+  .nav-dots a:hover { background: #4ade80; transform: scale(1.4); }
+
+  /* CV Mockup block */
+  .cv-block { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; padding: 24px 28px; font-size: 0.9em; line-height: 1.7; }
+  .slide.white .cv-block { background: #f8faf8; border-color: #d1e7d8; }
+  .cv-block .cv-section-label { font-size: 0.7em; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: #4ade80; margin-bottom: 6px; }
+  .slide.white .cv-block .cv-section-label { color: #1a5632; }
+  .cv-block .cv-entry-title { font-weight: 700; font-size: 0.95em; }
+  .cv-block .cv-entry-meta { font-size: 0.82em; opacity: 0.6; margin-bottom: 2px; }
+  .cv-block .cv-entry-detail { font-size: 0.85em; opacity: 0.75; font-style: italic; margin-bottom: 4px; }
+  .cv-block .cv-entry-gpa { font-size: 0.82em; color: #4ade80; font-weight: 600; }
+  .slide.white .cv-block .cv-entry-gpa { color: #16a34a; }
+  .cv-block hr { border: none; border-top: 1px solid rgba(255,255,255,0.08); margin: 14px 0; }
+  .slide.white .cv-block hr { border-top-color: rgba(0,0,0,0.07); }
+
+  /* Step list */
+  .step-list { list-style: none; padding: 0; counter-reset: step-counter; }
+  .step-list li { padding: 14px 0 14px 52px; font-size: 1em; border-bottom: 1px solid rgba(255,255,255,0.07); position: relative; counter-increment: step-counter; }
+  .slide.white .step-list li { border-bottom-color: rgba(0,0,0,0.06); }
+  .step-list li::before { content: counter(step-counter); position: absolute; left: 0; top: 12px; width: 32px; height: 32px; background: rgba(74,222,128,0.15); border: 1px solid rgba(74,222,128,0.3); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 0.85em; color: #4ade80; line-height: 32px; text-align: center; }
+  .slide.white .step-list li::before { background: #dcfce7; border-color: #bbf7d0; color: #16a34a; }
+  .step-list li:last-child { border-bottom: none; }
+  .step-list li .step-sub { font-size: 0.82em; opacity: 0.6; margin-top: 3px; }
+
+  /* Comparison table */
+  .compare-table { width: 100%; border-collapse: collapse; margin-top: 8px; font-size: 0.9em; }
+  .compare-table th { padding: 12px 16px; text-align: left; font-size: 0.75em; text-transform: uppercase; letter-spacing: 2px; font-weight: 700; opacity: 0.5; border-bottom: 2px solid rgba(255,255,255,0.08); }
+  .slide.white .compare-table th { border-bottom-color: rgba(0,0,0,0.08); }
+  .compare-table td { padding: 11px 16px; border-bottom: 1px solid rgba(255,255,255,0.05); vertical-align: top; line-height: 1.5; }
+  .slide.white .compare-table td { border-bottom-color: rgba(0,0,0,0.04); }
+  .compare-table tr:last-child td { border-bottom: none; }
+  .compare-table .col-label { font-weight: 700; opacity: 0.5; font-size: 0.8em; min-width: 120px; }
+
+  /* DO / DON'T columns */
+  .do-col .card { border-color: rgba(74,222,128,0.2); background: rgba(74,222,128,0.05); }
+  .dont-col .card { border-color: rgba(251,113,133,0.2); background: rgba(251,113,133,0.05); }
+  .do-col h3.sub { color: #4ade80; }
+  .dont-col h3.sub { color: #f87171; }
+  .do-col .checklist li .check { color: #4ade80; }
+  .dont-col .checklist li .check { color: #f87171; }
+  .slide.dark-alt .do-col .checklist li { border-bottom-color: rgba(255,255,255,0.06); }
+  .slide.dark-alt .dont-col .checklist li { border-bottom-color: rgba(255,255,255,0.06); }
+
+  /* Timer badge */
+  .timer-badge { display: inline-flex; align-items: center; gap: 10px; padding: 10px 20px; border-radius: 30px; background: rgba(74,222,128,0.12); border: 1px solid rgba(74,222,128,0.25); font-weight: 700; font-size: 1em; color: #4ade80; margin-top: 20px; }
+
+  /* Assignment card */
+  .assign-card { padding: 28px; border-radius: 14px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); }
+  .assign-card .assign-num { font-size: 0.7em; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; opacity: 0.5; margin-bottom: 8px; }
+  .assign-card .assign-title { font-size: 1.2em; font-weight: 800; margin-bottom: 8px; }
+  .assign-card .assign-desc { font-size: 0.9em; opacity: 0.75; line-height: 1.6; }
+
+  @media (max-width: 768px) {
+    .slide { padding: 40px 20px; }
+    h1.hero { font-size: 2em; }
+    h2.slide-title { font-size: 1.5em; }
+    .two-col, .three-col, .four-col, .feat-grid { grid-template-columns: 1fr; }
+    .stat-bar { flex-wrap: wrap; gap: 16px; }
+    .nav-dots { display: none; }
+    .flow { flex-direction: column; }
+    .flow-arrow { transform: rotate(90deg); }
+    .do-col, .dont-col { grid-column: auto; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Nav dots -->
+<div class="nav-dots">
+  <a href="#s1" title="Title"></a>
+  <a href="#s2" title="Agenda"></a>
+  <a href="#s3" title="CV vs Resume"></a>
+  <a href="#s4" title="CV Sections"></a>
+  <a href="#s5" title="Do & Don't"></a>
+  <a href="#s6" title="Real Examples"></a>
+  <a href="#s7" title="Education Section"></a>
+  <a href="#s8" title="Research & Publications"></a>
+  <a href="#s9" title="Tools & Templates"></a>
+  <a href="#s10" title="Peer Review"></a>
+  <a href="#s11" title="Digital Identity Intro"></a>
+  <a href="#s12" title="Email & Naming"></a>
+  <a href="#s13" title="Scholar & ORCID"></a>
+  <a href="#s14" title="ResearchGate & Audit"></a>
+  <a href="#s15" title="Website Intro"></a>
+  <a href="#s16" title="Why a Website"></a>
+  <a href="#s17" title="Choose Template"></a>
+  <a href="#s18" title="Website Content"></a>
+  <a href="#s19" title="Step-by-Step Setup"></a>
+  <a href="#s20" title="Assignments"></a>
+</div>
+
+<!-- ============ SLIDE 1: Title ============ -->
+<div class="slide green" id="s1">
+  <div class="slide-inner" style="text-align:center;">
+    <div class="eyebrow">Week 1 &middot; Phase 1: Research Foundation</div>
+    <h1 class="hero" style="color:white; font-size:2.8em;">Academic CV Prep &amp;<br>Personal Website Building<br><span style="font-size:0.55em; font-weight:600; color:#bbf7d0;">in GitHub</span></h1>
+    <p class="hero-sub" style="color:rgba(255,255,255,0.85); margin-top:20px;">NextPhD Bangladesh &middot; Cohort 01</p>
+    <p style="font-size:1em; opacity:0.55; margin-top:12px;">Sunday, June 28, 2026</p>
+  </div>
+  <div class="slide-num">01 / 20</div>
+</div>
+
+<!-- ============ SLIDE 2: Agenda ============ -->
+<div class="slide dark" id="s2">
+  <div class="slide-inner">
+    <div class="eyebrow">Overview</div>
+    <h2 class="slide-title">Today's <span class="accent">Agenda</span></h2>
+
+    <div class="three-col" style="margin-bottom:32px;">
+      <div class="card">
+        <div class="card-num">1</div>
+        <div class="card-title" style="font-size:1.05em; margin-bottom:6px;">Academic CV Prep</div>
+        <div class="card-desc" style="opacity:0.6; font-size:0.85em;">~1 hour</div>
+        <p style="font-size:0.82em; opacity:0.7; margin-top:8px; line-height:1.5;">
+          CV vs resume, key sections, formatting, tools &amp; templates, peer review exercise.
+        </p>
+      </div>
+      <div class="card">
+        <div class="card-num">2</div>
+        <div class="card-title" style="font-size:1.05em; margin-bottom:6px;">Academic Digital Identity</div>
+        <div class="card-desc" style="opacity:0.6; font-size:0.85em;">~30 minutes</div>
+        <p style="font-size:0.82em; opacity:0.7; margin-top:8px; line-height:1.5;">
+          Professional email, Google Scholar, ORCID, ResearchGate, "Google yourself" audit.
+        </p>
+      </div>
+      <div class="card">
+        <div class="card-num">3</div>
+        <div class="card-title" style="font-size:1.05em; margin-bottom:6px;">Personal Website</div>
+        <div class="card-desc" style="opacity:0.6; font-size:0.85em;">~1 hour</div>
+        <p style="font-size:0.82em; opacity:0.7; margin-top:8px; line-height:1.5;">
+          GitHub Pages setup, template selection, customisation, deployment, and verification.
+        </p>
+      </div>
+    </div>
+
+    <h3 class="sub" style="margin-bottom:16px; font-size:1em;">Session Flow</h3>
+    <div class="flow">
+      <div class="flow-item">CV Basics</div>
+      <div class="flow-arrow">&rarr;</div>
+      <div class="flow-item">CV Sections</div>
+      <div class="flow-arrow">&rarr;</div>
+      <div class="flow-item">Templates</div>
+      <div class="flow-arrow">&rarr;</div>
+      <div class="flow-item">Peer Review</div>
+      <div class="flow-arrow">&rarr;</div>
+      <div class="flow-item" style="background:rgba(96,165,250,0.15); border-color:rgba(96,165,250,0.3);">Email &amp; IDs</div>
+      <div class="flow-arrow">&rarr;</div>
+      <div class="flow-item" style="background:rgba(96,165,250,0.15); border-color:rgba(96,165,250,0.3);">Scholar &amp; ORCID</div>
+      <div class="flow-arrow">&rarr;</div>
+      <div class="flow-item">Website Setup</div>
+      <div class="flow-arrow">&rarr;</div>
+      <div class="flow-item">Deploy</div>
+    </div>
+  </div>
+  <div class="slide-num">02 / 20</div>
+</div>
+
+<!-- ============ SLIDE 3: CV vs Resume ============ -->
+<div class="slide white" id="s3">
+  <div class="slide-inner">
+    <div class="eyebrow">Academic CV Prep — Part 1</div>
+    <h2 class="slide-title">Academic CV <span class="accent">vs</span> Resume</h2>
+
+    <div class="two-col">
+      <div class="card">
+        <h3 class="sub" style="color:#2563eb; margin-bottom:14px;">Resume</h3>
+        <table class="compare-table">
+          <tr><td class="col-label">Length</td><td>1 page</td></tr>
+          <tr><td class="col-label">Focus</td><td>Job-focused</td></tr>
+          <tr><td class="col-label">Highlights</td><td>Skills &amp; work experience</td></tr>
+          <tr><td class="col-label">Used for</td><td>Industry / corporate applications</td></tr>
+          <tr><td class="col-label">Research</td><td>Minimal or none</td></tr>
+          <tr><td class="col-label">Publications</td><td>Not typically listed</td></tr>
+        </table>
+      </div>
+      <div class="card" style="background:#f0fdf4; border-color:#bbf7d0;">
+        <h3 class="sub" style="color:#16a34a; margin-bottom:14px;">Academic CV</h3>
+        <table class="compare-table">
+          <tr><td class="col-label">Length</td><td>2–3+ pages</td></tr>
+          <tr><td class="col-label">Focus</td><td>Research-focused</td></tr>
+          <tr><td class="col-label">Highlights</td><td>Publications, conferences, teaching</td></tr>
+          <tr><td class="col-label">Used for</td><td>PhD applications, academic jobs</td></tr>
+          <tr><td class="col-label">Research</td><td>Central — detailed project descriptions</td></tr>
+          <tr><td class="col-label">Publications</td><td>Full list with citation details</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="info-box glow" style="margin-top:28px; font-weight:600; font-size:1em;">
+      For PhD applications, <strong>always use an Academic CV.</strong> A one-page resume signals you don't understand the academic hiring culture.
+    </div>
+  </div>
+  <div class="slide-num">03 / 20</div>
+</div>
+
+<!-- ============ SLIDE 4: CV Sections ============ -->
+<div class="slide dark" id="s4">
+  <div class="slide-inner">
+    <div class="eyebrow">Academic CV Prep</div>
+    <h2 class="slide-title">Sections of a <span class="accent">PhD-Style CV</span></h2>
+
+    <ul class="checklist">
+      <li>
+        <span class="check">1</span>
+        <div><strong>Education</strong> — degrees, thesis titles, GPA if strong (3.5+ out of 4.0)</div>
+      </li>
+      <li>
+        <span class="check">2</span>
+        <div><strong>Research Experience</strong> — lab positions, RA roles, thesis work with bullet-point contributions</div>
+      </li>
+      <li>
+        <span class="check">3</span>
+        <div><strong>Publications &amp; Conferences</strong> — journal papers, conference proceedings, even "in preparation"</div>
+      </li>
+      <li>
+        <span class="check">4</span>
+        <div><strong>Technical Skills</strong> — programming languages, tools, frameworks, methodologies</div>
+      </li>
+      <li>
+        <span class="check">5</span>
+        <div><strong>Awards, Fellowships &amp; Grants</strong> — scholarships, prizes, funded research</div>
+      </li>
+      <li>
+        <span class="check">6</span>
+        <div><strong>Teaching &amp; Mentoring</strong> — TA roles, tutoring, courses taught or assisted</div>
+      </li>
+      <li>
+        <span class="check">7</span>
+        <div><strong>Professional Service</strong> — peer reviewing, committee roles, workshop/event organisation</div>
+      </li>
+      <li>
+        <span class="check">8</span>
+        <div><strong>References</strong> — 2–3 academic referees with name, title, institution, and email</div>
+      </li>
+    </ul>
+  </div>
+  <div class="slide-num">04 / 20</div>
+</div>
+
+<!-- ============ SLIDE 5: DO / DON'T ============ -->
+<div class="slide dark-alt" id="s5">
+  <div class="slide-inner">
+    <div class="eyebrow">Academic CV Prep</div>
+    <h2 class="slide-title">What Makes a <span class="accent">Strong CV</span></h2>
+
+    <div class="two-col">
+      <div class="do-col">
+        <h3 class="sub" style="color:#4ade80; margin-bottom:14px;">&#10003; DO</h3>
+        <ul class="checklist">
+          <li>
+            <span class="check" style="color:#4ade80;">&#10003;</span>
+            Tailor your CV to the target field and supervisor
+          </li>
+          <li>
+            <span class="check" style="color:#4ade80;">&#10003;</span>
+            Use reverse chronological order throughout
+          </li>
+          <li>
+            <span class="check" style="color:#4ade80;">&#10003;</span>
+            Include exact dates for every entry (month &amp; year)
+          </li>
+          <li>
+            <span class="check" style="color:#4ade80;">&#10003;</span>
+            Quantify achievements wherever possible
+          </li>
+          <li>
+            <span class="check" style="color:#4ade80;">&#10003;</span>
+            Use consistent, clean formatting throughout
+          </li>
+          <li>
+            <span class="check" style="color:#4ade80;">&#10003;</span>
+            Include thesis and major project titles
+          </li>
+          <li>
+            <span class="check" style="color:#4ade80;">&#10003;</span>
+            Start bullets with action verbs: analyzed, developed, designed, implemented
+          </li>
+        </ul>
+      </div>
+      <div class="dont-col">
+        <h3 class="sub" style="color:#f87171; margin-bottom:14px;">&#10007; DON'T</h3>
+        <ul class="checklist">
+          <li>
+            <span class="check" style="color:#f87171;">&#10007;</span>
+            Include photo, age, or marital status
+          </li>
+          <li>
+            <span class="check" style="color:#f87171;">&#10007;</span>
+            List irrelevant work experience (retail, delivery, etc.)
+          </li>
+          <li>
+            <span class="check" style="color:#f87171;">&#10007;</span>
+            Use fancy coloured templates — keep it clean
+          </li>
+          <li>
+            <span class="check" style="color:#f87171;">&#10007;</span>
+            Leave unexplained gaps in your timeline
+          </li>
+          <li>
+            <span class="check" style="color:#f87171;">&#10007;</span>
+            Forget to proofread — one typo can cost you
+          </li>
+          <li>
+            <span class="check" style="color:#f87171;">&#10007;</span>
+            Exceed 3 pages as a student (even 2 is fine early on)
+          </li>
+          <li>
+            <span class="check" style="color:#f87171;">&#10007;</span>
+            Use paragraph form — always use bullet points with action verbs
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="slide-num">05 / 20</div>
+</div>
+
+<!-- ============ SLIDE 6: Real CV Examples & References ============ -->
+<div class="slide white" id="s6">
+  <div class="slide-inner">
+    <div class="eyebrow">Academic CV Prep — Real Examples</div>
+    <h2 class="slide-title">Real-Life CV <span class="accent">Examples &amp; References</span></h2>
+
+    <div class="three-col" style="margin-bottom:24px;">
+      <div class="card" style="background:#f0fdf4; border-color:#bbf7d0;">
+        <div style="font-size:1.8em; margin-bottom:8px;">&#128196;</div>
+        <div class="card-title" style="font-size:0.95em; margin-bottom:8px;">PhD Application CV Template</div>
+        <div class="card-desc">
+          By Mohammad Amir Lotfi. 11 sections including Research Interests, Publications, Selected Courses, GRE/IELTS Scores, and References. Compact 9pt font, 0.75" margins. CC BY 4.0 license.
+        </div>
+        <div style="margin-top:12px; font-size:0.75em; background:#dcfce7; padding:6px 10px; border-radius:6px;">
+          <a href="https://www.overleaf.com/latex/templates/phd-application-cv-template/mrvjhycbdytr" target="_blank" style="color:#1a5632; text-decoration:none; font-weight:600;">Open on Overleaf &rarr;</a>
+        </div>
+      </div>
+      <div class="card" style="background:#f0fdf4; border-color:#bbf7d0;">
+        <div style="font-size:1.8em; margin-bottom:8px;">&#128187;</div>
+        <div class="card-title" style="font-size:0.95em; margin-bottom:8px;">Awesome-PhD-CV (GitHub)</div>
+        <div class="card-desc">
+          Three polished LaTeX templates by Hyungtae Lim (KAIST/MIT): <strong>Awesome-CV format</strong> for academic positions, <strong>Jake's format</strong> for industry, and <strong>Deedy format</strong> for experienced tech roles. Fork and customise.
+        </div>
+        <div style="margin-top:12px; font-size:0.75em; background:#dcfce7; padding:6px 10px; border-radius:6px;">
+          <a href="https://github.com/LimHyungTae/Awesome-PhD-CV" target="_blank" style="color:#1a5632; text-decoration:none; font-weight:600;">View on GitHub &rarr;</a>
+        </div>
+      </div>
+      <div class="card" style="background:#f0fdf4; border-color:#bbf7d0;">
+        <div style="font-size:1.8em; margin-bottom:8px;">&#127891;</div>
+        <div class="card-title" style="font-size:0.95em; margin-bottom:8px;">Rice CCD Resume Guide</div>
+        <div class="card-desc">
+          Comprehensive 19-page guide from Rice University's Center for Career Development. Covers CV vs Resume, bullet point formula (Action Verb + Core Content + Result), 100+ action verbs, and a full PhD CV template.
+        </div>
+        <div style="margin-top:12px; font-size:0.75em; background:#dcfce7; padding:6px 10px; border-radius:6px;">
+          <span style="color:#1a5632; font-weight:600;">Shared as PDF in session</span>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="sub" style="margin-bottom:12px;">Bullet Point Formula (from Rice CCD Guide)</h3>
+    <div class="info-box glow">
+      <div style="display:flex; align-items:center; gap:16px; flex-wrap:wrap;">
+        <div style="background:#dcfce7; padding:10px 16px; border-radius:8px; font-weight:700; color:#1a5632; font-size:0.9em; text-align:center; min-width:120px;">Action Verb</div>
+        <div style="font-size:1.2em; color:#16a34a; font-weight:700;">+</div>
+        <div style="background:#dcfce7; padding:10px 16px; border-radius:8px; font-weight:700; color:#1a5632; font-size:0.9em; text-align:center; min-width:120px;">Core Content</div>
+        <div style="font-size:1.2em; color:#16a34a; font-weight:700;">+</div>
+        <div style="background:#dcfce7; padding:10px 16px; border-radius:8px; font-weight:700; color:#1a5632; font-size:0.9em; text-align:center; min-width:170px;">Result / Purpose / Impact</div>
+      </div>
+      <p style="margin-top:14px; font-size:0.88em; opacity:0.8; line-height:1.6;">
+        <strong>Example:</strong> "Developed a transformer-based NER model for Bangla text, achieving 91.3% F1 score and surpassing prior state-of-the-art by 4.2 percentage points."
+      </p>
+    </div>
+
+    <div class="two-col" style="margin-top:20px;">
+      <div>
+        <h3 class="sub" style="font-size:0.95em; margin-bottom:8px;">Key Sections in the Overleaf Template</h3>
+        <div style="font-size:0.85em; line-height:1.7; opacity:0.8;">
+          Research Interests &bull; Education &bull; Academic Experience &bull; Projects &bull; Publications (Journal, Books) &bull; Selected Courses &bull; Awards &bull; Test Scores (IELTS/GRE) &bull; Skills &bull; References with Scholar links
+        </div>
+      </div>
+      <div>
+        <h3 class="sub" style="font-size:0.95em; margin-bottom:8px;">Action Verb Categories</h3>
+        <div style="font-size:0.85em; line-height:1.7; opacity:0.8;">
+          <strong>Research:</strong> analyzed, investigated, designed, evaluated, synthesized<br>
+          <strong>Technical:</strong> developed, implemented, programmed, computed, engineered<br>
+          <strong>Communication:</strong> presented, published, authored, lectured, reported<br>
+          <strong>Leadership:</strong> coordinated, supervised, mentored, directed, managed
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-num">06 / 20</div>
+</div>
+
+<!-- ============ SLIDE 7: Education Deep-Dive ============ -->
+<div class="slide white" id="s7">
+  <div class="slide-inner">
+    <div class="eyebrow">Academic CV Prep — Deep Dive</div>
+    <h2 class="slide-title">CV Section: <span class="accent">Education</span></h2>
+
+    <div class="cv-block" style="margin-bottom:24px;">
+      <div class="cv-section-label">Education</div>
+      <hr>
+      <div class="cv-entry-title">MSc in Computer Science</div>
+      <div class="cv-entry-meta">University of Dhaka &nbsp;&bull;&nbsp; Dhaka, Bangladesh &nbsp;&bull;&nbsp; 2022 – 2024</div>
+      <div class="cv-entry-detail">Thesis: "Deep Learning Approaches for Low-Resource Bangla Natural Language Processing"</div>
+      <div class="cv-entry-gpa">GPA: 3.85 / 4.00</div>
+      <hr>
+      <div class="cv-entry-title">BSc in Computer Science &amp; Engineering</div>
+      <div class="cv-entry-meta">Bangladesh University of Engineering &amp; Technology (BUET) &nbsp;&bull;&nbsp; Dhaka, Bangladesh &nbsp;&bull;&nbsp; 2017 – 2022</div>
+      <div class="cv-entry-detail">Capstone Project: "Real-Time Bengali Speech Recognition using End-to-End Deep Learning"</div>
+      <div class="cv-entry-gpa">GPA: 3.72 / 4.00</div>
+    </div>
+
+    <div class="three-col">
+      <div class="card">
+        <div class="card-title">Include thesis title</div>
+        <div class="card-desc">Professors want to know your research direction before reading anything else.</div>
+      </div>
+      <div class="card">
+        <div class="card-title">List GPA only if strong</div>
+        <div class="card-desc">3.5+ on 4.0 scale is worth including. If lower, omit it or contextualise.</div>
+      </div>
+      <div class="card">
+        <div class="card-title">Reverse chronological</div>
+        <div class="card-desc">Most recent degree first. This is a universal convention — never deviate.</div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-num">07 / 20</div>
+</div>
+
+<!-- ============ SLIDE 8: Research & Publications ============ -->
+<div class="slide dark" id="s8">
+  <div class="slide-inner">
+    <div class="eyebrow">Academic CV Prep — Deep Dive</div>
+    <h2 class="slide-title">CV Section: Research &amp; <span class="accent">Publications</span></h2>
+
+    <div class="two-col">
+      <div>
+        <h3 class="sub">Research Experience</h3>
+        <div class="cv-block">
+          <div class="cv-section-label">Research Experience</div>
+          <hr>
+          <div class="cv-entry-title">Graduate Research Assistant</div>
+          <div class="cv-entry-meta">NLP Lab, University of Dhaka &nbsp;&bull;&nbsp; Jan 2023 – Present</div>
+          <ul style="list-style:none; padding:0; margin-top:8px; font-size:0.85em; opacity:0.8;">
+            <li style="padding:3px 0;">&rarr; Designed transformer-based models for Bangla NER</li>
+            <li style="padding:3px 0;">&rarr; Curated 50k-sentence annotated dataset</li>
+            <li style="padding:3px 0;">&rarr; Achieved 91.3% F1 score, surpassing prior baselines</li>
+          </ul>
+        </div>
+      </div>
+      <div>
+        <h3 class="sub">Publications</h3>
+        <div class="cv-block">
+          <div class="cv-section-label">Publications</div>
+          <hr>
+          <div style="font-size:0.85em; line-height:1.7; opacity:0.85;">
+            <strong>Your Name</strong>, Co-Author A, Co-Author B. (2024). "Title of Your Paper." <em>Conference on NLP (EMNLP)</em>, Pages XX–XX.
+          </div>
+          <hr>
+          <div style="font-size:0.85em; line-height:1.7; opacity:0.85;">
+            <strong>Your Name</strong>, Co-Author A. "Title of Second Paper." <em>Journal of AI Research</em>. (submitted, 2024)
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="info-box glow" style="margin-top:24px;">
+      <strong>Tip:</strong> Even "in preparation" or "submitted" papers count — list them with a clear status label. It shows active research output and ambition.
+    </div>
+  </div>
+  <div class="slide-num">08 / 20</div>
+</div>
+
+<!-- ============ SLIDE 9: Tools & Templates ============ -->
+<div class="slide green" id="s9">
+  <div class="slide-inner">
+    <div class="eyebrow">Academic CV Prep</div>
+    <h2 class="slide-title" style="color:white;">Tools &amp; <span style="color:#bbf7d0;">Templates</span></h2>
+
+    <div class="three-col">
+      <div class="card" style="background:rgba(255,255,255,0.1); border-color:rgba(255,255,255,0.2);">
+        <div style="font-size:2em; margin-bottom:10px;">&#127381;</div>
+        <div class="card-title" style="font-size:1.1em; margin-bottom:8px;">LaTeX (Overleaf)</div>
+        <div class="card-desc" style="opacity:0.85;">
+          Professional standard in academia worldwide. Use Overleaf for browser-based editing and easy collaboration with supervisors.
+        </div>
+        <div style="margin-top:12px; font-size:0.8em; background:rgba(255,255,255,0.1); padding:6px 10px; border-radius:6px; font-family:monospace;">overleaf.com</div>
+      </div>
+      <div class="card" style="background:rgba(255,255,255,0.1); border-color:rgba(255,255,255,0.2);">
+        <div style="font-size:2em; margin-bottom:10px;">&#128196;</div>
+        <div class="card-title" style="font-size:1.1em; margin-bottom:8px;">Google Docs</div>
+        <div class="card-desc" style="opacity:0.85;">
+          Simple, accessible, and free. Use a clean academic template — avoid any coloured headers or decorative elements.
+        </div>
+        <div style="margin-top:12px; font-size:0.8em; background:rgba(255,255,255,0.1); padding:6px 10px; border-radius:6px; font-family:monospace;">docs.google.com</div>
+      </div>
+      <div class="card" style="background:rgba(255,255,255,0.1); border-color:rgba(255,255,255,0.2);">
+        <div style="font-size:2em; margin-bottom:10px;">&#128209;</div>
+        <div class="card-title" style="font-size:1.1em; margin-bottom:8px;">Microsoft Word</div>
+        <div class="card-desc" style="opacity:0.85;">
+          Widely available and familiar. Mirror the structure of LaTeX CV templates manually for a professional result.
+        </div>
+        <div style="margin-top:12px; font-size:0.8em; background:rgba(255,255,255,0.1); padding:6px 10px; border-radius:6px; font-family:monospace;">Office / Office 365</div>
+      </div>
+    </div>
+
+    <div class="info-box" style="background:rgba(255,255,255,0.12); border:1px solid rgba(255,255,255,0.25); margin-top:28px; font-size:1em;">
+      <strong>Recommended:</strong> Start with the <a href="https://www.overleaf.com/latex/templates/phd-application-cv-template/mrvjhycbdytr" target="_blank" style="color:white; text-decoration:underline;">PhD Application CV Template on Overleaf</a> or fork <a href="https://github.com/LimHyungTae/Awesome-PhD-CV" target="_blank" style="color:white; text-decoration:underline;">Awesome-PhD-CV from GitHub</a>. Both are free, professionally formatted, and ready to customise.
+    </div>
+  </div>
+  <div class="slide-num">09 / 20</div>
+</div>
+
+<!-- ============ SLIDE 10: Peer Review Exercise ============ -->
+<div class="slide dark" id="s10">
+  <div class="slide-inner">
+    <div class="eyebrow">Activity</div>
+    <h2 class="slide-title">Peer Review <span class="accent">Exercise</span></h2>
+
+    <ol class="step-list">
+      <li>
+        Share your draft CV (or a section outline) in the session chat
+        <div class="step-sub">PDF, Google Doc link, or even a text paste — anything works</div>
+      </li>
+      <li>
+        Get paired with a partner by the facilitator
+        <div class="step-sub">You will review each other's CV simultaneously</div>
+      </li>
+      <li>
+        Review using this checklist:
+        <ul style="list-style:none; padding:0; margin-top:10px;">
+          <li style="padding:5px 0; font-size:0.88em; opacity:0.8;">&rarr; Are all key sections present (Education, Research, Skills, References)?</li>
+          <li style="padding:5px 0; font-size:0.88em; opacity:0.8;">&rarr; Is the formatting consistent throughout?</li>
+          <li style="padding:5px 0; font-size:0.88em; opacity:0.8;">&rarr; Is there irrelevant content that should be removed?</li>
+          <li style="padding:5px 0; font-size:0.88em; opacity:0.8;">&rarr; What is the strongest section — why?</li>
+          <li style="padding:5px 0; font-size:0.88em; opacity:0.8;">&rarr; What section needs the most work?</li>
+        </ul>
+      </li>
+      <li>
+        Share written feedback — paste directly in the chat or as comments in the doc
+      </li>
+    </ol>
+
+    <div class="timer-badge">
+      &#9201; 20 minutes
+    </div>
+  </div>
+  <div class="slide-num">10 / 20</div>
+</div>
+
+<!-- ============ SLIDE 11: Digital Identity Transition ============ -->
+<div class="slide green" id="s11">
+  <div class="slide-inner" style="text-align:center;">
+    <div class="eyebrow">Part 2 of 3</div>
+    <h1 class="hero" style="color:white;">Academic<br><span style="color:#bbf7d0;">Digital Identity</span></h1>
+    <p class="hero-sub" style="color:rgba(255,255,255,0.8); margin-top:16px;">Email, Google Scholar, ORCID, ResearchGate</p>
+    <p style="font-size:1em; opacity:0.55; margin-top:12px;">Your complete online academic presence</p>
+  </div>
+  <div class="slide-num">11 / 20</div>
+</div>
+
+<!-- ============ SLIDE 12: Professional Email & Naming ============ -->
+<div class="slide white" id="s12">
+  <div class="slide-inner">
+    <div class="eyebrow">Academic Digital Identity</div>
+    <h2 class="slide-title">Professional <span class="accent">Email &amp; Naming</span></h2>
+
+    <div class="two-col" style="margin-bottom:24px;">
+      <div>
+        <h3 class="sub" style="margin-bottom:14px;">Email Best Practices</h3>
+        <div class="card" style="background:#fef2f2; border-color:#fca5a5; margin-bottom:12px;">
+          <div class="card-title" style="color:#b91c1c;">&#10007; Don't Use</div>
+          <div class="card-desc" style="opacity:0.9; color:#7f1d1d; font-family:monospace; font-size:0.9em; line-height:1.8; margin-top:6px;">
+            karim_rocks_99@yahoo.com<br>
+            mdkarim123@gmail.com<br>
+            cool_researcher@hotmail.com
+          </div>
+        </div>
+        <div class="card" style="background:#f0fdf4; border-color:#86efac;">
+          <div class="card-title" style="color:#16a34a;">&#10003; Use Instead</div>
+          <div class="card-desc" style="opacity:0.9; color:#14532d; font-family:monospace; font-size:0.9em; line-height:1.8; margin-top:6px;">
+            fatima.rahman@du.ac.bd <span style="font-family:Inter,sans-serif; font-size:0.75em; opacity:0.6;">(institutional — best)</span><br>
+            fatima.rahman@gmail.com <span style="font-family:Inter,sans-serif; font-size:0.75em; opacity:0.6;">(personal backup)</span><br>
+            f.rahman.research@gmail.com
+          </div>
+        </div>
+      </div>
+      <div>
+        <h3 class="sub" style="margin-bottom:14px;">Consistent Naming Across Platforms</h3>
+        <div class="card" style="background:#f0fdf4; border-color:#bbf7d0;">
+          <div style="font-size:0.8em; opacity:0.5; font-weight:600; margin-bottom:10px;">USE THE SAME NAME EVERYWHERE</div>
+          <div style="font-size:0.88em; line-height:2;">
+            <div style="display:flex; align-items:center; gap:8px; padding:2px 0;"><span style="font-size:1.2em;">&#9993;</span> <strong>Email:</strong> fatima.rahman@du.ac.bd</div>
+            <div style="display:flex; align-items:center; gap:8px; padding:2px 0;"><span style="font-size:1.2em;">&#127760;</span> <strong>Website:</strong> fatimarahman.github.io</div>
+            <div style="display:flex; align-items:center; gap:8px; padding:2px 0;"><span style="font-size:1.2em;">&#128218;</span> <strong>Scholar:</strong> Fatima Rahman</div>
+            <div style="display:flex; align-items:center; gap:8px; padding:2px 0;"><span style="font-size:1.2em;">&#128279;</span> <strong>LinkedIn:</strong> linkedin.com/in/fatimarahman</div>
+            <div style="display:flex; align-items:center; gap:8px; padding:2px 0;"><span style="font-size:1.2em;">&#127919;</span> <strong>ORCID:</strong> 0000-0002-XXXX-XXXX</div>
+            <div style="display:flex; align-items:center; gap:8px; padding:2px 0;"><span style="font-size:1.2em;">&#128300;</span> <strong>ResearchGate:</strong> Fatima-Rahman</div>
+          </div>
+        </div>
+
+        <div class="info-box glow" style="margin-top:12px; font-size:0.85em;">
+          <strong>Same photo</strong> everywhere — professors should recognise you instantly across all platforms.
+        </div>
+      </div>
+    </div>
+
+    <!-- Email Signature Mockup -->
+    <h3 class="sub" style="margin-bottom:10px;">Email Signature Template</h3>
+    <div style="background:#f8f9fa; border:1px solid #d0d7de; border-radius:8px; padding:18px 22px; font-family:Georgia,'Times New Roman',serif; font-size:0.85em; line-height:1.6; max-width:480px;">
+      <div style="border-top:2px solid #1a5632; padding-top:10px; margin-top:2px;">
+        <div style="font-weight:700; color:#111; font-size:0.95em;">Fatima Rahman</div>
+        <div style="color:#555; font-size:0.85em;">MSc in Computer Science | University of Dhaka</div>
+        <div style="color:#555; font-size:0.85em;">Research: NLP, Low-Resource Languages</div>
+        <div style="margin-top:6px; font-size:0.8em;">
+          <span style="color:#0969da;">fatimarahman.github.io</span> &nbsp;|&nbsp;
+          <span style="color:#0969da;">Google Scholar</span> &nbsp;|&nbsp;
+          <span style="color:#0969da;">ORCID: 0000-0002-XXXX-XXXX</span>
+        </div>
+      </div>
+    </div>
+    <div style="font-size:0.75em; opacity:0.5; margin-top:6px; font-style:italic;">Copy this format into your Gmail / Outlook signature settings</div>
+  </div>
+  <div class="slide-num">12 / 20</div>
+</div>
+
+<!-- ============ SLIDE 13: Google Scholar & ORCID ============ -->
+<div class="slide dark" id="s13">
+  <div class="slide-inner">
+    <div class="eyebrow">Academic Digital Identity</div>
+    <h2 class="slide-title">Google Scholar &amp; <span class="accent">ORCID</span></h2>
+
+    <div class="two-col" style="align-items:start;">
+      <div>
+        <h3 class="sub" style="margin-bottom:12px;">Google Scholar Profile</h3>
+
+        <!-- Scholar mockup -->
+        <div style="background:#fff; border:1px solid rgba(255,255,255,0.15); border-radius:8px; overflow:hidden;">
+          <div style="background:#4285f4; padding:8px 14px; display:flex; align-items:center; gap:8px;">
+            <span style="font-weight:700; font-size:0.9em; color:white;">Google Scholar</span>
+            <div style="flex:1; background:rgba(255,255,255,0.2); border-radius:4px; padding:4px 10px; font-size:0.75em; color:rgba(255,255,255,0.7);">Fatima Rahman</div>
+          </div>
+          <div style="padding:14px; background:#fff; color:#222;">
+            <div style="display:flex; gap:12px; align-items:flex-start;">
+              <div style="width:54px; height:54px; border-radius:50%; background:linear-gradient(135deg,#e8f2ed,#bbf7d0); display:flex; align-items:center; justify-content:center; font-size:18px; color:#1a5632; font-weight:700; flex-shrink:0;">F</div>
+              <div>
+                <div style="font-size:14px; font-weight:700; color:#1a237e;">Fatima Rahman</div>
+                <div style="font-size:11px; color:#555;">University of Dhaka</div>
+                <div style="font-size:10px; color:#555;">Verified email at du.ac.bd</div>
+                <div style="font-size:10px; color:#1565c0; margin-top:2px;">NLP - Low-Resource Languages - Deep Learning</div>
+              </div>
+            </div>
+            <div style="display:flex; gap:20px; margin-top:12px; padding-top:10px; border-top:1px solid #eee; font-size:11px; text-align:center;">
+              <div><div style="font-size:16px; font-weight:700; color:#1a237e;">23</div><div style="color:#777;">Citations</div></div>
+              <div><div style="font-size:16px; font-weight:700; color:#1a237e;">3</div><div style="color:#777;">h-index</div></div>
+              <div><div style="font-size:16px; font-weight:700; color:#1a237e;">2</div><div style="color:#777;">i10-index</div></div>
+            </div>
+          </div>
+        </div>
+
+        <ol class="step-list" style="margin-top:14px; font-size:0.9em;">
+          <li>Go to <strong>scholar.google.com</strong> and sign in</li>
+          <li>Click your profile icon &rarr; "My profile"</li>
+          <li>Add: name, affiliation, interests, photo</li>
+          <li>Add your articles (search or enter manually)</li>
+          <li>Make your profile <strong>public</strong></li>
+        </ol>
+      </div>
+
+      <div>
+        <h3 class="sub" style="margin-bottom:12px;">ORCID iD</h3>
+
+        <!-- ORCID mockup -->
+        <div style="background:#fff; border:1px solid rgba(255,255,255,0.15); border-radius:8px; overflow:hidden;">
+          <div style="background:#a6ce39; padding:8px 14px; display:flex; align-items:center; gap:8px;">
+            <span style="font-weight:700; font-size:0.9em; color:white;">ORCID</span>
+            <span style="font-size:0.75em; color:rgba(255,255,255,0.8);">Connecting Research and Researchers</span>
+          </div>
+          <div style="padding:14px; background:#fff; color:#222;">
+            <div style="display:flex; gap:12px; align-items:center; margin-bottom:10px;">
+              <div style="width:40px; height:40px; border-radius:50%; background:#a6ce39; display:flex; align-items:center; justify-content:center; color:white; font-weight:700; font-size:14px;">F</div>
+              <div>
+                <div style="font-size:13px; font-weight:700; color:#333;">Fatima Rahman</div>
+                <div style="font-size:11px; color:#a6ce39; font-family:monospace;">0000-0002-1234-5678</div>
+              </div>
+            </div>
+            <div style="font-size:10.5px; color:#555; line-height:1.7;">
+              <div><strong>Affiliation:</strong> University of Dhaka</div>
+              <div><strong>Works:</strong> 3 publications linked</div>
+              <div><strong>Keywords:</strong> NLP, Machine Learning</div>
+            </div>
+          </div>
+        </div>
+
+        <ol class="step-list" style="margin-top:14px; font-size:0.9em;">
+          <li>Go to <strong>orcid.org/register</strong></li>
+          <li>Enter name, email, set password</li>
+          <li>Get your unique 16-digit ORCID iD</li>
+          <li>Add to your CV header and website</li>
+        </ol>
+
+        <div class="info-box glow" style="margin-top:14px; font-size:0.82em;">
+          <strong>Takes 2 minutes.</strong> Many journals and funders now require an ORCID. Set it up now — you'll need it later.
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-num">13 / 20</div>
+</div>
+
+<!-- ============ SLIDE 14: ResearchGate & Digital Audit ============ -->
+<div class="slide dark-alt" id="s14">
+  <div class="slide-inner">
+    <div class="eyebrow">Academic Digital Identity</div>
+    <h2 class="slide-title">ResearchGate &amp; <span class="accent">Digital Audit</span></h2>
+
+    <div class="two-col" style="align-items:start;">
+      <div>
+        <h3 class="sub" style="margin-bottom:12px;">ResearchGate Profile</h3>
+
+        <!-- ResearchGate mockup -->
+        <div style="background:#fff; border:1px solid rgba(255,255,255,0.15); border-radius:8px; overflow:hidden;">
+          <div style="background:#00ccbb; padding:8px 14px;">
+            <span style="font-weight:700; font-size:0.9em; color:white;">ResearchGate</span>
+          </div>
+          <div style="padding:14px; background:#fff; color:#222;">
+            <div style="display:flex; gap:12px; align-items:center; margin-bottom:10px;">
+              <div style="width:48px; height:48px; border-radius:50%; background:#00ccbb; display:flex; align-items:center; justify-content:center; color:white; font-weight:700; font-size:16px;">FR</div>
+              <div>
+                <div style="font-size:13px; font-weight:700; color:#333;">Fatima Rahman</div>
+                <div style="font-size:11px; color:#555;">University of Dhaka</div>
+                <div style="font-size:10px; color:#555;">Department of Computer Science</div>
+              </div>
+            </div>
+            <div style="display:flex; gap:16px; padding-top:8px; border-top:1px solid #eee; font-size:11px; text-align:center;">
+              <div><div style="font-size:14px; font-weight:700; color:#00897b;">3</div><div style="color:#777;">Publications</div></div>
+              <div><div style="font-size:14px; font-weight:700; color:#00897b;">23</div><div style="color:#777;">Citations</div></div>
+              <div><div style="font-size:14px; font-weight:700; color:#00897b;">45</div><div style="color:#777;">Reads</div></div>
+              <div><div style="font-size:14px; font-weight:700; color:#00897b;">2.5</div><div style="color:#777;">RG Score</div></div>
+            </div>
+          </div>
+        </div>
+
+        <ol class="step-list" style="margin-top:14px; font-size:0.9em;">
+          <li>Go to <strong>researchgate.net</strong> &rarr; Sign up</li>
+          <li>Add institution, department, research interests</li>
+          <li>Upload your publications (full-text if allowed)</li>
+          <li>Follow researchers in your target field</li>
+        </ol>
+      </div>
+
+      <div>
+        <h3 class="sub" style="margin-bottom:12px;">&#128270; "Google Yourself" Exercise</h3>
+
+        <!-- Google search mockup -->
+        <div style="background:#fff; border:1px solid rgba(255,255,255,0.15); border-radius:8px; overflow:hidden;">
+          <div style="background:#fff; padding:10px 14px; border-bottom:1px solid #eee; display:flex; align-items:center; gap:8px;">
+            <span style="font-size:14px; font-weight:700; color:#4285f4;">G</span><span style="font-weight:700; font-size:13px; color:#ea4335;">o</span><span style="font-weight:700; font-size:13px; color:#fbbc04;">o</span><span style="font-weight:700; font-size:13px; color:#4285f4;">g</span><span style="font-weight:700; font-size:13px; color:#34a853;">l</span><span style="font-weight:700; font-size:13px; color:#ea4335;">e</span>
+            <div style="flex:1; background:#f1f3f4; border-radius:20px; padding:6px 14px; font-size:12px; color:#333;">Fatima Rahman NLP researcher</div>
+          </div>
+          <div style="padding:12px 14px; background:#fff;">
+            <div style="margin-bottom:10px;">
+              <div style="font-size:12px; color:#1a0dab; font-weight:500;">Fatima Rahman — fatimarahman.github.io</div>
+              <div style="font-size:10px; color:#006621;">https://fatimarahman.github.io</div>
+              <div style="font-size:10.5px; color:#545454;">PhD applicant | NLP researcher at University of Dhaka. Research interests: low-resource NLP, NER, transfer learning...</div>
+            </div>
+            <div style="margin-bottom:10px;">
+              <div style="font-size:12px; color:#1a0dab; font-weight:500;">Fatima Rahman — Google Scholar Citations</div>
+              <div style="font-size:10px; color:#006621;">scholar.google.com/citations?user=...</div>
+              <div style="font-size:10.5px; color:#545454;">23 citations — 3 h-index — University of Dhaka...</div>
+            </div>
+            <div>
+              <div style="font-size:12px; color:#1a0dab; font-weight:500;">Fatima Rahman — LinkedIn</div>
+              <div style="font-size:10px; color:#006621;">linkedin.com/in/fatimarahman</div>
+              <div style="font-size:10.5px; color:#545454;">MSc Computer Science — Research Assistant — NLP...</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="info-box glow" style="margin-top:14px; font-size:0.85em;">
+          <strong>Exercise (5 min):</strong> Google your own name right now. What comes up? Is it what you'd want a professor to see? If not — that's what we're fixing today.
+        </div>
+
+        <div style="margin-top:14px;">
+          <h3 class="sub" style="font-size:0.95em; margin-bottom:8px;">Also Consider</h3>
+          <ul class="checklist" style="font-size:0.85em;">
+            <li><span class="check">+</span><div><strong>Semantic Scholar</strong> — auto-discovers your CS papers</div></li>
+            <li><span class="check">+</span><div><strong>DBLP</strong> — auto-indexed for CS publications</div></li>
+            <li><span class="check">+</span><div><strong>LinkedIn</strong> — academic-style profile, not industry</div></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-num">14 / 20</div>
+</div>
+
+<!-- ============ SLIDE 15: Part 3 Transition ============ -->
+<div class="slide green" id="s15">
+  <div class="slide-inner" style="text-align:center;">
+    <div class="eyebrow">Part 3 of 3</div>
+    <h1 class="hero" style="color:white;">Personal Academic<br><span style="color:#bbf7d0;">Website</span></h1>
+    <p class="hero-sub" style="color:rgba(255,255,255,0.8); margin-top:16px;">Build your online home</p>
+    <p style="font-size:1em; opacity:0.55; margin-top:12px;">~1 hour remaining</p>
+  </div>
+  <div class="slide-num">15 / 20</div>
+</div>
+
+<!-- ============ SLIDE 16: Why a Website ============ -->
+<div class="slide white" id="s16">
+  <div class="slide-inner">
+    <div class="eyebrow">Personal Website — Part 3</div>
+    <h2 class="slide-title">Why You Need an <span class="accent">Academic Website</span></h2>
+
+    <div class="two-col" style="margin-top:24px;">
+      <div class="card" style="background:#f0fdf4; border-color:#bbf7d0;">
+        <div style="font-size:2em; margin-bottom:10px;">&#128269;</div>
+        <div class="card-title" style="font-size:1.05em; margin-bottom:8px;">Professors Google You</div>
+        <div class="card-desc">Before replying to your email, most supervisors will search your name. Control what they find — make it count.</div>
+      </div>
+      <div class="card" style="background:#f0fdf4; border-color:#bbf7d0;">
+        <div style="font-size:2em; margin-bottom:10px;">&#128279;</div>
+        <div class="card-title" style="font-size:1.05em; margin-bottom:8px;">Central Hub</div>
+        <div class="card-desc">One link for everything: your CV, publications, research interests, contact details, and project demos.</div>
+      </div>
+      <div class="card" style="background:#f0fdf4; border-color:#bbf7d0;">
+        <div style="font-size:2em; margin-bottom:10px;">&#128640;</div>
+        <div class="card-title" style="font-size:1.05em; margin-bottom:8px;">Shows Initiative</div>
+        <div class="card-desc">Demonstrates technical competence, attention to professional branding, and that you take your research identity seriously.</div>
+      </div>
+      <div class="card" style="background:#dcfce7; border-color:#86efac;">
+        <div style="font-size:2em; margin-bottom:10px;">&#127942;</div>
+        <div class="card-title" style="font-size:1.05em; margin-bottom:8px;">Stand Out</div>
+        <div class="card-desc">Most PhD applicants from Bangladesh don't have a website. <strong>You will.</strong> That is a real competitive edge.</div>
+      </div>
+    </div>
+    <div class="info-box glow" style="margin-top:24px; font-size:0.9em;">
+      <strong>4 Template Options Available:</strong> Academic Pages (easiest) &bull; Minimal Academic Website (quickest) &bull; Hugo Academic CV (most features) &bull; Luo's Academic Homepage (cleanest design) — see the Website Step-by-Step Guide for details.
+    </div>
+  </div>
+  <div class="slide-num">16 / 20</div>
+</div>
+
+<!-- ============ SLIDE 17: Template Options ============ -->
+<div class="slide dark" id="s17">
+  <div class="slide-inner">
+    <div class="eyebrow">Personal Website</div>
+    <h2 class="slide-title">Choose Your <span class="accent">Template</span></h2>
+
+    <div class="two-col" style="margin-bottom:20px;">
+      <div class="card" style="border-color:rgba(74,222,128,0.3); background:rgba(74,222,128,0.08);">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+          <div class="card-title" style="font-size:1.05em;">Academic Pages</div>
+          <span class="role-badge candidate" style="font-size:0.6em;">RECOMMENDED</span>
+        </div>
+        <div class="card-desc" style="opacity:0.8; font-size:0.88em; line-height:1.6;">
+          Jekyll-based, no coding needed. Fork &rarr; edit YAML &rarr; done. Supports publications, talks, teaching, blog, and CV pages. MathJax and Mermaid diagrams built in.
+        </div>
+        <div style="margin-top:10px; font-size:0.75em; opacity:0.5;">academicpages.github.io</div>
+      </div>
+      <div class="card">
+        <div class="card-title" style="font-size:1.05em; margin-bottom:8px;">Minimal Academic Website</div>
+        <div class="card-desc" style="opacity:0.8; font-size:0.88em; line-height:1.6;">
+          Plain HTML/CSS/JS — the quickest setup (~15 min). Edit index.html directly, update publications.json. No build tools needed. Created at Stanford.
+        </div>
+        <div style="margin-top:10px; font-size:0.75em; opacity:0.5;">github.com/yuhui-zh15/Minimal-Academic-Website</div>
+      </div>
+      <div class="card">
+        <div class="card-title" style="font-size:1.05em; margin-bottom:8px;">Hugo Academic CV</div>
+        <div class="card-desc" style="opacity:0.8; font-size:0.88em; line-height:1.6;">
+          Most feature-rich: auto-imports from BibTeX, Jupyter notebook support, reveal.js slides, AI page generation. Deploy via hugoblox.com in 60 seconds.
+        </div>
+        <div style="margin-top:10px; font-size:0.75em; opacity:0.5;">github.com/HugoBlox/hugo-theme-academic-cv</div>
+      </div>
+      <div class="card">
+        <div class="card-title" style="font-size:1.05em; margin-bottom:8px;">Luo's Academic Homepage</div>
+        <div class="card-desc" style="opacity:0.8; font-size:0.88em; line-height:1.6;">
+          Clean Jekyll template with institution logos, publication thumbnails, and news timeline. Great for a polished, minimal look.
+        </div>
+        <div style="margin-top:10px; font-size:0.75em; opacity:0.5;">luost.me/academic-homepage</div>
+      </div>
+    </div>
+
+    <div class="info-box glow" style="font-size:0.92em;">
+      <strong>Today we'll walk through Academic Pages</strong> — it's the most widely used template among PhD students and requires zero coding. The step-by-step handout covers all four options.
+    </div>
+  </div>
+  <div class="slide-num">17 / 20</div>
+</div>
+
+<!-- ============ SLIDE 18: Website Content ============ -->
+<div class="slide white" id="s18">
+  <div class="slide-inner">
+    <div class="eyebrow">Personal Website</div>
+    <h2 class="slide-title">What Goes on Your <span class="accent">Website</span></h2>
+
+    <div class="two-col" style="align-items:start;">
+      <div>
+        <h3 class="sub" style="margin-bottom:12px;">Required Sections</h3>
+        <ul class="checklist">
+          <li>
+            <span class="check">&#10003;</span>
+            <div><strong>About / Bio</strong> — 2–3 paragraph professional summary of who you are and what you research</div>
+          </li>
+          <li>
+            <span class="check">&#10003;</span>
+            <div><strong>Research Interests</strong> — current focus areas and future directions you want to pursue</div>
+          </li>
+          <li>
+            <span class="check">&#10003;</span>
+            <div><strong>Publications</strong> — full list with links to PDFs and/or abstracts</div>
+          </li>
+          <li>
+            <span class="check">&#10003;</span>
+            <div><strong>Education</strong> — degrees, institutions, thesis titles</div>
+          </li>
+          <li>
+            <span class="check">&#10003;</span>
+            <div><strong>CV Download</strong> — direct link to your PDF academic CV</div>
+          </li>
+          <li>
+            <span class="check">&#10003;</span>
+            <div><strong>Contact</strong> — email address, Google Scholar, ResearchGate, LinkedIn</div>
+          </li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="sub" style="margin-bottom:12px;">Optional Extras</h3>
+        <ul class="checklist">
+          <li>
+            <span class="check" style="opacity:0.5;">+</span>
+            <div><strong>Blog</strong> — write about papers you read, conference experiences, research updates</div>
+          </li>
+          <li>
+            <span class="check" style="opacity:0.5;">+</span>
+            <div><strong>Projects</strong> — showcase code repositories, demos, or research tools you've built</div>
+          </li>
+          <li>
+            <span class="check" style="opacity:0.5;">+</span>
+            <div><strong>Teaching</strong> — courses taught or TA'd, lecture materials if shareable</div>
+          </li>
+          <li>
+            <span class="check" style="opacity:0.5;">+</span>
+            <div><strong>News</strong> — recent publications, awards, conference acceptances</div>
+          </li>
+        </ul>
+
+        <div class="info-box glow" style="margin-top:20px; font-size:0.88em;">
+          Start with required sections only. You can add extras after your PhD applications are submitted.
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-num">18 / 20</div>
+</div>
+
+<!-- ============ SLIDE 19: Step-by-Step Setup ============ -->
+<div class="slide dark-alt" id="s19">
+  <div class="slide-inner">
+    <div class="eyebrow">Hands-On — Academic Pages</div>
+    <h2 class="slide-title">Step-by-Step <span class="accent">Setup</span></h2>
+
+    <div class="two-col" style="align-items:start; gap:36px;">
+      <div>
+        <h3 class="sub" style="font-size:1em;">Getting Started</h3>
+        <ol class="step-list" style="margin-top:8px;">
+          <li>
+            Go to <strong>github.com/academicpages</strong> and click "Use this template"
+            <div class="step-sub">Creates a copy in your GitHub account</div>
+          </li>
+          <li>
+            Name your repo <strong>yourusername.github.io</strong>
+            <div class="step-sub">Must match your GitHub username exactly</div>
+          </li>
+          <li>
+            Enable Pages: <strong>Settings &rarr; Pages &rarr; main branch</strong>
+            <div class="step-sub">Site goes live in ~2 minutes</div>
+          </li>
+          <li>
+            Edit <strong>_config.yml</strong> — name, bio, email, social links
+          </li>
+          <li>
+            Edit <strong>_pages/about.md</strong> — write your 2-3 paragraph bio
+          </li>
+        </ol>
+      </div>
+      <div>
+        <h3 class="sub" style="font-size:1em;">Adding Content</h3>
+        <ol class="step-list" style="margin-top:8px; counter-reset: step-counter 5;">
+          <li>
+            Add publications in <strong>_publications/</strong> as Markdown files
+            <div class="step-sub">One .md file per paper with title, venue, date, citation</div>
+          </li>
+          <li>
+            Upload CV PDF to <strong>files/</strong> folder
+            <div class="step-sub">Link it from your About page: [Download CV](/files/cv.pdf)</div>
+          </li>
+          <li>
+            Add your photo to <strong>images/</strong> folder
+            <div class="step-sub">Update avatar field in _config.yml</div>
+          </li>
+          <li>
+            Edit <strong>_data/navigation.yml</strong> — remove unused menu items
+            <div class="step-sub">Keep only: Publications, CV, Contact</div>
+          </li>
+          <li>
+            Test on mobile &amp; verify all links work
+            <div class="step-sub">Share URL with a friend for feedback</div>
+          </li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="info-box glow" style="margin-top:20px; font-size:0.9em;">
+      <strong>Full guide with all 4 template options:</strong> See the <em>Personal Academic Website — Step-by-Step Guide</em> handout. It includes detailed instructions for Academic Pages, Minimal Academic Website, Hugo Academic CV, and Luo's Academic Homepage.
+    </div>
+  </div>
+  <div class="slide-num">19 / 20</div>
+</div>
+
+<!-- ============ SLIDE 20: Assignments ============ -->
+<div class="slide green" id="s20">
+  <div class="slide-inner">
+    <div class="eyebrow">Homework</div>
+    <h2 class="slide-title" style="color:white;">Assignments — <span style="color:#bbf7d0;">Due July 3</span></h2>
+
+    <div class="two-col" style="margin-top:8px;">
+      <div class="assign-card">
+        <div class="assign-num">Assignment 1</div>
+        <div class="assign-title">&#128196; Submit Academic CV</div>
+        <div class="assign-desc">
+          PhD-style, 2–3 pages, PDF format. Upload directly to the NextPhD Bangladesh platform via the Assignment section of your dashboard.
+        </div>
+        <div style="margin-top:14px; font-size:0.8em; opacity:0.6; font-weight:600;">
+          PDF Upload &bull; Platform Dashboard
+        </div>
+      </div>
+      <div class="assign-card">
+        <div class="assign-num">Assignment 2</div>
+        <div class="assign-title">&#127760; Deploy Personal Website</div>
+        <div class="assign-desc">
+          Submit your live GitHub Pages URL on the platform. Your site must include at minimum: About, Education, Research Interests, and Contact.
+        </div>
+        <div style="margin-top:14px; font-size:0.8em; opacity:0.6; font-weight:600;">
+          Live URL &bull; yourusername.github.io
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top:40px; padding-top:28px; border-top:1px solid rgba(255,255,255,0.15); display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:16px;">
+      <div>
+        <p style="font-size:0.9em; opacity:0.6; margin-bottom:4px;">Coming up</p>
+        <p style="font-weight:700; font-size:1.1em;">Next Week: Choosing PhD-Type Research Topics</p>
+      </div>
+      <div style="text-align:right;">
+        <div style="font-weight:800; font-size:1em; color:#bbf7d0;">NextPhD Bangladesh</div>
+        <div style="font-size:0.8em; opacity:0.55; margin-top:2px;">Cohort 01 &bull; 2026</div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-num">20 / 20</div>
+</div>
+
+</body>
+</html>

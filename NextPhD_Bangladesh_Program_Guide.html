@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NextPhD Bangladesh — Program Guide & 5-Month Roadmap</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Inter', sans-serif; color: #1a1a1a; line-height: 1.7; background: #f8faf8; }
+  .container { max-width: 900px; margin: 0 auto; padding: 40px 24px; }
+
+  /* Header */
+  .header { text-align: center; padding: 60px 20px; background: linear-gradient(135deg, #1a5632 0%, #2d7a4f 100%); color: white; border-radius: 16px; margin-bottom: 40px; }
+  .header h1 { font-size: 2.4em; font-weight: 800; margin-bottom: 8px; }
+  .header .subtitle { font-size: 1.1em; opacity: 0.9; margin-bottom: 4px; }
+  .header .cohort { font-size: 0.9em; opacity: 0.7; margin-top: 12px; }
+
+  /* Sections */
+  .section { background: white; border-radius: 12px; padding: 32px; margin-bottom: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.06); }
+  .section h2 { font-size: 1.4em; font-weight: 700; color: #1a5632; margin-bottom: 16px; border-bottom: 2px solid #e8f0e8; padding-bottom: 8px; }
+  .section h3 { font-size: 1.1em; font-weight: 600; color: #2d5a3f; margin: 20px 0 8px; }
+  .section p { margin-bottom: 12px; color: #333; }
+  .section ul, .section ol { margin-left: 20px; margin-bottom: 12px; }
+  .section li { margin-bottom: 6px; color: #444; }
+
+  /* Timeline */
+  .timeline { position: relative; padding-left: 30px; }
+  .timeline::before { content: ''; position: absolute; left: 8px; top: 0; bottom: 0; width: 3px; background: linear-gradient(to bottom, #1a5632, #4ade80); border-radius: 2px; }
+  .month-block { position: relative; margin-bottom: 32px; }
+  .month-block::before { content: ''; position: absolute; left: -26px; top: 6px; width: 14px; height: 14px; background: #1a5632; border-radius: 50%; border: 3px solid #e8f0e8; }
+  .month-label { font-size: 1.2em; font-weight: 700; color: #1a5632; margin-bottom: 8px; }
+  .month-desc { font-size: 0.95em; color: #555; margin-bottom: 8px; }
+  .task-list { list-style: none; margin: 0; padding: 0; }
+  .task-list li { padding: 8px 12px; margin-bottom: 4px; border-radius: 6px; background: #f0fdf4; font-size: 0.9em; border-left: 3px solid #16a34a; }
+  .task-list li.deadline { background: #fef3c7; border-left-color: #d97706; }
+
+  /* Dashboard features */
+  .feature-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 12px; }
+  .feature-card { padding: 16px; border-radius: 8px; background: #f8faf8; border: 1px solid #e0e8e0; }
+  .feature-card .icon { font-size: 1.3em; margin-bottom: 6px; }
+  .feature-card .fname { font-weight: 600; font-size: 0.95em; margin-bottom: 4px; }
+  .feature-card .fdesc { font-size: 0.82em; color: #666; line-height: 1.5; }
+
+  /* Table */
+  table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 0.9em; }
+  th, td { padding: 10px 12px; text-align: left; border-bottom: 1px solid #e8e8e8; }
+  th { background: #f0f5f0; font-weight: 600; color: #1a5632; }
+  tr:hover { background: #fafff8; }
+
+  /* Info box */
+  .info-box { padding: 16px 20px; border-radius: 8px; margin: 16px 0; font-size: 0.9em; }
+  .info-box.green { background: #f0fdf4; border-left: 4px solid #16a34a; }
+  .info-box.amber { background: #fffbeb; border-left: 4px solid #d97706; }
+  .info-box.blue { background: #eff6ff; border-left: 4px solid #2563eb; }
+
+  /* Footer */
+  .footer { text-align: center; padding: 24px; color: #888; font-size: 0.85em; }
+
+  @media (max-width: 600px) {
+    .header h1 { font-size: 1.6em; }
+    .container { padding: 16px; }
+    .section { padding: 20px; }
+    .feature-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+<!-- Header -->
+<div class="header">
+  <h1>NextPhD Bangladesh</h1>
+  <div class="subtitle">PhD Application Program — Fall 2026 / Spring 2027</div>
+  <div class="subtitle">5-Month Roadmap & Platform Guide</div>
+  <div class="cohort">Cohort 01 &mdash; ELITE Research Lab &mdash; 37 Candidates</div>
+</div>
+
+<!-- 1. Program Overview -->
+<div class="section">
+  <h2>1. Program Overview</h2>
+  <p>NextPhD Bangladesh is a structured mentorship program designed to help Bangladeshi students navigate the US, Canadian, and Australian PhD application process. Over the next <strong>5 months (July &ndash; November 2026)</strong>, we will guide you through every step &mdash; from identifying target universities and professors to submitting polished applications.</p>
+
+  <h3>What You Get</h3>
+  <ul>
+    <li>Dedicated online dashboard to track your entire application journey</li>
+    <li>Weekly/bi-weekly live sessions with mentors and peers</li>
+    <li>Curated database of <strong>428 PhD openings</strong> from 185 universities (US/Canada/Australia)</strong></li>
+    <li>University pool with <strong>CS Rankings data</strong> for informed decision-making</li>
+    <li>Professor database for targeted outreach</li>
+    <li>Research lab tracker (labs currently hiring PhD students)</li>
+    <li>SOP/CV/writing sample review with mentor feedback</li>
+    <li>Interview preparation resources and mock sessions</li>
+    <li>Peer community via Discord and platform features</li>
+  </ul>
+
+  <div class="info-box green">
+    <strong>Dashboard Access:</strong> <a href="https://nextphd.elitelab.ai" style="color:#16a34a;">https://nextphd.elitelab.ai</a><br>
+    Login with the credentials sent to your email. Change your password after first login using the button in the top-right corner.
+  </div>
+</div>
+
+<!-- 2. Five-Month Roadmap -->
+<div class="section">
+  <h2>2. Five-Month Roadmap</h2>
+  <p>Each month has clear goals and deliverables. Your progress is tracked on the dashboard.</p>
+
+  <div class="timeline">
+
+    <!-- July -->
+    <div class="month-block">
+      <div class="month-label">Month 1 &mdash; July 2026: Foundation & Research</div>
+      <div class="month-desc">Build your profile, identify research interests, and start exploring universities and professors.</div>
+      <ul class="task-list">
+        <li>Complete your Dashboard Profile (target: 100% completeness)</li>
+        <li>Upload your latest CV to the Files section</li>
+        <li>Browse the PhD Openings database (428 openings) &mdash; save/bookmark interesting ones</li>
+        <li>Explore the University Pool &mdash; shortlist 15&ndash;20 universities</li>
+        <li>Start browsing the Professor Pool &mdash; identify potential advisors</li>
+        <li>Browse Research Labs section &mdash; find labs aligned with your interests</li>
+        <li>Complete the Document Checklist &mdash; identify what's missing</li>
+        <li class="deadline">Payment Due: July 1, 2026</li>
+      </ul>
+    </div>
+
+    <!-- August -->
+    <div class="month-block">
+      <div class="month-label">Month 2 &mdash; August 2026: Shortlisting & Outreach</div>
+      <div class="month-desc">Narrow down your target list and begin professor outreach.</div>
+      <ul class="task-list">
+        <li>Finalize your university shortlist (8&ndash;12 universities) in University Tracker</li>
+        <li>Research 20&ndash;30 professors whose work aligns with your interests</li>
+        <li>Add target professors to your Professor Tracker with outreach status</li>
+        <li>Draft your first cold emails using the Cold Email Template Generator</li>
+        <li>Begin sending outreach emails to professors (track status on dashboard)</li>
+        <li>Start your SOP first draft &mdash; submit to SOP Review for feedback</li>
+        <li>Attend all live sessions &mdash; outreach strategies & SOP workshop</li>
+        <li>Read Professor News Feed for latest faculty updates</li>
+      </ul>
+    </div>
+
+    <!-- September -->
+    <div class="month-block">
+      <div class="month-label">Month 3 &mdash; September 2026: Drafting & Refinement</div>
+      <div class="month-desc">Refine your SOP, secure recommendation letters, and continue professor engagement.</div>
+      <ul class="task-list">
+        <li>Revise SOP based on mentor feedback (aim for 2&ndash;3 drafts)</li>
+        <li>Request recommendation letters &mdash; track in Rec Letters section</li>
+        <li>Follow up on professor outreach &mdash; update status in tracker</li>
+        <li>Upload writing samples / research papers to Files</li>
+        <li>Track your research papers in the Papers section</li>
+        <li>Start preparing for potential interviews</li>
+        <li>Attend live sessions &mdash; SOP review, interview prep</li>
+        <li class="deadline">Early application deadlines start appearing &mdash; check University Tracker</li>
+      </ul>
+    </div>
+
+    <!-- October -->
+    <div class="month-block">
+      <div class="month-label">Month 4 &mdash; October 2026: Applications Begin</div>
+      <div class="month-desc">Start submitting applications. Finalize all documents.</div>
+      <ul class="task-list">
+        <li>Finalize SOP &mdash; customize per university</li>
+        <li>Ensure all recommendation letters are confirmed/received</li>
+        <li>Submit applications to universities with early deadlines</li>
+        <li>Update application status in University Tracker (researching &rarr; applied)</li>
+        <li>Track interview invitations in the Interviews section</li>
+        <li>Practice mock interviews (use Prep Notes sub-tab)</li>
+        <li>Continue professor follow-ups</li>
+        <li class="deadline">October &mdash; Many Fall 2027 early deadlines</li>
+      </ul>
+    </div>
+
+    <!-- November -->
+    <div class="month-block">
+      <div class="month-label">Month 5 &mdash; November 2026: Final Push</div>
+      <div class="month-desc">Complete remaining applications and prepare for interviews.</div>
+      <ul class="task-list">
+        <li>Submit all remaining applications before December deadlines</li>
+        <li>Final SOP polish for December-deadline universities</li>
+        <li>Follow up on rec letter status &mdash; ensure all submitted</li>
+        <li>Prepare for interviews (live mock sessions)</li>
+        <li>Update all tracker statuses on dashboard</li>
+        <li>Review your Application Kanban for a complete overview</li>
+        <li class="deadline">November&ndash;December &mdash; Most PhD application deadlines</li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+<!-- 3. Dashboard Features Guide -->
+<div class="section">
+  <h2>3. Your Dashboard &mdash; Feature Guide</h2>
+  <p>Everything you need is on your dashboard. Here's what each section does:</p>
+
+  <div class="feature-grid">
+    <div class="feature-card">
+      <div class="fname">Overview</div>
+      <div class="fdesc">Your home base. See upcoming sessions, pending tasks, announcements, and quick stats at a glance.</div>
+    </div>
+    <div class="feature-card">
+      <div class="fname">PhD Openings</div>
+      <div class="fdesc">428 curated openings from US/CA/AU universities. Search by research area, university, or faculty. Save the ones you're interested in.</div>
+    </div>
+    <div class="feature-card">
+      <div class="fname">University Pool</div>
+      <div class="fdesc">Browse universities ranked by CS research output. Filter by country (US, Canada, Australia). Add to your personal tracker.</div>
+    </div>
+    <div class="feature-card">
+      <div class="fname">Professor Pool</div>
+      <div class="fdesc">Database of CS professors. Find potential advisors, check their research areas, and add them to your outreach list.</div>
+    </div>
+    <div class="feature-card">
+      <div class="fname">Research Labs</div>
+      <div class="fdesc">Labs actively hiring PhD students. See PI info, research areas, funding type, and hiring status.</div>
+    </div>
+    <div class="feature-card">
+      <div class="fname">My Universities</div>
+      <div class="fdesc">Your personal university shortlist. Track application status, deadlines, and days remaining for each.</div>
+    </div>
+    <div class="feature-card">
+      <div class="fname">My Professors</div>
+      <div class="fdesc">Track professor outreach. Record email status, response, and generate cold email templates.</div>
+    </div>
+    <div class="feature-card">
+      <div class="fname">Sessions</div>
+      <div class="fdesc">Live group sessions schedule. View past session recordings and attendance records.</div>
+    </div>
+    <div class="feature-card">
+      <div class="fname">My Tasks</div>
+      <div class="fdesc">Assignments from mentors with deadlines. Submit your work and receive grades with rubric-based feedback.</div>
+    </div>
+    <div class="feature-card">
+      <div class="fname">SOP Review</div>
+      <div class="fdesc">Submit your Statement of Purpose drafts. Mentors provide written feedback. Track versions over time.</div>
+    </div>
+    <div class="feature-card">
+      <div class="fname">My Files</div>
+      <div class="fdesc">Upload CV, SOP, writing samples, transcripts. Version history keeps track of all revisions.</div>
+    </div>
+    <div class="feature-card">
+      <div class="fname">Rec Letters</div>
+      <div class="fdesc">Track recommendation letter requests. Monitor status from requested to received for each university.</div>
+    </div>
+    <div class="feature-card">
+      <div class="fname">My Papers</div>
+      <div class="fdesc">Log your research papers, publications, and submissions. Track status from draft to published.</div>
+    </div>
+    <div class="feature-card">
+      <div class="fname">Interviews</div>
+      <div class="fdesc">Track interview invitations by university. Log prep notes, practice sessions, and outcomes.</div>
+    </div>
+    <div class="feature-card">
+      <div class="fname">App Kanban</div>
+      <div class="fdesc">Visual kanban board of your applications. Drag between stages: Researching &rarr; Applying &rarr; Applied &rarr; Interview &rarr; Decision.</div>
+    </div>
+    <div class="feature-card">
+      <div class="fname">Doc Checklist</div>
+      <div class="fdesc">9-item checklist of required documents. Track what's ready and what still needs work.</div>
+    </div>
+    <div class="feature-card">
+      <div class="fname">Calendar</div>
+      <div class="fdesc">Monthly view combining sessions, meetings, and university deadlines in one place.</div>
+    </div>
+    <div class="feature-card">
+      <div class="fname">Professor News</div>
+      <div class="fdesc">Latest updates from professors on X/Twitter. Stay informed about faculty moves and research updates.</div>
+    </div>
+    <div class="feature-card">
+      <div class="fname">Leaderboard</div>
+      <div class="fdesc">See how you compare with peers on tasks, attendance, and grades. Opt out if you prefer privacy.</div>
+    </div>
+    <div class="feature-card">
+      <div class="fname">My Payments</div>
+      <div class="fdesc">View your payment plan, submit payment proofs, and track payment status.</div>
+    </div>
+    <div class="feature-card">
+      <div class="fname">My Journal</div>
+      <div class="fdesc">Private journal for reflections, notes, and progress tracking. Only visible to you.</div>
+    </div>
+    <div class="feature-card">
+      <div class="fname">Book a Slot</div>
+      <div class="fdesc">Book 1:1 meetings with mentors during their available time slots.</div>
+    </div>
+    <div class="feature-card">
+      <div class="fname">Resources</div>
+      <div class="fdesc">Curated guides, templates, and reference materials shared by mentors and admin.</div>
+    </div>
+    <div class="feature-card">
+      <div class="fname">My Badges</div>
+      <div class="fdesc">Achievement badges earned automatically: Early Bird, Task Master, Paper Author, and more.</div>
+    </div>
+  </div>
+
+  <div class="info-box blue">
+    <strong>Global Search (Ctrl+K):</strong> Press Ctrl+K (or Cmd+K on Mac) anywhere on the dashboard to quickly search across professors, universities, labs, news, and more.
+  </div>
+</div>
+
+<!-- 4. Weekly Expectations -->
+<div class="section">
+  <h2>4. Weekly Expectations</h2>
+  <table>
+    <thead>
+      <tr><th>Activity</th><th>Frequency</th><th>Details</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Live Sessions</td><td>Weekly / Bi-weekly</td><td>Attend via Google Meet. Topics rotate: outreach, SOP, interviews, Q&A</td></tr>
+      <tr><td>Task Submissions</td><td>As assigned</td><td>Complete before deadline. Graded with rubric feedback.</td></tr>
+      <tr><td>Dashboard Updates</td><td>Weekly</td><td>Update your university tracker, professor outreach status, and document progress</td></tr>
+      <tr><td>Professor Outreach</td><td>2&ndash;3 emails/week</td><td>Start in August. Track all emails on the dashboard.</td></tr>
+      <tr><td>SOP Revision</td><td>Bi-weekly</td><td>Submit drafts for review. Incorporate feedback promptly.</td></tr>
+      <tr><td>Discord Participation</td><td>Daily/As needed</td><td>Ask questions, share resources, help peers</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- 5. Key Deadlines -->
+<div class="section">
+  <h2>5. Key Milestones & Deadlines</h2>
+  <table>
+    <thead>
+      <tr><th>Date</th><th>Milestone</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>July 1, 2026</td><td>Payment due date</td></tr>
+      <tr><td>July 15</td><td>Profile 100% complete, CV uploaded, university research started</td></tr>
+      <tr><td>July 31</td><td>PhD Openings reviewed, 15&ndash;20 universities shortlisted</td></tr>
+      <tr><td>August 15</td><td>University shortlist finalized (8&ndash;12), professor research started</td></tr>
+      <tr><td>August 31</td><td>First professor outreach emails sent, SOP first draft submitted</td></tr>
+      <tr><td>September 15</td><td>Recommendation letters requested from all recommenders</td></tr>
+      <tr><td>September 30</td><td>SOP second draft reviewed, writing samples uploaded</td></tr>
+      <tr><td>October 15</td><td>Early applications submitted</td></tr>
+      <tr><td>October 31</td><td>Interview prep complete, majority of applications submitted</td></tr>
+      <tr><td>November 30</td><td>All applications submitted before December deadlines</td></tr>
+    </tbody>
+  </table>
+
+  <div class="info-box amber">
+    <strong>Deadline Alerts:</strong> The dashboard automatically sends you email reminders at 30, 14, and 7 days before your university deadlines. You'll also get a weekly progress digest every Sunday at 8 PM BDT.
+  </div>
+</div>
+
+<!-- 6. Payment Info -->
+<div class="section">
+  <h2>6. Payment Information</h2>
+  <table>
+    <thead>
+      <tr><th>Plan</th><th>Amount</th><th>Scholarship</th><th>You Pay</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>One-time Payment</td><td>15,000 BDT</td><td>1,000 BDT off (if eligible)</td><td>14,000 BDT</td></tr>
+      <tr><td>Monthly (5 installments)</td><td>20,000 BDT total</td><td>2,500 BDT off (if eligible)</td><td>17,500 BDT (3,500 x 5)</td></tr>
+    </tbody>
+  </table>
+  <p><strong>Due Date:</strong> July 1, 2026</p>
+  <p>Submit your payment proof through the <strong>My Payments</strong> section on the dashboard. Upload a screenshot/PDF of your transaction. Admin will verify and confirm within 24&ndash;48 hours.</p>
+</div>
+
+<!-- 7. How to Get Help -->
+<div class="section">
+  <h2>7. How to Get Help</h2>
+  <ul>
+    <li><strong>Discord:</strong> Post questions in the relevant channel. Mentors and peers are active daily.</li>
+    <li><strong>Book a 1:1:</strong> Use the "Book a Slot" feature on the dashboard to schedule time with a mentor.</li>
+    <li><strong>Live Sessions:</strong> Bring your questions to the weekly sessions.</li>
+    <li><strong>Dashboard Journal:</strong> Use your private journal to track thoughts, and share concerns during mentor check-ins.</li>
+    <li><strong>Announcements:</strong> Check the dashboard Overview page regularly for important updates.</li>
+  </ul>
+</div>
+
+<!-- 8. Tips for Success -->
+<div class="section">
+  <h2>8. Tips for Success</h2>
+  <ol>
+    <li><strong>Start early.</strong> Don't wait until October to begin your SOP or professor outreach.</li>
+    <li><strong>Use the dashboard daily.</strong> Update your trackers, check tasks, and stay on top of deadlines.</li>
+    <li><strong>Apply broadly but strategically.</strong> 8&ndash;12 universities is the sweet spot. Mix reach, match, and safety schools.</li>
+    <li><strong>Personalize every email.</strong> Generic emails to professors get ignored. Reference their specific papers.</li>
+    <li><strong>Get feedback early and often.</strong> Submit SOP drafts as soon as possible. Iteration is key.</li>
+    <li><strong>Track everything.</strong> Every email sent, every deadline, every document &mdash; log it on the dashboard.</li>
+    <li><strong>Help your peers.</strong> Share useful resources on Discord. Teaching others reinforces your own understanding.</li>
+    <li><strong>Don't skip sessions.</strong> Attendance matters, and you'll miss critical tips and strategies.</li>
+  </ol>
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  <p><strong>NextPhD Bangladesh</strong> &mdash; Cohort 01 &mdash; ELITE Research Lab</p>
+  <p>Dashboard: <a href="https://nextphd.elitelab.ai">nextphd.elitelab.ai</a></p>
+  <p>Program Lead: Md Kishor Morol</p>
+  <p style="margin-top: 8px; color: #aaa;">Last updated: June 25, 2026</p>
+</div>
+
+</div>
+</body>
+</html>

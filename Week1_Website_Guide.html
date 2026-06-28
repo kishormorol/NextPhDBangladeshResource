@@ -1,0 +1,1691 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Week 1: Personal Academic Website — Step-by-Step Guide | NextPhD Bangladesh</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --green: #1a5632;
+      --green-light: #e8f2ed;
+      --green-mid: #2d7a4e;
+      --text: #1c1c1c;
+      --text-muted: #555;
+      --border: #d0ddd6;
+      --white: #ffffff;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      line-height: 1.6;
+      color: var(--text);
+      background: #f4f6f4;
+    }
+
+    .page {
+      max-width: 800px;
+      margin: 2rem auto;
+      background: var(--white);
+      padding: 48px 56px;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+    }
+
+    /* ── Header ── */
+    .header {
+      border-bottom: 3px solid var(--green);
+      padding-bottom: 20px;
+      margin-bottom: 32px;
+    }
+
+    .header-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .header-logo-block {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo-badge {
+      width: 44px;
+      height: 44px;
+      background: var(--green);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .logo-badge svg {
+      width: 24px;
+      height: 24px;
+      fill: white;
+    }
+
+    .org-name {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--green);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .cohort-tag {
+      font-size: 11px;
+      color: var(--text-muted);
+      font-weight: 400;
+    }
+
+    .header-date {
+      text-align: right;
+      font-size: 12px;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    .header-date strong {
+      display: block;
+      color: var(--green);
+      font-weight: 600;
+    }
+
+    .header-title {
+      margin-top: 16px;
+    }
+
+    .week-label {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--green-mid);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    .session-title {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--green);
+      line-height: 1.3;
+    }
+
+    /* ── Sections ── */
+    .section {
+      margin-bottom: 32px;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+
+    .section-number {
+      width: 26px;
+      height: 26px;
+      background: var(--green);
+      color: white;
+      border-radius: 50%;
+      font-size: 12px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .section-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--green);
+      letter-spacing: 0.01em;
+    }
+
+    /* ── Bullet list ── */
+    .bullet-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .bullet-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      font-size: 13px;
+      color: var(--text);
+      padding: 2px 0;
+    }
+
+    .bullet-dot {
+      width: 6px;
+      height: 6px;
+      background: var(--green);
+      border-radius: 50%;
+      flex-shrink: 0;
+      margin-top: 7px;
+    }
+
+    /* ── Table ── */
+    .resource-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+
+    .resource-table th {
+      background: var(--green);
+      color: white;
+      padding: 9px 12px;
+      text-align: left;
+      font-weight: 600;
+      font-size: 12px;
+      letter-spacing: 0.03em;
+    }
+
+    .resource-table th:first-child { border-radius: 6px 0 0 0; }
+    .resource-table th:last-child  { border-radius: 0 6px 0 0; }
+
+    .resource-table td {
+      padding: 8px 12px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+
+    .resource-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .resource-table tr:nth-child(even) td {
+      background: var(--green-light);
+    }
+
+    .resource-table a {
+      color: var(--green-mid);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .table-wrap {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    /* ── Option section header (A, B, C, D) ── */
+    .option-heading {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .option-badge {
+      background: var(--green);
+      color: white;
+      font-size: 13px;
+      font-weight: 700;
+      padding: 4px 12px;
+      border-radius: 20px;
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .option-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    /* ── Steps ── */
+    .steps {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .step {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+    }
+
+    .step-num {
+      width: 28px;
+      height: 28px;
+      background: var(--green);
+      color: white;
+      border-radius: 50%;
+      font-size: 12px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .step-content {
+      flex: 1;
+    }
+
+    .step-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+
+    .step-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+      margin-bottom: 6px;
+    }
+
+    .step-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      font-size: 12.5px;
+      color: var(--text-muted);
+    }
+
+    .step-tip {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--green-mid);
+      background: var(--green-light);
+      padding: 3px 8px;
+      border-radius: 4px;
+      margin-top: 4px;
+    }
+
+    /* ── Code blocks ── */
+    code {
+      font-family: 'Courier New', Courier, monospace;
+      background: var(--green-light);
+      color: var(--green);
+      padding: 1px 5px;
+      border-radius: 3px;
+      font-size: 11.5px;
+    }
+
+    .code-block {
+      background: #f4f6f4;
+      border-left: 3px solid var(--green);
+      border-radius: 0 4px 4px 0;
+      padding: 10px 14px;
+      margin-top: 8px;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 11.5px;
+      color: var(--text);
+      line-height: 1.8;
+      white-space: pre;
+      overflow-x: auto;
+    }
+
+    .code-block .key { color: var(--green); font-weight: 600; }
+    .code-block .val { color: #555; }
+    .code-block .comment { color: #888; font-style: italic; }
+
+    /* ── Info/Recommendation box ── */
+    .info-box {
+      padding: 14px 16px;
+      background: var(--green-light);
+      border-radius: 6px;
+      border-left: 3px solid var(--green);
+      font-size: 13px;
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .info-box strong {
+      color: var(--green);
+    }
+
+    /* ── Checklist ── */
+    .checklist {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .checklist li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 7px 12px;
+      border-radius: 6px;
+      background: var(--green-light);
+      font-size: 13px;
+    }
+
+    .checklist li:nth-child(even) {
+      background: #f0f7f3;
+    }
+
+    .checkbox {
+      width: 16px;
+      height: 16px;
+      border: 2px solid var(--green);
+      border-radius: 3px;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    /* ── Troubleshooting ── */
+    .trouble-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .trouble-item {
+      padding: 12px 14px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      font-size: 13px;
+    }
+
+    .trouble-item:nth-child(odd) {
+      background: var(--green-light);
+      border-color: transparent;
+    }
+
+    .trouble-problem {
+      font-weight: 700;
+      color: var(--green);
+      margin-bottom: 4px;
+    }
+
+    .trouble-solution {
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* ── Footer ── */
+    .footer {
+      border-top: 2px solid var(--green);
+      padding-top: 16px;
+      margin-top: 36px;
+    }
+
+    .footer-main {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .footer-left {
+      font-size: 11px;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    .footer-left strong {
+      color: var(--green);
+      font-size: 12px;
+    }
+
+    .footer-right {
+      font-size: 11px;
+      color: var(--text-muted);
+      text-align: right;
+      line-height: 1.6;
+      font-style: italic;
+    }
+
+    .footer-links {
+      font-size: 11px;
+      color: var(--text-muted);
+      padding-top: 10px;
+      border-top: 1px solid var(--border);
+      line-height: 1.8;
+    }
+
+    .footer-links a {
+      color: var(--green-mid);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    /* ── Divider ── */
+    .divider {
+      height: 1px;
+      background: var(--border);
+      margin: 28px 0;
+    }
+
+    /* ── Sub-section label (for advanced) ── */
+    .sub-heading {
+      font-size: 12.5px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 6px;
+      margin-top: 14px;
+    }
+
+    /* ── GitHub UI Mockups ── */
+    .gh-mock {
+      border: 1px solid #d0d7de;
+      border-radius: 8px;
+      overflow: hidden;
+      margin: 12px 0 6px;
+      font-size: 12px;
+      background: #ffffff;
+    }
+
+    .gh-titlebar {
+      background: #24292f;
+      color: #fff;
+      padding: 8px 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+    }
+
+    .gh-titlebar .gh-dot {
+      width: 10px; height: 10px; border-radius: 50%; display: inline-block;
+    }
+
+    .gh-titlebar .gh-dot.r { background: #ff5f57; }
+    .gh-titlebar .gh-dot.y { background: #febc2e; }
+    .gh-titlebar .gh-dot.g { background: #28c840; }
+
+    .gh-titlebar .gh-url {
+      flex: 1;
+      background: #3a3f47;
+      border-radius: 4px;
+      padding: 4px 10px;
+      font-size: 11px;
+      color: #9ca3af;
+      margin-left: 8px;
+    }
+
+    .gh-header {
+      background: #f6f8fa;
+      border-bottom: 1px solid #d0d7de;
+      padding: 12px 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .gh-header .gh-icon {
+      width: 20px; height: 20px; background: #24292f; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      color: white; font-size: 10px; font-weight: 700; flex-shrink: 0;
+    }
+
+    .gh-header .gh-repo-name {
+      font-weight: 600; color: #0969da; font-size: 13px;
+    }
+
+    .gh-header .gh-repo-sep {
+      color: #656d76; font-size: 13px;
+    }
+
+    .gh-body {
+      padding: 16px;
+    }
+
+    .gh-tabs {
+      display: flex;
+      gap: 0;
+      border-bottom: 1px solid #d0d7de;
+      background: #f6f8fa;
+      padding: 0 16px;
+    }
+
+    .gh-tab {
+      padding: 8px 14px;
+      font-size: 11.5px;
+      color: #656d76;
+      border-bottom: 2px solid transparent;
+      font-weight: 500;
+    }
+
+    .gh-tab.active {
+      color: #24292f;
+      border-bottom-color: #fd8c73;
+      font-weight: 600;
+    }
+
+    .gh-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 5px 12px;
+      border-radius: 6px;
+      font-size: 11.5px;
+      font-weight: 600;
+      border: 1px solid rgba(27,31,36,0.15);
+      cursor: default;
+    }
+
+    .gh-btn.green {
+      background: #2da44e;
+      color: white;
+      border-color: rgba(27,31,36,0.15);
+    }
+
+    .gh-btn.outline {
+      background: #f6f8fa;
+      color: #24292f;
+    }
+
+    .gh-input {
+      border: 1px solid #d0d7de;
+      border-radius: 6px;
+      padding: 5px 10px;
+      font-size: 12px;
+      background: #f6f8fa;
+      color: #24292f;
+      font-family: 'Courier New', monospace;
+      width: 100%;
+      max-width: 320px;
+    }
+
+    .gh-label {
+      font-size: 12px;
+      font-weight: 600;
+      color: #24292f;
+      margin-bottom: 4px;
+    }
+
+    .gh-hint {
+      font-size: 11px;
+      color: #656d76;
+      margin-top: 2px;
+    }
+
+    .gh-file-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 0;
+      border-bottom: 1px solid #eaeef2;
+      font-size: 12px;
+      color: #24292f;
+    }
+
+    .gh-file-icon {
+      color: #54aeff;
+      font-size: 13px;
+      width: 18px;
+      text-align: center;
+      flex-shrink: 0;
+    }
+
+    .gh-file-name {
+      color: #0969da;
+      font-weight: 400;
+    }
+
+    .gh-banner {
+      background: #ddf4ff;
+      border: 1px solid #54aeff;
+      border-radius: 6px;
+      padding: 10px 14px;
+      font-size: 12px;
+      color: #24292f;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin: 8px 0;
+    }
+
+    .gh-banner.success {
+      background: #dcffe4;
+      border-color: #2da44e;
+    }
+
+    .gh-select {
+      border: 1px solid #d0d7de;
+      border-radius: 6px;
+      padding: 4px 24px 4px 8px;
+      font-size: 12px;
+      background: #f6f8fa;
+      color: #24292f;
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg width='10' height='6' viewBox='0 0 10 6' fill='%23656d76' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1l4 4 4-4'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 8px center;
+    }
+
+    .gh-arrow-label {
+      display: inline-block;
+      background: #fff3cd;
+      border: 1px solid #f9c513;
+      color: #6a5000;
+      font-size: 10px;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 4px;
+      position: relative;
+    }
+
+    .gh-pencil {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      background: #f6f8fa;
+      border: 1px solid #d0d7de;
+      border-radius: 6px;
+      padding: 3px 8px;
+      font-size: 11px;
+      color: #24292f;
+    }
+
+    .gh-mock-caption {
+      font-size: 11px;
+      color: var(--green-mid);
+      font-weight: 600;
+      font-style: italic;
+      margin-top: 2px;
+      margin-bottom: 8px;
+      text-align: center;
+    }
+
+    @media print {
+      .gh-mock {
+        border: 1px solid #ccc !important;
+        page-break-inside: avoid;
+      }
+      .gh-titlebar {
+        background: #333 !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+      .gh-btn.green {
+        background: #2da44e !important;
+        color: white !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+      .gh-tab.active {
+        border-bottom-color: #fd8c73 !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+      .gh-banner.success {
+        background: #dcffe4 !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+    }
+
+    /* ── Print styles ── */
+    @media print {
+      @page {
+        size: A4;
+        margin: 14mm 16mm;
+      }
+
+      body {
+        background: white;
+        font-size: 11.5px;
+      }
+
+      .page {
+        max-width: 100%;
+        margin: 0;
+        padding: 0;
+        box-shadow: none;
+      }
+
+      .section {
+        page-break-inside: avoid;
+        margin-bottom: 20px;
+      }
+
+      .step {
+        page-break-inside: avoid;
+      }
+
+      .trouble-item {
+        page-break-inside: avoid;
+      }
+
+      .header {
+        margin-bottom: 20px;
+      }
+
+      .session-title {
+        font-size: 18px;
+      }
+
+      .code-block {
+        background: #f9f9f9 !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      .info-box {
+        background: #f0f7f3 !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      .checklist li {
+        background: transparent !important;
+        border: 1px solid #ccc;
+        margin-bottom: 2px;
+      }
+
+      .resource-table tr:nth-child(even) td {
+        background: #f9f9f9 !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      .resource-table th {
+        background: #1a5632 !important;
+        color: white !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      .section-number,
+      .step-num {
+        background: #1a5632 !important;
+        color: white !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      .option-badge {
+        background: #1a5632 !important;
+        color: white !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      .logo-badge {
+        background: #1a5632 !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      .trouble-item:nth-child(odd) {
+        background: #f0f7f3 !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      a {
+        color: #1a5632 !important;
+        text-decoration: none;
+      }
+
+      .divider {
+        margin: 16px 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+
+    <!-- ── HEADER ── -->
+    <header class="header">
+      <div class="header-top">
+        <div class="header-logo-block">
+          <div class="logo-badge">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zM5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z"/>
+            </svg>
+          </div>
+          <div>
+            <div class="org-name">NextPhD Bangladesh</div>
+            <div class="cohort-tag">Cohort 01 · ELITE Research Lab</div>
+          </div>
+        </div>
+        <div class="header-date">
+          <strong>June 28, 2026</strong>
+          Week 1 Session<br>
+          Step-by-Step Guide
+        </div>
+      </div>
+      <div class="header-title">
+        <div class="week-label">Week 1</div>
+        <div class="session-title">Personal Academic Website — Step-by-Step Guide</div>
+      </div>
+    </header>
+
+    <!-- ── SECTION 1: Why You Need an Academic Website ── -->
+    <section class="section">
+      <div class="section-header">
+        <div class="section-number">1</div>
+        <div class="section-title">Why You Need an Academic Website</div>
+      </div>
+      <ul class="bullet-list">
+        <li>
+          <div class="bullet-dot"></div>
+          <span>Professors <strong>Google your name before replying to emails</strong> — control what they find.</span>
+        </li>
+        <li>
+          <div class="bullet-dot"></div>
+          <span>A central hub for your <strong>CV, publications, research interests, and contact info</strong>.</span>
+        </li>
+        <li>
+          <div class="bullet-dot"></div>
+          <span>Shows <strong>technical competence and professional branding</strong> — gives you an edge over other applicants.</span>
+        </li>
+        <li>
+          <div class="bullet-dot"></div>
+          <span>Most PhD applicants from Bangladesh don't have one — <strong>you will stand out</strong>.</span>
+        </li>
+      </ul>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- ── SECTION 2: Choose Your Template ── -->
+    <section class="section">
+      <div class="section-header">
+        <div class="section-number">2</div>
+        <div class="section-title">Choose Your Template</div>
+      </div>
+
+      <div class="table-wrap" style="margin-bottom:14px;">
+        <table class="resource-table">
+          <thead>
+            <tr>
+              <th>Template</th>
+              <th>Tech Stack</th>
+              <th>Difficulty</th>
+              <th>Best For</th>
+              <th>Demo</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Academic Pages</strong></td>
+              <td>Jekyll (Ruby)</td>
+              <td>Easy</td>
+              <td>Beginners, no coding needed</td>
+              <td><a href="https://academicpages.github.io" target="_blank">academicpages.github.io</a></td>
+            </tr>
+            <tr>
+              <td><strong>Hugo Academic CV</strong></td>
+              <td>Hugo (Go)</td>
+              <td>Medium</td>
+              <td>BibTeX users, Jupyter notebooks</td>
+              <td><a href="https://hugoblox.com" target="_blank">hugoblox.com</a></td>
+            </tr>
+            <tr>
+              <td><strong>Minimal Academic Website</strong></td>
+              <td>Plain HTML/CSS/JS</td>
+              <td>Easiest</td>
+              <td>Quick setup, full control</td>
+              <td><a href="https://cs.stanford.edu/~yuhuiz/" target="_blank">cs.stanford.edu/~yuhuiz/</a></td>
+            </tr>
+            <tr>
+              <td><strong>Luo's Academic Homepage</strong></td>
+              <td>Jekyll</td>
+              <td>Easy–Medium</td>
+              <td>Clean design, publication showcase</td>
+              <td><a href="https://luost.me/academic-homepage/" target="_blank">luost.me/academic-homepage/</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="info-box">
+        <strong>Recommendation:</strong> We recommend starting with <strong>Academic Pages</strong> or <strong>Minimal Academic Website</strong>. Both are free, easy to set up, and widely used by PhD students worldwide.
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- ── SECTION 3: Option A — Academic Pages ── -->
+    <section class="section">
+      <div class="section-header">
+        <div class="section-number">3</div>
+        <div class="section-title">Option A — Academic Pages (Recommended)</div>
+      </div>
+
+      <div class="steps">
+
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-content">
+            <div class="step-title">Create a GitHub Account</div>
+            <ul class="step-list">
+              <li><div class="bullet-dot"></div><span>Go to <strong>github.com</strong> and click "Sign up".</span></li>
+              <li><div class="bullet-dot"></div><span>Choose a professional username (e.g., <code>firstname-lastname</code> or <code>firstnamelastname</code>).</span></li>
+              <li><div class="bullet-dot"></div><span>Verify your email address.</span></li>
+            </ul>
+            <div class="step-tip">Tip: Your username will be part of your website URL — choose carefully.</div>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-content">
+            <div class="step-title">Fork the Template</div>
+            <ul class="step-list">
+              <li><div class="bullet-dot"></div><span>Go to: <a href="https://github.com/academicpages/academicpages.github.io" target="_blank" style="color:var(--green-mid);font-weight:500;">github.com/academicpages/academicpages.github.io</a></span></li>
+              <li><div class="bullet-dot"></div><span>Click the green <strong>"Use this template"</strong> button (top right) → "Create a new repository".</span></li>
+              <li><div class="bullet-dot"></div><span>Name your repository exactly: <code>yourusername.github.io</code> (replace with your actual GitHub username).</span></li>
+              <li><div class="bullet-dot"></div><span>Set visibility to <strong>"Public"</strong>.</span></li>
+              <li><div class="bullet-dot"></div><span>Click <strong>"Create repository"</strong>.</span></li>
+            </ul>
+
+            <!-- Mockup: Use this template -->
+            <div class="gh-mock">
+              <div class="gh-titlebar">
+                <span class="gh-dot r"></span><span class="gh-dot y"></span><span class="gh-dot g"></span>
+                <div class="gh-url">github.com/academicpages/academicpages.github.io</div>
+              </div>
+              <div class="gh-header">
+                <div class="gh-icon">A</div>
+                <span class="gh-repo-sep">academicpages /</span>
+                <span class="gh-repo-name">academicpages.github.io</span>
+                <span style="flex:1;"></span>
+                <span class="gh-btn green">Use this template &#9662;</span>
+              </div>
+              <div class="gh-body" style="background:#f6f8fa; border-top:1px solid #d0d7de;">
+                <div style="background:white; border:1px solid #d0d7de; border-radius:8px; padding:16px; max-width:400px;">
+                  <div class="gh-label">Repository name <span style="color:#cf222e;">*</span></div>
+                  <div class="gh-input" style="margin:6px 0; display:inline-block;">yourusername.github.io</div>
+                  <div class="gh-hint">Great name — this will be your website URL!</div>
+                  <div style="margin-top:12px; display:flex; gap:12px; align-items:center;">
+                    <label style="font-size:11.5px; display:flex; align-items:center; gap:4px; color:#24292f;">
+                      <span style="width:14px;height:14px;border:2px solid #2da44e;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;background:#2da44e;">
+                        <span style="color:white;font-size:9px;">&#10003;</span>
+                      </span>
+                      Public
+                    </label>
+                    <label style="font-size:11.5px; display:flex; align-items:center; gap:4px; color:#656d76;">
+                      <span style="width:14px;height:14px;border:2px solid #d0d7de;border-radius:50%;display:inline-block;"></span>
+                      Private
+                    </label>
+                  </div>
+                  <div style="margin-top:14px;">
+                    <span class="gh-btn green">Create repository</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="gh-mock-caption">What you'll see: "Use this template" &rarr; Name it yourusername.github.io &rarr; Create</div>
+
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-content">
+            <div class="step-title">Enable GitHub Pages</div>
+            <ul class="step-list">
+              <li><div class="bullet-dot"></div><span>Go to your new repository's <strong>Settings</strong> tab.</span></li>
+              <li><div class="bullet-dot"></div><span>In the left sidebar, click <strong>"Pages"</strong>.</span></li>
+              <li><div class="bullet-dot"></div><span>Under "Source", select <strong>"Deploy from a branch"</strong>.</span></li>
+              <li><div class="bullet-dot"></div><span>Branch: select <code>main</code>, folder: <code>/ (root)</code>.</span></li>
+              <li><div class="bullet-dot"></div><span>Click <strong>"Save"</strong>.</span></li>
+              <li><div class="bullet-dot"></div><span>Wait 2–3 minutes, then visit <code>https://yourusername.github.io</code>.</span></li>
+            </ul>
+
+            <!-- Mockup: GitHub Pages settings -->
+            <div class="gh-mock">
+              <div class="gh-titlebar">
+                <span class="gh-dot r"></span><span class="gh-dot y"></span><span class="gh-dot g"></span>
+                <div class="gh-url">github.com/yourusername/yourusername.github.io/settings/pages</div>
+              </div>
+              <div class="gh-tabs">
+                <span class="gh-tab">General</span>
+                <span class="gh-tab">Collaborators</span>
+                <span class="gh-tab">Branches</span>
+                <span class="gh-tab active">Pages</span>
+                <span class="gh-tab">Environments</span>
+              </div>
+              <div class="gh-body">
+                <div style="font-weight:700; font-size:16px; color:#24292f; margin-bottom:12px;">GitHub Pages</div>
+                <div class="gh-banner success">
+                  &#10003; &nbsp;Your site is live at <strong style="color:#0969da;">https://yourusername.github.io</strong>
+                </div>
+                <div style="margin-top:16px;">
+                  <div class="gh-label">Source</div>
+                  <div class="gh-hint" style="margin-bottom:6px;">Your GitHub Pages site is currently being built from the <code>main</code> branch.</div>
+                  <div style="display:flex; gap:10px; align-items:center; margin-top:6px;">
+                    <span class="gh-label" style="margin:0; font-weight:400;">Branch:</span>
+                    <span class="gh-select">main</span>
+                    <span class="gh-select">/ (root)</span>
+                    <span class="gh-btn green" style="padding:4px 10px;">Save</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="gh-mock-caption">Settings &rarr; Pages: Select "main" branch, click Save. Green banner = your site is live!</div>
+
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num">4</div>
+          <div class="step-content">
+            <div class="step-title">Edit _config.yml (Site Settings)</div>
+            <ul class="step-list">
+              <li><div class="bullet-dot"></div><span>In your repository, click on the file <code>_config.yml</code>.</span></li>
+              <li><div class="bullet-dot"></div><span>Click the pencil icon (Edit this file) and update these fields:</span></li>
+            </ul>
+            <div class="code-block"><span class="key">title:</span> <span class="val">"Your Full Name"</span>
+<span class="key">name:</span> <span class="val">"Your Full Name"</span>
+<span class="key">description:</span> <span class="val">"PhD Applicant | Computer Science | Your University"</span>
+<span class="key">url:</span> <span class="val">"https://yourusername.github.io"</span>
+<span class="key">repository:</span> <span class="val">"yourusername/yourusername.github.io"</span></div>
+            <ul class="step-list" style="margin-top:8px;">
+              <li><div class="bullet-dot"></div><span>Under <code>author:</code>, update:</span></li>
+            </ul>
+            <div class="code-block"><span class="key">name:</span> <span class="val">"Your Full Name"</span>
+<span class="key">bio:</span> <span class="val">"PhD applicant interested in [your field]"</span>
+<span class="key">location:</span> <span class="val">"Dhaka, Bangladesh"</span>
+<span class="key">employer:</span> <span class="val">"Your University"</span>
+<span class="key">email:</span> <span class="val">"your.email@example.com"</span>
+<span class="key">googlescholar:</span> <span class="val">"https://scholar.google.com/citations?user=YOURID"</span>
+<span class="key">orcid:</span> <span class="val">"https://orcid.org/YOUR-ORCID"</span>
+<span class="key">linkedin:</span> <span class="val">"your-linkedin-username"</span>
+<span class="key">github:</span> <span class="val">"yourusername"</span></div>
+            <ul class="step-list" style="margin-top:8px;">
+              <li><div class="bullet-dot"></div><span>Click <strong>"Commit changes"</strong> at the bottom.</span></li>
+            </ul>
+
+            <!-- Mockup: Editing _config.yml -->
+            <div class="gh-mock">
+              <div class="gh-titlebar">
+                <span class="gh-dot r"></span><span class="gh-dot y"></span><span class="gh-dot g"></span>
+                <div class="gh-url">github.com/yourusername/yourusername.github.io/edit/main/_config.yml</div>
+              </div>
+              <div class="gh-header" style="justify-content:space-between;">
+                <div style="display:flex; align-items:center; gap:6px;">
+                  <span style="color:#656d76; font-size:12px;">yourusername.github.io</span>
+                  <span style="color:#656d76;">/</span>
+                  <span style="color:#0969da; font-weight:600; font-size:12px;">_config.yml</span>
+                </div>
+                <div class="gh-pencil">&#9998; Edit</div>
+              </div>
+              <div class="gh-body" style="padding:0;">
+                <div style="font-family:'Courier New',monospace; font-size:11.5px; line-height:1.9; padding:12px 16px; background:#f6f8fa; border-top:1px solid #d0d7de;">
+                  <div><span style="color:#656d76;">1</span>&nbsp;&nbsp; <span style="color:#0550ae;">title:</span> <span style="color:#0a3069;">"Fatima Rahman"</span></div>
+                  <div><span style="color:#656d76;">2</span>&nbsp;&nbsp; <span style="color:#0550ae;">name:</span> <span style="color:#0a3069;">"Fatima Rahman"</span></div>
+                  <div><span style="color:#656d76;">3</span>&nbsp;&nbsp; <span style="color:#0550ae;">description:</span> <span style="color:#0a3069;">"PhD Applicant | NLP | University of Dhaka"</span></div>
+                  <div><span style="color:#656d76;">4</span>&nbsp;&nbsp; <span style="color:#0550ae;">url:</span> <span style="color:#0a3069;">"https://fatimarahman.github.io"</span></div>
+                  <div><span style="color:#656d76;">5</span>&nbsp;&nbsp;</div>
+                  <div><span style="color:#656d76;">6</span>&nbsp;&nbsp; <span style="color:#6e7781;"># Author info</span></div>
+                  <div><span style="color:#656d76;">7</span>&nbsp;&nbsp; <span style="color:#0550ae;">author:</span></div>
+                  <div><span style="color:#656d76;">8</span>&nbsp;&nbsp;&nbsp;&nbsp; <span style="color:#0550ae;">name:</span> <span style="color:#0a3069;">"Fatima Rahman"</span></div>
+                  <div><span style="color:#656d76;">9</span>&nbsp;&nbsp;&nbsp;&nbsp; <span style="color:#0550ae;">bio:</span> <span style="color:#0a3069;">"Researcher in NLP and Machine Learning"</span></div>
+                  <div><span style="color:#656d76;">10</span>&nbsp; &nbsp;&nbsp;<span style="color:#0550ae;">location:</span> <span style="color:#0a3069;">"Dhaka, Bangladesh"</span></div>
+                  <div><span style="color:#656d76;">11</span>&nbsp; &nbsp;&nbsp;<span style="color:#0550ae;">email:</span> <span style="color:#0a3069;">"fatima@example.com"</span></div>
+                </div>
+                <div style="background:#f6f8fa; border-top:1px solid #d0d7de; padding:10px 16px; display:flex; justify-content:flex-end;">
+                  <span class="gh-btn green">Commit changes...</span>
+                </div>
+              </div>
+            </div>
+            <div class="gh-mock-caption">Click the pencil icon to edit &rarr; Update your details &rarr; Commit changes</div>
+
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num">5</div>
+          <div class="step-content">
+            <div class="step-title">Update Your About Page</div>
+            <ul class="step-list">
+              <li><div class="bullet-dot"></div><span>Navigate to <code>_pages/about.md</code> in your repository.</span></li>
+              <li><div class="bullet-dot"></div><span>Click the pencil icon to edit.</span></li>
+              <li><div class="bullet-dot"></div><span>Write your bio (2–3 paragraphs):</span></li>
+            </ul>
+            <ul class="step-list" style="padding-left:12px; margin-top:4px;">
+              <li><div class="bullet-dot"></div><span><strong>Paragraph 1:</strong> Who you are, current position, institution.</span></li>
+              <li><div class="bullet-dot"></div><span><strong>Paragraph 2:</strong> Your research interests and focus areas.</span></li>
+              <li><div class="bullet-dot"></div><span><strong>Paragraph 3:</strong> What you're looking for (PhD position, research opportunities).</span></li>
+            </ul>
+            <div class="code-block"><span class="comment"># Example bio:</span>
+I am a recent graduate from [University] with a [degree] in [field].
+My research focuses on [topic], where I have worked on [brief description].
+
+I am currently seeking PhD positions in [field] starting Fall 2027.
+My research interests include [interest 1], [interest 2], and [interest 3].</div>
+            <ul class="step-list" style="margin-top:8px;">
+              <li><div class="bullet-dot"></div><span>Commit changes.</span></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num">6</div>
+          <div class="step-content">
+            <div class="step-title">Add Your Publications</div>
+            <ul class="step-list">
+              <li><div class="bullet-dot"></div><span>Navigate to the <code>_publications/</code> folder.</span></li>
+              <li><div class="bullet-dot"></div><span>Click <strong>"Add file"</strong> → <strong>"Create new file"</strong>.</span></li>
+              <li><div class="bullet-dot"></div><span>Name it: <code>2024-01-01-your-paper-title.md</code></span></li>
+              <li><div class="bullet-dot"></div><span>Use this format:</span></li>
+            </ul>
+            <div class="code-block">---
+<span class="key">title:</span> <span class="val">"Your Paper Title"</span>
+<span class="key">collection:</span> <span class="val">publications</span>
+<span class="key">permalink:</span> <span class="val">/publication/your-paper-title</span>
+<span class="key">date:</span> <span class="val">2024-01-01</span>
+<span class="key">venue:</span> <span class="val">'Conference or Journal Name'</span>
+<span class="key">paperurl:</span> <span class="val">'https://link-to-paper.com'</span>
+<span class="key">citation:</span> <span class="val">'Your Name, Co-Author. (2024). "Paper Title." Conference Name.'</span>
+---
+Abstract or brief description of your paper goes here.</div>
+            <ul class="step-list" style="margin-top:8px;">
+              <li><div class="bullet-dot"></div><span>Repeat for each publication.</span></li>
+              <li><div class="bullet-dot"></div><span>If no publications yet, skip this or add "in preparation" papers.</span></li>
+            </ul>
+
+            <!-- Mockup: Publications folder -->
+            <div class="gh-mock">
+              <div class="gh-titlebar">
+                <span class="gh-dot r"></span><span class="gh-dot y"></span><span class="gh-dot g"></span>
+                <div class="gh-url">github.com/yourusername/yourusername.github.io/tree/main/_publications</div>
+              </div>
+              <div class="gh-header" style="justify-content:space-between;">
+                <div style="display:flex; align-items:center; gap:6px; font-size:12px;">
+                  <span style="color:#0969da;">yourusername.github.io</span>
+                  <span style="color:#656d76;">/</span>
+                  <span style="color:#24292f; font-weight:600;">_publications</span>
+                </div>
+                <span class="gh-btn outline">Add file &#9662;</span>
+              </div>
+              <div class="gh-body" style="padding:10px 16px;">
+                <div class="gh-file-row">
+                  <span class="gh-file-icon">&#128196;</span>
+                  <span class="gh-file-name">2024-01-15-bangla-ner-transformer.md</span>
+                </div>
+                <div class="gh-file-row">
+                  <span class="gh-file-icon">&#128196;</span>
+                  <span class="gh-file-name">2024-06-01-low-resource-nlp-survey.md</span>
+                </div>
+                <div class="gh-file-row" style="border-bottom:none;">
+                  <span class="gh-file-icon">&#128196;</span>
+                  <span class="gh-file-name" style="color:#656d76; font-style:italic;">2025-01-01-in-preparation-paper.md</span>
+                </div>
+              </div>
+            </div>
+            <div class="gh-mock-caption">One .md file per paper in the _publications/ folder — "in preparation" papers are fine!</div>
+
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num">7</div>
+          <div class="step-content">
+            <div class="step-title">Upload Your CV</div>
+            <ul class="step-list">
+              <li><div class="bullet-dot"></div><span>Navigate to the <code>files/</code> folder in your repository.</span></li>
+              <li><div class="bullet-dot"></div><span>Click <strong>"Add file"</strong> → <strong>"Upload files"</strong>.</span></li>
+              <li><div class="bullet-dot"></div><span>Drag your CV PDF into the upload area — name it something like <code>CV_YourName.pdf</code>.</span></li>
+              <li><div class="bullet-dot"></div><span>Commit the upload.</span></li>
+              <li><div class="bullet-dot"></div><span>Link it from your About page: <code>[Download my CV](/files/CV_YourName.pdf)</code></span></li>
+            </ul>
+
+            <!-- Mockup: Upload files -->
+            <div class="gh-mock">
+              <div class="gh-titlebar">
+                <span class="gh-dot r"></span><span class="gh-dot y"></span><span class="gh-dot g"></span>
+                <div class="gh-url">github.com/yourusername/yourusername.github.io/upload/main/files</div>
+              </div>
+              <div class="gh-body" style="text-align:center; padding:24px;">
+                <div style="border:2px dashed #d0d7de; border-radius:8px; padding:24px; background:#f6f8fa;">
+                  <div style="font-size:24px; margin-bottom:8px; opacity:0.4;">&#128228;</div>
+                  <div style="font-size:13px; color:#24292f; font-weight:600;">Drag files here to add them to your repository</div>
+                  <div style="font-size:12px; color:#656d76; margin-top:4px;">or choose your files</div>
+                  <div style="margin-top:12px; background:#dcffe4; border-radius:6px; padding:8px 12px; display:inline-flex; align-items:center; gap:6px; font-size:12px; color:#1a7f37;">
+                    &#128196; CV_Fatima_Rahman.pdf <span style="opacity:0.6;">(342 KB)</span>
+                  </div>
+                </div>
+                <div style="margin-top:14px;">
+                  <span class="gh-btn green">Commit changes</span>
+                </div>
+              </div>
+            </div>
+            <div class="gh-mock-caption">Navigate to files/ folder &rarr; "Add file" &rarr; "Upload files" &rarr; Drag your CV PDF</div>
+
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num">8</div>
+          <div class="step-content">
+            <div class="step-title">Update Navigation</div>
+            <ul class="step-list">
+              <li><div class="bullet-dot"></div><span>Edit <code>_data/navigation.yml</code>.</span></li>
+              <li><div class="bullet-dot"></div><span>The default menu items work well for most users:</span></li>
+            </ul>
+            <div class="code-block"><span class="key">main:</span>
+  - <span class="key">title:</span> <span class="val">"Publications"</span>
+    <span class="key">url:</span> <span class="val">/publications/</span>
+  - <span class="key">title:</span> <span class="val">"Talks"</span>
+    <span class="key">url:</span> <span class="val">/talks/</span>
+  - <span class="key">title:</span> <span class="val">"Teaching"</span>
+    <span class="key">url:</span> <span class="val">/teaching/</span>
+  - <span class="key">title:</span> <span class="val">"CV"</span>
+    <span class="key">url:</span> <span class="val">/cv/</span>
+  - <span class="key">title:</span> <span class="val">"Blog"</span>
+    <span class="key">url:</span> <span class="val">/year-archive/</span></div>
+            <ul class="step-list" style="margin-top:8px;">
+              <li><div class="bullet-dot"></div><span>Remove sections you don't need (e.g., Talks, Blog if not using them).</span></li>
+              <li><div class="bullet-dot"></div><span>Commit changes.</span></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num">9</div>
+          <div class="step-content">
+            <div class="step-title">Add a Profile Photo</div>
+            <ul class="step-list">
+              <li><div class="bullet-dot"></div><span>Navigate to the <code>images/</code> folder.</span></li>
+              <li><div class="bullet-dot"></div><span>Upload a professional headshot (JPEG or PNG, square aspect ratio recommended).</span></li>
+              <li><div class="bullet-dot"></div><span>Update <code>_config.yml</code> → <code>author:</code> → <code>avatar:</code> to point to your image filename.</span></li>
+              <li><div class="bullet-dot"></div><span>Commit changes.</span></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num">10</div>
+          <div class="step-content">
+            <div class="step-title">Verify &amp; Polish</div>
+            <ul class="step-list">
+              <li><div class="bullet-dot"></div><span>Visit <code>https://yourusername.github.io</code></span></li>
+              <li><div class="bullet-dot"></div><span>Check all pages load correctly.</span></li>
+              <li><div class="bullet-dot"></div><span>Test on mobile (resize browser or use your phone).</span></li>
+              <li><div class="bullet-dot"></div><span>Verify all links work — CV download, publication links, social links.</span></li>
+              <li><div class="bullet-dot"></div><span>Ask a friend to review.</span></li>
+            </ul>
+
+            <!-- Mockup: Final result -->
+            <div class="gh-mock">
+              <div class="gh-titlebar">
+                <span class="gh-dot r"></span><span class="gh-dot y"></span><span class="gh-dot g"></span>
+                <div class="gh-url">https://fatimarahman.github.io</div>
+              </div>
+              <div class="gh-body" style="padding:20px; display:flex; gap:20px;">
+                <div style="width:120px; flex-shrink:0; text-align:center;">
+                  <div style="width:90px; height:90px; border-radius:50%; background:linear-gradient(135deg,#e8f2ed,#bbf7d0); margin:0 auto 8px; display:flex; align-items:center; justify-content:center; font-size:28px; color:#1a5632;">F</div>
+                  <div style="font-size:14px; font-weight:700; color:#24292f;">Fatima Rahman</div>
+                  <div style="font-size:11px; color:#656d76; margin-top:2px;">PhD Applicant</div>
+                  <div style="font-size:11px; color:#656d76;">University of Dhaka</div>
+                  <div style="margin-top:8px; display:flex; gap:6px; justify-content:center;">
+                    <span style="font-size:12px; color:#656d76;">&#9993;</span>
+                    <span style="font-size:12px; color:#656d76;">&#128218;</span>
+                    <span style="font-size:12px; color:#656d76;">&#128279;</span>
+                  </div>
+                </div>
+                <div style="flex:1; border-left:1px solid #eaeef2; padding-left:20px;">
+                  <div style="font-size:16px; font-weight:700; color:#24292f; margin-bottom:8px;">About Me</div>
+                  <div style="font-size:12px; color:#656d76; line-height:1.7;">
+                    I am a recent MSc graduate from University of Dhaka with a focus on Natural Language Processing. My research explores transformer-based approaches for low-resource Bangla NLP tasks.<br><br>
+                    I am seeking PhD positions in NLP/Computational Linguistics starting Fall 2027. My interests include multilingual NLP, low-resource language processing, and machine translation.
+                  </div>
+                  <div style="margin-top:12px; display:flex; gap:8px;">
+                    <span class="gh-btn outline" style="font-size:10px;">Publications</span>
+                    <span class="gh-btn outline" style="font-size:10px;">CV</span>
+                    <span class="gh-btn outline" style="font-size:10px;">Teaching</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="gh-mock-caption">Your finished academic website — professional, clean, and ready to share with professors!</div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- ── SECTION 4: Option B — Minimal Academic Website ── -->
+    <section class="section">
+      <div class="section-header">
+        <div class="section-number">4</div>
+        <div class="section-title">Option B — Minimal Academic Website (Quickest Setup)</div>
+      </div>
+
+      <div class="steps">
+
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-content">
+            <div class="step-title">Fork the Repository</div>
+            <ul class="step-list">
+              <li><div class="bullet-dot"></div><span>Go to: <a href="https://github.com/yuhui-zh15/Minimal-Academic-Website" target="_blank" style="color:var(--green-mid);font-weight:500;">github.com/yuhui-zh15/Minimal-Academic-Website</a></span></li>
+              <li><div class="bullet-dot"></div><span>Click <strong>"Fork"</strong> → name it <code>yourusername.github.io</code>.</span></li>
+              <li><div class="bullet-dot"></div><span>Set to <strong>Public</strong> → Create fork.</span></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-content">
+            <div class="step-title">Enable GitHub Pages</div>
+            <ul class="step-list">
+              <li><div class="bullet-dot"></div><span>Settings → Pages → Deploy from branch → <code>main</code> → Save.</span></li>
+              <li><div class="bullet-dot"></div><span>Wait 2–3 minutes for the site to build.</span></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-content">
+            <div class="step-title">Edit index.html</div>
+            <ul class="step-list">
+              <li><div class="bullet-dot"></div><span>Open <code>index.html</code> in your repo and click the pencil icon.</span></li>
+              <li><div class="bullet-dot"></div><span>Replace all placeholder text in brackets with your info:</span></li>
+            </ul>
+            <ul class="step-list" style="padding-left:12px; margin-top:4px;">
+              <li><div class="bullet-dot"></div><span>Your name, title, institution.</span></li>
+              <li><div class="bullet-dot"></div><span>Bio/about paragraph.</span></li>
+              <li><div class="bullet-dot"></div><span>Research interests.</span></li>
+              <li><div class="bullet-dot"></div><span>Education history.</span></li>
+              <li><div class="bullet-dot"></div><span>News items.</span></li>
+            </ul>
+            <ul class="step-list" style="margin-top:6px;">
+              <li><div class="bullet-dot"></div><span>Commit changes.</span></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num">4</div>
+          <div class="step-content">
+            <div class="step-title">Update Publications</div>
+            <ul class="step-list">
+              <li><div class="bullet-dot"></div><span>Edit <code>publications.json</code> with your papers.</span></li>
+              <li><div class="bullet-dot"></div><span>Each entry needs: title, authors, venue, year, links.</span></li>
+              <li><div class="bullet-dot"></div><span>Follow the existing format already in the file.</span></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num">5</div>
+          <div class="step-content">
+            <div class="step-title">Replace Profile Photo</div>
+            <ul class="step-list">
+              <li><div class="bullet-dot"></div><span>Upload your photo to the <code>images/</code> folder.</span></li>
+              <li><div class="bullet-dot"></div><span>Replace <code>profile.jpeg</code> with your own photo (keep the same filename, or update <code>index.html</code> to point to your filename).</span></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num">6</div>
+          <div class="step-content">
+            <div class="step-title">Verify</div>
+            <ul class="step-list">
+              <li><div class="bullet-dot"></div><span>Visit your site and check everything looks right.</span></li>
+            </ul>
+            <div class="step-tip">Total setup time: ~15–20 minutes</div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- ── SECTION 5: Option C — Hugo Academic CV ── -->
+    <section class="section">
+      <div class="section-header">
+        <div class="section-number">5</div>
+        <div class="section-title">Option C — Hugo Academic CV (Advanced)</div>
+      </div>
+
+      <div class="sub-heading">Quick Deploy (browser-only, ~60 seconds):</div>
+      <ul class="bullet-list" style="margin-bottom:12px;">
+        <li><div class="bullet-dot"></div><span>Go to <a href="https://hugoblox.com" target="_blank" style="color:var(--green-mid);font-weight:500;">hugoblox.com</a>.</span></li>
+        <li><div class="bullet-dot"></div><span>Click <strong>"Get Started"</strong> → Choose <strong>"Academic CV"</strong> template.</span></li>
+        <li><div class="bullet-dot"></div><span>Connect your GitHub account.</span></li>
+        <li><div class="bullet-dot"></div><span>The site deploys automatically to GitHub Pages or Netlify.</span></li>
+      </ul>
+
+      <div class="sub-heading">Local Setup (for advanced users):</div>
+      <div class="code-block">npx hugoblox create site --template academic-cv
+cd my-site
+hugo server</div>
+
+      <div class="sub-heading" style="margin-top:12px;">Key Features:</div>
+      <ul class="bullet-list" style="margin-bottom:12px;">
+        <li><div class="bullet-dot"></div><span>Auto-imports publications from <strong>BibTeX files</strong>.</span></li>
+        <li><div class="bullet-dot"></div><span>Supports <strong>Jupyter notebooks</strong> as blog posts.</span></li>
+        <li><div class="bullet-dot"></div><span>Built-in <strong>LaTeX math</strong> rendering.</span></li>
+        <li><div class="bullet-dot"></div><span>Presentation slides with <strong>reveal.js</strong>.</span></li>
+      </ul>
+
+      <div class="info-box">
+        <strong>Best for:</strong> Researchers with many publications who want automatic BibTeX import.<br>
+        Link: <a href="https://github.com/HugoBlox/hugo-theme-academic-cv" target="_blank" style="color:var(--green-mid);font-weight:500;">github.com/HugoBlox/hugo-theme-academic-cv</a>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- ── SECTION 6: Option D — Luo's Academic Homepage ── -->
+    <section class="section">
+      <div class="section-header">
+        <div class="section-number">6</div>
+        <div class="section-title">Option D — Luo's Academic Homepage</div>
+      </div>
+
+      <div class="sub-heading">Setup:</div>
+      <ul class="bullet-list" style="margin-bottom:12px;">
+        <li><div class="bullet-dot"></div><span>Fork from the template repository at <a href="https://luost.me/academic-homepage/" target="_blank" style="color:var(--green-mid);font-weight:500;">luost.me/academic-homepage/</a>.</span></li>
+        <li><div class="bullet-dot"></div><span>Edit <code>_config.yml</code> with your info.</span></li>
+        <li><div class="bullet-dot"></div><span>Customize sections: About, Education, Honors, News, Publications.</span></li>
+        <li><div class="bullet-dot"></div><span>Supports institution logos next to education entries.</span></li>
+        <li><div class="bullet-dot"></div><span>Publication entries support thumbnails and code links.</span></li>
+      </ul>
+
+      <div class="sub-heading">Key Features:</div>
+      <ul class="bullet-list" style="margin-bottom:12px;">
+        <li><div class="bullet-dot"></div><span>Clean, minimal design.</span></li>
+        <li><div class="bullet-dot"></div><span>Publication showcase with images.</span></li>
+        <li><div class="bullet-dot"></div><span>News section organized by year.</span></li>
+        <li><div class="bullet-dot"></div><span>LaTeX support for equations.</span></li>
+      </ul>
+
+      <div class="info-box">
+        <strong>Best for:</strong> Researchers who want a clean, publication-focused homepage.
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- ── SECTION 7: Essential Checklist ── -->
+    <section class="section">
+      <div class="section-header">
+        <div class="section-number">7</div>
+        <div class="section-title">Essential Checklist (All Templates)</div>
+      </div>
+      <ul class="checklist">
+        <li><div class="checkbox"></div><span>Professional username on GitHub</span></li>
+        <li><div class="checkbox"></div><span>Repository named exactly <code>username.github.io</code></span></li>
+        <li><div class="checkbox"></div><span>GitHub Pages enabled in Settings</span></li>
+        <li><div class="checkbox"></div><span>Site loads at <code>https://username.github.io</code></span></li>
+        <li><div class="checkbox"></div><span>Professional headshot uploaded</span></li>
+        <li><div class="checkbox"></div><span>About/Bio section written (2–3 paragraphs)</span></li>
+        <li><div class="checkbox"></div><span>Research interests listed</span></li>
+        <li><div class="checkbox"></div><span>Education history added</span></li>
+        <li><div class="checkbox"></div><span>Publications listed (if any)</span></li>
+        <li><div class="checkbox"></div><span>CV PDF uploaded and linked</span></li>
+        <li><div class="checkbox"></div><span>Contact info visible (email at minimum)</span></li>
+        <li><div class="checkbox"></div><span>Google Scholar profile linked</span></li>
+        <li><div class="checkbox"></div><span>LinkedIn / ResearchGate / ORCID linked</span></li>
+        <li><div class="checkbox"></div><span>Site tested on mobile</span></li>
+        <li><div class="checkbox"></div><span>All links verified working</span></li>
+        <li><div class="checkbox"></div><span>URL submitted on NextPhD platform</span></li>
+      </ul>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- ── SECTION 8: Troubleshooting ── -->
+    <section class="section">
+      <div class="section-header">
+        <div class="section-number">8</div>
+        <div class="section-title">Troubleshooting</div>
+      </div>
+
+      <div class="trouble-list">
+        <div class="trouble-item">
+          <div class="trouble-problem">404 Error</div>
+          <div class="trouble-solution">Repository name must exactly match <code>yourusername.github.io</code>. Check spelling — no extra spaces.</div>
+        </div>
+        <div class="trouble-item">
+          <div class="trouble-problem">Site not updating</div>
+          <div class="trouble-solution">GitHub Pages takes 2–5 minutes to rebuild. Check the <strong>Actions</strong> tab in your repository for build status.</div>
+        </div>
+        <div class="trouble-item">
+          <div class="trouble-problem">Build failed</div>
+          <div class="trouble-solution">Check the <strong>Actions</strong> tab → click the failed workflow → read the error. Usually a YAML formatting issue — check indentation, colons, and quotes.</div>
+        </div>
+        <div class="trouble-item">
+          <div class="trouble-problem">Images not loading</div>
+          <div class="trouble-solution">Check file paths are correct. Use relative paths like <code>/images/photo.jpg</code>.</div>
+        </div>
+        <div class="trouble-item">
+          <div class="trouble-problem">Custom domain</div>
+          <div class="trouble-solution">Optional for later. Go to Settings → Pages → Custom domain. You'll need to configure DNS with your domain provider.</div>
+        </div>
+        <div class="trouble-item">
+          <div class="trouble-problem">HTTPS not working</div>
+          <div class="trouble-solution">GitHub Pages provides free HTTPS. Make sure <strong>"Enforce HTTPS"</strong> is checked in Settings → Pages.</div>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- ── SECTION 9: Template Comparison at a Glance ── -->
+    <section class="section">
+      <div class="section-header">
+        <div class="section-number">9</div>
+        <div class="section-title">Template Comparison at a Glance</div>
+      </div>
+
+      <div class="table-wrap">
+        <table class="resource-table">
+          <thead>
+            <tr>
+              <th>Feature</th>
+              <th>Academic Pages</th>
+              <th>Minimal</th>
+              <th>Hugo Academic</th>
+              <th>Luo's Homepage</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Setup Time</strong></td>
+              <td>30 min</td>
+              <td>15 min</td>
+              <td>10 min (web) / 45 min (local)</td>
+              <td>30 min</td>
+            </tr>
+            <tr>
+              <td><strong>Coding Required</strong></td>
+              <td>None</td>
+              <td>Basic HTML</td>
+              <td>None (web) / Some (local)</td>
+              <td>None</td>
+            </tr>
+            <tr>
+              <td><strong>Publications</strong></td>
+              <td>Markdown files</td>
+              <td>JSON file</td>
+              <td>BibTeX auto-import</td>
+              <td>Markdown</td>
+            </tr>
+            <tr>
+              <td><strong>Blog Support</strong></td>
+              <td>Yes</td>
+              <td>No</td>
+              <td>Yes</td>
+              <td>Yes</td>
+            </tr>
+            <tr>
+              <td><strong>Math / LaTeX</strong></td>
+              <td>MathJax</td>
+              <td>No</td>
+              <td>Native</td>
+              <td>Yes</td>
+            </tr>
+            <tr>
+              <td><strong>Customization</strong></td>
+              <td>Medium</td>
+              <td>High</td>
+              <td>High</td>
+              <td>Medium</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ── FOOTER ── -->
+    <footer class="footer">
+      <div class="footer-main">
+        <div class="footer-left">
+          <strong>NextPhD Bangladesh · ELITE Research Lab</strong><br>
+          Cohort 01 · Week 1 Guide · June 28, 2026
+        </div>
+        <div class="footer-right">
+          Need help? Post in the community forum<br>
+          or ask during office hours.
+        </div>
+      </div>
+      <div class="footer-links">
+        <strong>Template Links:</strong>
+        &nbsp;
+        <a href="https://github.com/academicpages/academicpages.github.io" target="_blank">Academic Pages</a>
+        &nbsp;·&nbsp;
+        <a href="https://github.com/yuhui-zh15/Minimal-Academic-Website" target="_blank">Minimal Academic Website</a>
+        &nbsp;·&nbsp;
+        <a href="https://github.com/HugoBlox/hugo-theme-academic-cv" target="_blank">Hugo Academic CV</a>
+        &nbsp;·&nbsp;
+        <a href="https://luost.me/academic-homepage/" target="_blank">Luo's Academic Homepage</a>
+      </div>
+    </footer>
+
+  </div>
+</body>
+</html>

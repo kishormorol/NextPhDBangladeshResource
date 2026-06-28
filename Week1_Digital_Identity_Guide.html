@@ -1,0 +1,1540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Week 1: Academic Digital Identity — Step-by-Step Guide | NextPhD Bangladesh</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --green: #1a5632;
+      --green-light: #e8f2ed;
+      --green-mid: #2d7a4e;
+      --text: #1c1c1c;
+      --text-muted: #555;
+      --border: #d0ddd6;
+      --white: #ffffff;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      line-height: 1.6;
+      color: var(--text);
+      background: #f4f6f4;
+    }
+
+    .page {
+      max-width: 800px;
+      margin: 2rem auto;
+      background: var(--white);
+      padding: 48px 56px;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+    }
+
+    /* ── Header ── */
+    .header { border-bottom: 3px solid var(--green); padding-bottom: 20px; margin-bottom: 32px; }
+    .header-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; }
+    .header-logo-block { display: flex; align-items: center; gap: 12px; }
+    .logo-badge {
+      width: 44px; height: 44px; background: var(--green); border-radius: 8px;
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+    .logo-badge svg { width: 24px; height: 24px; fill: white; }
+    .org-name { font-size: 12px; font-weight: 600; color: var(--green); letter-spacing: 0.05em; text-transform: uppercase; }
+    .cohort-tag { font-size: 11px; color: var(--text-muted); font-weight: 400; }
+    .header-date { text-align: right; font-size: 12px; color: var(--text-muted); line-height: 1.5; }
+    .header-date strong { display: block; color: var(--green); font-weight: 600; }
+    .header-title { margin-top: 16px; }
+    .week-label { font-size: 11px; font-weight: 600; color: var(--green-mid); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 4px; }
+    .session-title { font-size: 22px; font-weight: 700; color: var(--green); line-height: 1.3; }
+
+    /* ── Sections ── */
+    .section { margin-bottom: 32px; }
+    .section-header { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
+    .section-number {
+      width: 26px; height: 26px; background: var(--green); color: white; border-radius: 50%;
+      font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+    .section-title { font-size: 15px; font-weight: 700; color: var(--green); letter-spacing: 0.01em; }
+
+    /* ── Bullets ── */
+    .bullet-list { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+    .bullet-list li { display: flex; align-items: flex-start; gap: 8px; font-size: 13px; color: var(--text); padding: 2px 0; }
+    .bullet-dot { width: 6px; height: 6px; background: var(--green); border-radius: 50%; flex-shrink: 0; margin-top: 7px; }
+
+    /* ── Steps ── */
+    .steps { display: flex; flex-direction: column; gap: 18px; }
+    .step { display: flex; gap: 14px; align-items: flex-start; }
+    .step-num {
+      width: 28px; height: 28px; background: var(--green); color: white; border-radius: 50%;
+      font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px;
+    }
+    .step-content { flex: 1; }
+    .step-title { font-size: 13px; font-weight: 700; color: var(--text); margin-bottom: 6px; }
+    .step-list { list-style: none; display: flex; flex-direction: column; gap: 3px; margin-bottom: 6px; }
+    .step-list li { display: flex; align-items: flex-start; gap: 8px; font-size: 12.5px; color: var(--text-muted); }
+    .step-tip {
+      display: inline-flex; align-items: center; gap: 5px; font-size: 12px; font-weight: 600;
+      color: var(--green-mid); background: var(--green-light); padding: 3px 8px; border-radius: 4px; margin-top: 4px;
+    }
+
+    /* ── Code blocks ── */
+    code {
+      font-family: 'Courier New', Courier, monospace; background: var(--green-light);
+      color: var(--green); padding: 1px 5px; border-radius: 3px; font-size: 11.5px;
+    }
+    .code-block {
+      background: #f4f6f4; border-left: 3px solid var(--green); border-radius: 0 4px 4px 0;
+      padding: 10px 14px; margin-top: 8px; font-family: 'Courier New', Courier, monospace;
+      font-size: 11.5px; color: var(--text); line-height: 1.8; white-space: pre; overflow-x: auto;
+    }
+    .code-block .key { color: var(--green); font-weight: 600; }
+    .code-block .val { color: #555; }
+    .code-block .comment { color: #888; font-style: italic; }
+
+    /* ── Info box ── */
+    .info-box {
+      padding: 14px 16px; background: var(--green-light); border-radius: 6px;
+      border-left: 3px solid var(--green); font-size: 13px; color: var(--text); line-height: 1.6;
+    }
+    .info-box strong { color: var(--green); }
+
+    /* ── Checklist ── */
+    .checklist { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+    .checklist li { display: flex; align-items: flex-start; gap: 10px; padding: 7px 12px; border-radius: 6px; background: var(--green-light); font-size: 13px; }
+    .checklist li:nth-child(even) { background: #f0f7f3; }
+    .checkbox { width: 16px; height: 16px; border: 2px solid var(--green); border-radius: 3px; flex-shrink: 0; margin-top: 2px; }
+
+    /* ── Trouble list ── */
+    .trouble-list { display: flex; flex-direction: column; gap: 10px; }
+    .trouble-item { padding: 12px 14px; border: 1px solid var(--border); border-radius: 6px; font-size: 13px; }
+    .trouble-item:nth-child(odd) { background: var(--green-light); border-color: transparent; }
+    .trouble-problem { font-weight: 700; color: var(--green); margin-bottom: 4px; }
+    .trouble-solution { color: var(--text-muted); line-height: 1.5; }
+
+    /* ── Table ── */
+    .resource-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    .resource-table th { background: var(--green); color: white; padding: 9px 12px; text-align: left; font-weight: 600; font-size: 12px; letter-spacing: 0.03em; }
+    .resource-table th:first-child { border-radius: 6px 0 0 0; }
+    .resource-table th:last-child  { border-radius: 0 6px 0 0; }
+    .resource-table td { padding: 8px 12px; border-bottom: 1px solid var(--border); vertical-align: top; }
+    .resource-table tr:last-child td { border-bottom: none; }
+    .resource-table tr:nth-child(even) td { background: var(--green-light); }
+    .table-wrap { border: 1px solid var(--border); border-radius: 6px; overflow: hidden; }
+
+    /* ── Footer ── */
+    .footer { border-top: 2px solid var(--green); padding-top: 16px; margin-top: 36px; }
+    .footer-main { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; margin-bottom: 12px; }
+    .footer-left { font-size: 11px; color: var(--text-muted); line-height: 1.6; }
+    .footer-left strong { color: var(--green); font-size: 12px; }
+    .footer-right { font-size: 11px; color: var(--text-muted); text-align: right; line-height: 1.6; font-style: italic; }
+    .footer-links { font-size: 11px; color: var(--text-muted); padding-top: 10px; border-top: 1px solid var(--border); line-height: 1.8; }
+    .footer-links a { color: var(--green-mid); text-decoration: none; font-weight: 500; }
+
+    /* ── Divider ── */
+    .divider { height: 1px; background: var(--border); margin: 28px 0; }
+
+    /* ── Sub-heading ── */
+    .sub-heading { font-size: 12.5px; font-weight: 700; color: var(--text); margin-bottom: 6px; margin-top: 14px; }
+
+    /* ── Platform UI Mockups (browser window style) ── */
+    .ui-mock {
+      border: 1px solid #d0d7de; border-radius: 8px; overflow: hidden;
+      margin: 12px 0 6px; font-size: 12px; background: #ffffff;
+    }
+
+    /* Title bar — shared structure, color overridden per platform */
+    .ui-titlebar {
+      display: flex; align-items: center; gap: 8px;
+      padding: 8px 12px; font-size: 11px;
+    }
+    .ui-dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
+    .ui-dot.r { background: #ff5f57; }
+    .ui-dot.y { background: #febc2e; }
+    .ui-dot.g { background: #28c840; }
+    .ui-url {
+      flex: 1; background: rgba(0,0,0,0.18); border-radius: 4px;
+      padding: 3px 10px; font-size: 11px; color: rgba(255,255,255,0.85); margin-left: 6px;
+    }
+
+    /* Dark titlebar (Gmail, default) */
+    .ui-titlebar.dark { background: #24292f; color: #fff; }
+    .ui-titlebar.dark .ui-url { background: #3a3f47; color: #9ca3af; }
+
+    /* Scholar blue */
+    .ui-titlebar.scholar { background: #4285f4; }
+    .ui-titlebar.scholar .ui-url { background: rgba(0,0,0,0.15); }
+
+    /* ORCID green */
+    .ui-titlebar.orcid { background: #4d9b37; }
+    .ui-titlebar.orcid .ui-url { background: rgba(0,0,0,0.15); }
+
+    /* ResearchGate teal */
+    .ui-titlebar.rg { background: #00ccbb; }
+    .ui-titlebar.rg .ui-url { background: rgba(0,0,0,0.15); }
+
+    /* Gmail red accent */
+    .ui-titlebar.gmail { background: #fff; border-bottom: 1px solid #e8eaed; }
+    .ui-titlebar.gmail .ui-url { background: #f1f3f4; color: #5f6368; }
+
+    /* Google search white */
+    .ui-titlebar.google { background: #fff; border-bottom: 1px solid #e8eaed; }
+    .ui-titlebar.google .ui-url { background: #f1f3f4; color: #202124; }
+
+    /* Platform-specific header bars inside the mock content */
+    .scholar-header { background: #4285f4; color: white; padding: 10px 14px; display: flex; align-items: center; gap: 10px; }
+    .orcid-header { background: #a6ce39; color: #333; padding: 10px 14px; display: flex; align-items: center; gap: 10px; }
+    .rg-header { background: #00ccbb; color: white; padding: 10px 14px; display: flex; align-items: center; gap: 10px; }
+    .gmail-header { background: #fff; border-bottom: 1px solid #e8eaed; padding: 10px 14px; display: flex; align-items: center; gap: 10px; }
+
+    .platform-logo {
+      font-weight: 800; font-size: 13px; letter-spacing: -0.5px;
+    }
+
+    /* Mock body */
+    .ui-body { padding: 16px; }
+    .ui-body.gray { background: #f8f9fa; }
+
+    /* Form elements inside mocks */
+    .mock-field { margin-bottom: 12px; }
+    .mock-label { font-size: 11px; font-weight: 600; color: #3c4043; margin-bottom: 3px; }
+    .mock-input {
+      border: 1px solid #dadce0; border-radius: 4px; padding: 6px 10px;
+      font-size: 12px; color: #202124; background: white; width: 100%; max-width: 320px; display: block;
+    }
+    .mock-input.active { border-color: #1a73e8; box-shadow: 0 0 0 2px rgba(26,115,232,0.15); }
+    .mock-hint { font-size: 10.5px; color: #5f6368; margin-top: 2px; }
+    .mock-hint.green { color: #188038; font-weight: 600; }
+    .mock-hint.red { color: #c5221f; }
+
+    .mock-btn {
+      display: inline-flex; align-items: center; gap: 5px; padding: 6px 16px;
+      border-radius: 4px; font-size: 12px; font-weight: 600; cursor: default; border: none;
+    }
+    .mock-btn.blue { background: #1a73e8; color: white; }
+    .mock-btn.outline { background: white; color: #1a73e8; border: 1px solid #dadce0; }
+    .mock-btn.green-btn { background: #188038; color: white; }
+    .mock-btn.teal-btn { background: #00ccbb; color: white; }
+    .mock-btn.scholar-btn { background: #4285f4; color: white; }
+
+    .mock-tag {
+      display: inline-flex; align-items: center; gap: 4px; background: #e8f0fe; color: #1a73e8;
+      border-radius: 14px; padding: 2px 10px; font-size: 11px; font-weight: 500; margin: 2px;
+    }
+    .mock-tag.green-tag { background: #e6f4ea; color: #188038; }
+    .mock-tag.teal-tag { background: #e0f5f3; color: #00897b; }
+    .mock-tag.orcid-tag { background: #f1f8e9; color: #558b2f; }
+
+    .mock-verified { display: inline-flex; align-items: center; gap: 3px; color: #188038; font-size: 11px; font-weight: 600; }
+
+    /* Scholar citation metrics bar */
+    .scholar-metrics {
+      display: flex; gap: 0; border: 1px solid #dadce0; border-radius: 4px; overflow: hidden; margin: 10px 0;
+    }
+    .scholar-metric {
+      flex: 1; text-align: center; padding: 8px 4px; border-right: 1px solid #dadce0; background: white;
+    }
+    .scholar-metric:last-child { border-right: none; }
+    .scholar-metric-num { font-size: 16px; font-weight: 700; color: #1a73e8; }
+    .scholar-metric-label { font-size: 10px; color: #5f6368; }
+
+    /* Simple bar chart */
+    .bar-chart { display: flex; align-items: flex-end; gap: 4px; height: 50px; margin: 8px 0; padding: 0 4px; }
+    .bar { background: #4285f4; border-radius: 2px 2px 0 0; flex: 1; min-width: 8px; }
+
+    /* Paper row inside Scholar */
+    .paper-row {
+      border-bottom: 1px solid #e8eaed; padding: 8px 0; font-size: 12px;
+    }
+    .paper-row:last-child { border-bottom: none; }
+    .paper-title { color: #1a73e8; font-weight: 500; margin-bottom: 2px; }
+    .paper-authors { color: #5f6368; font-size: 11px; }
+    .paper-venue { color: #5f6368; font-size: 11px; }
+    .paper-cites { font-size: 11px; color: #188038; font-weight: 600; margin-top: 2px; }
+
+    /* ORCID works item */
+    .orcid-work {
+      border: 1px solid #e0e0e0; border-radius: 4px; padding: 8px 12px; margin: 6px 0; background: white; font-size: 12px;
+    }
+    .orcid-work-title { font-weight: 600; color: #333; margin-bottom: 2px; }
+    .orcid-work-doi { font-size: 11px; color: #0070a3; }
+
+    /* RG stats bar */
+    .rg-stats { display: flex; gap: 0; background: #f5f5f5; border-radius: 4px; overflow: hidden; border: 1px solid #e0e0e0; margin: 10px 0; }
+    .rg-stat { flex: 1; text-align: center; padding: 8px 4px; border-right: 1px solid #e0e0e0; }
+    .rg-stat:last-child { border-right: none; }
+    .rg-stat-num { font-size: 15px; font-weight: 700; color: #00ccbb; }
+    .rg-stat-label { font-size: 10px; color: #666; }
+
+    /* Gmail signature preview */
+    .sig-preview {
+      background: #fff; border: 1px solid #e8eaed; border-radius: 6px; padding: 14px 16px; font-size: 12px; margin: 8px 0;
+    }
+    .sig-line { color: #5f6368; border-top: 1px solid #e8eaed; margin: 8px 0 0; padding-top: 8px; }
+    .sig-name { font-weight: 700; font-size: 13px; color: #202124; }
+    .sig-role { color: #5f6368; }
+    .sig-link { color: #1a73e8; text-decoration: none; }
+
+    /* Google search results mock */
+    .search-result { margin-bottom: 16px; }
+    .search-result-url { font-size: 11px; color: #188038; margin-bottom: 1px; }
+    .search-result-title { font-size: 14px; color: #1a0dab; font-weight: 400; margin-bottom: 2px; line-height: 1.3; }
+    .search-result-snippet { font-size: 12px; color: #4d5156; line-height: 1.5; }
+    .google-logo { font-size: 22px; font-weight: 700; letter-spacing: -1px; }
+    .google-logo .g1 { color: #4285f4; }
+    .google-logo .g2 { color: #ea4335; }
+    .google-logo .g3 { color: #fbbc05; }
+    .google-logo .g4 { color: #4285f4; }
+    .google-logo .g5 { color: #34a853; }
+    .google-logo .g6 { color: #ea4335; }
+
+    /* Email split layout */
+    .email-split { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 10px 0; }
+    .email-col-bad { background: #fce8e6; border: 1px solid #f28b82; border-radius: 6px; padding: 10px 12px; }
+    .email-col-good { background: #e6f4ea; border: 1px solid #81c995; border-radius: 6px; padding: 10px 12px; }
+    .email-col-label { font-size: 10.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 6px; }
+    .email-col-bad .email-col-label { color: #c5221f; }
+    .email-col-good .email-col-label { color: #188038; }
+    .email-example { font-family: 'Courier New', monospace; font-size: 11.5px; padding: 3px 0; }
+    .email-col-bad .email-example { color: #c5221f; }
+    .email-col-good .email-example { color: #188038; }
+
+    /* CV header mockup */
+    .cv-header-mock {
+      background: #f8f9fa; border: 1px solid #dadce0; border-radius: 6px;
+      padding: 14px 18px; margin: 10px 0; font-size: 12px;
+    }
+    .cv-name { font-size: 17px; font-weight: 700; color: #202124; margin-bottom: 4px; }
+    .cv-links { font-size: 11.5px; color: #5f6368; line-height: 1.8; }
+    .cv-links a { color: #1a73e8; text-decoration: none; }
+
+    /* Visibility toggle */
+    .toggle-row { display: flex; align-items: center; gap: 10px; padding: 6px 0; font-size: 12px; color: #3c4043; border-bottom: 1px solid #e8eaed; }
+    .toggle { width: 36px; height: 20px; border-radius: 10px; position: relative; flex-shrink: 0; cursor: default; }
+    .toggle.on { background: #1a73e8; }
+    .toggle.off { background: #bdc1c6; }
+    .toggle::after {
+      content: ''; position: absolute; top: 2px; width: 16px; height: 16px;
+      background: white; border-radius: 50%;
+    }
+    .toggle.on::after { right: 2px; }
+    .toggle.off::after { left: 2px; }
+
+    /* Caption */
+    .mock-caption {
+      font-size: 11px; color: var(--green-mid); font-weight: 600; font-style: italic;
+      margin-top: 2px; margin-bottom: 8px; text-align: center;
+    }
+
+    /* ── Print styles ── */
+    @media print {
+      @page { size: A4; margin: 14mm 16mm; }
+      body { background: white; font-size: 11.5px; }
+      .page { max-width: 100%; margin: 0; padding: 0; box-shadow: none; }
+      .section { page-break-inside: avoid; margin-bottom: 20px; }
+      .step { page-break-inside: avoid; }
+      .trouble-item { page-break-inside: avoid; }
+      .ui-mock { page-break-inside: avoid; border: 1px solid #ccc !important; }
+      .header { margin-bottom: 20px; }
+      .session-title { font-size: 18px; }
+
+      .ui-titlebar.scholar { background: #4285f4 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .ui-titlebar.orcid { background: #4d9b37 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .ui-titlebar.rg { background: #00ccbb !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .ui-titlebar.dark { background: #24292f !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .scholar-header { background: #4285f4 !important; color: white !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .orcid-header { background: #a6ce39 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .rg-header { background: #00ccbb !important; color: white !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .mock-btn.blue { background: #1a73e8 !important; color: white !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .mock-btn.green-btn { background: #188038 !important; color: white !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .mock-btn.teal-btn { background: #00ccbb !important; color: white !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .mock-btn.scholar-btn { background: #4285f4 !important; color: white !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .email-col-bad { background: #fce8e6 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .email-col-good { background: #e6f4ea !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .bar { background: #4285f4 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .checklist li { background: transparent !important; border: 1px solid #ccc; margin-bottom: 2px; }
+      .trouble-item:nth-child(odd) { background: #f0f7f3 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .resource-table th { background: #1a5632 !important; color: white !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .resource-table tr:nth-child(even) td { background: #f9f9f9 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .section-number, .step-num { background: #1a5632 !important; color: white !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .logo-badge { background: #1a5632 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      a { color: #1a5632 !important; text-decoration: none; }
+      .divider { margin: 16px 0; }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ── HEADER ── -->
+  <header class="header">
+    <div class="header-top">
+      <div class="header-logo-block">
+        <div class="logo-badge">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zM5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z"/>
+          </svg>
+        </div>
+        <div>
+          <div class="org-name">NextPhD Bangladesh</div>
+          <div class="cohort-tag">Cohort 01 · ELITE Research Lab</div>
+        </div>
+      </div>
+      <div class="header-date">
+        <strong>June 28, 2026</strong>
+        Week 1 Session<br>
+        Step-by-Step Guide
+      </div>
+    </div>
+    <div class="header-title">
+      <div class="week-label">Week 1</div>
+      <div class="session-title">Academic Digital Identity — Step-by-Step Guide</div>
+    </div>
+  </header>
+
+  <!-- ── SECTION 1: Why Digital Identity Matters ── -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-number">1</div>
+      <div class="section-title">Why Digital Identity Matters</div>
+    </div>
+    <ul class="bullet-list">
+      <li>
+        <div class="bullet-dot"></div>
+        <span>When you email a professor, the <strong>FIRST thing they do is Google your name</strong>.</span>
+      </li>
+      <li>
+        <div class="bullet-dot"></div>
+        <span>Your digital identity = <strong>what appears in those search results</strong>.</span>
+      </li>
+      <li>
+        <div class="bullet-dot"></div>
+        <span>A complete identity (website + Scholar + ORCID + professional email) <strong>signals a serious researcher</strong>.</span>
+      </li>
+      <li>
+        <div class="bullet-dot"></div>
+        <span>An incomplete or messy online presence (Facebook photos, no academic profiles) <strong>can cost you opportunities</strong>.</span>
+      </li>
+    </ul>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ── SECTION 2: Professional Email ── -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-number">2</div>
+      <div class="section-title">Professional Email Setup</div>
+    </div>
+
+    <div class="steps">
+
+      <!-- Step 2.1 -->
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-content">
+          <div class="step-title">Choose Your Email Format</div>
+          <ul class="step-list">
+            <li><div class="bullet-dot"></div><span><strong>Best:</strong> firstname.lastname@institution.edu (e.g., fatima.rahman@du.ac.bd)</span></li>
+            <li><div class="bullet-dot"></div><span><strong>Good backup:</strong> firstname.lastname@gmail.com</span></li>
+            <li><div class="bullet-dot"></div><span><strong>Acceptable:</strong> f.lastname.research@gmail.com</span></li>
+          </ul>
+
+          <div class="email-split">
+            <div class="email-col-bad">
+              <div class="email-col-label">✗ Avoid these</div>
+              <div class="email-example">coolresearcher99@gmail.com</div>
+              <div class="email-example">fatima_2024@yahoo.com</div>
+              <div class="email-example">fr_nlp_bd@hotmail.com</div>
+            </div>
+            <div class="email-col-good">
+              <div class="email-col-label">✓ Use these</div>
+              <div class="email-example">fatima.rahman@du.ac.bd</div>
+              <div class="email-example">fatima.rahman@gmail.com</div>
+              <div class="email-example">f.rahman.research@gmail.com</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 2.2 -->
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-content">
+          <div class="step-title">Create a Professional Gmail (if no institutional email)</div>
+
+          <!-- Gmail signup mockup -->
+          <div class="ui-mock">
+            <div class="ui-titlebar gmail">
+              <span class="ui-dot r"></span><span class="ui-dot y"></span><span class="ui-dot g"></span>
+              <div class="ui-url" style="color:#5f6368;">accounts.google.com/signup</div>
+            </div>
+            <div class="gmail-header">
+              <span style="font-size:20px; font-weight:700; color:#ea4335;">G</span>
+              <span style="font-size:13px; font-weight:500; color:#3c4043;">Create your Google Account</span>
+            </div>
+            <div class="ui-body" style="background:#f8f9fa; padding:16px;">
+              <div style="background:white; border-radius:8px; padding:16px; max-width:360px; box-shadow:0 1px 4px rgba(0,0,0,0.08);">
+                <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:10px;">
+                  <div class="mock-field" style="margin:0;">
+                    <div class="mock-label">First name</div>
+                    <div class="mock-input" style="max-width:100%;">Fatima</div>
+                  </div>
+                  <div class="mock-field" style="margin:0;">
+                    <div class="mock-label">Last name</div>
+                    <div class="mock-input" style="max-width:100%;">Rahman</div>
+                  </div>
+                </div>
+                <div class="mock-field">
+                  <div class="mock-label">Username</div>
+                  <div style="display:flex; align-items:center; gap:6px;">
+                    <div class="mock-input active" style="max-width:200px;">fatima.rahman</div>
+                    <span style="font-size:11.5px; color:#5f6368;">@gmail.com</span>
+                  </div>
+                  <div class="mock-hint green">✓ fatima.rahman@gmail.com is available</div>
+                  <div class="mock-hint" style="margin-top:4px; color:#5f6368; font-style:italic;">Tip: Choose a username that matches your real name</div>
+                </div>
+                <div style="margin-top:12px; text-align:right;">
+                  <span class="mock-btn blue">Next</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="mock-caption">Gmail signup — use firstname.lastname as your username. Check availability.</div>
+        </div>
+      </div>
+
+      <!-- Step 2.3 -->
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-content">
+          <div class="step-title">Set Up Your Email Signature</div>
+          <ul class="step-list">
+            <li><div class="bullet-dot"></div><span>In Gmail, go to <strong>Settings → General → Signature → Create new</strong>.</span></li>
+            <li><div class="bullet-dot"></div><span>Name the signature "Academic" and paste the template below.</span></li>
+          </ul>
+
+          <!-- Gmail settings mockup -->
+          <div class="ui-mock">
+            <div class="ui-titlebar gmail">
+              <span class="ui-dot r"></span><span class="ui-dot y"></span><span class="ui-dot g"></span>
+              <div class="ui-url" style="color:#5f6368;">mail.google.com/mail/u/0/#settings/general</div>
+            </div>
+            <div class="gmail-header">
+              <span style="color:#ea4335; font-weight:800; font-size:16px; letter-spacing:-0.5px;">M</span>
+              <span style="font-size:13px; color:#3c4043; font-weight:500;">Gmail</span>
+              <span style="margin-left:10px; font-size:12px; color:#5f6368;">Settings</span>
+            </div>
+            <div class="ui-body">
+              <div style="font-size:11px; font-weight:700; color:#5f6368; letter-spacing:0.06em; text-transform:uppercase; margin-bottom:10px; border-bottom:2px solid #ea4335; padding-bottom:6px; display:inline-block;">Signature</div>
+              <div style="display:flex; gap:10px; align-items:flex-start;">
+                <div style="width:130px; flex-shrink:0;">
+                  <div style="font-size:11px; font-weight:600; color:#3c4043; margin-bottom:6px;">Signature name</div>
+                  <div style="background:#f1f3f4; border:1px solid #dadce0; border-radius:4px; padding:5px 8px; font-size:11.5px; color:#202124; margin-bottom:4px;">Academic</div>
+                  <div style="font-size:11px; color:#1a73e8; cursor:default;">+ Create new</div>
+                </div>
+                <div style="flex:1; border:1px solid #dadce0; border-radius:4px; padding:10px; background:white; min-height:110px; font-size:12px; color:#3c4043; line-height:1.7;">
+                  <div style="color:#bdc1c6; font-size:11px; margin-bottom:4px;">── Signature ──────────────────</div>
+                  <div style="font-weight:700;">Fatima Rahman</div>
+                  <div style="color:#5f6368;">MSc in Computer Science | University of Dhaka</div>
+                  <div style="color:#5f6368;">Research: NLP, Low-Resource Languages, Transfer Learning</div>
+                  <div style="margin-top:4px;">
+                    <span style="color:#1a73e8;">🌐 fatimarahman.github.io</span><br>
+                    <span style="color:#1a73e8;">📚 Google Scholar</span> &nbsp;
+                    <span style="color:#1a73e8;">🔗 ORCID: 0000-0002-1234-5678</span>
+                  </div>
+                </div>
+              </div>
+              <div style="margin-top:10px; text-align:right;">
+                <span class="mock-btn blue" style="font-size:11px;">Save Changes</span>
+              </div>
+            </div>
+          </div>
+          <div class="mock-caption">Gmail Settings → General → Signature. Paste your signature, click Save Changes.</div>
+
+          <!-- Email preview -->
+          <div class="sub-heading" style="margin-top:14px;">What the professor sees when they receive your email:</div>
+          <div class="sig-preview">
+            <div style="font-size:12px; color:#3c4043; margin-bottom:6px;">Dear Prof. Smith,<br>I am writing to inquire about PhD opportunities in your lab...</div>
+            <div class="sig-line">
+              <div class="sig-name">Fatima Rahman</div>
+              <div class="sig-role">MSc in Computer Science | University of Dhaka</div>
+              <div class="sig-role">Research: NLP, Low-Resource Languages, Transfer Learning</div>
+              <div style="margin-top:4px;">
+                <a class="sig-link" href="#">🌐 fatimarahman.github.io</a><br>
+                <a class="sig-link" href="#">📚 Google Scholar</a> &nbsp;·&nbsp;
+                <a class="sig-link" href="#">🔗 ORCID: 0000-0002-1234-5678</a>
+              </div>
+            </div>
+          </div>
+          <div class="mock-caption">Email preview — your signature appears below every message automatically.</div>
+        </div>
+      </div>
+
+      <!-- Step 2.4 -->
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-content">
+          <div class="step-title">Clean Up Old Email</div>
+          <ul class="step-list">
+            <li><div class="bullet-dot"></div><span>Check what email you've been using for academic correspondence.</span></li>
+            <li><div class="bullet-dot"></div><span>Update your CV, website, and all profiles to use the new professional email.</span></li>
+            <li><div class="bullet-dot"></div><span>Set up email forwarding from old addresses if needed (Gmail Settings → Forwarding).</span></li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ── SECTION 3: Google Scholar ── -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-number">3</div>
+      <div class="section-title">Google Scholar Profile</div>
+    </div>
+
+    <div class="steps">
+
+      <!-- Step 3.1 -->
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-content">
+          <div class="step-title">Go to Google Scholar</div>
+
+          <div class="ui-mock">
+            <div class="ui-titlebar scholar">
+              <span class="ui-dot r"></span><span class="ui-dot y"></span><span class="ui-dot g"></span>
+              <div class="ui-url">scholar.google.com</div>
+            </div>
+            <div class="scholar-header">
+              <span class="platform-logo" style="color:white;">Google Scholar</span>
+              <span style="flex:1;"></span>
+              <div style="display:flex; align-items:center; gap:8px;">
+                <span style="font-size:11px; color:rgba(255,255,255,0.85);">My profile</span>
+                <div style="width:28px; height:28px; background:rgba(255,255,255,0.25); border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:13px; font-weight:700; color:white;">F</div>
+              </div>
+            </div>
+            <div class="ui-body" style="background:#f8f9fa; text-align:center; padding:24px 16px;">
+              <div style="font-size:13px; color:#5f6368; margin-bottom:12px;">Search scholarly articles</div>
+              <div style="border:1px solid #dadce0; border-radius:24px; background:white; padding:8px 18px; max-width:400px; margin:0 auto; display:flex; align-items:center; gap:8px; font-size:13px; color:#bdc1c6;">
+                <span style="font-size:15px; color:#9aa0a6;">&#128269;</span>
+                Search articles...
+              </div>
+              <div style="margin-top:14px; background:#e8f0fe; border:1px solid #c5d8fc; border-radius:6px; padding:8px 14px; display:inline-block; font-size:12px; color:#1a73e8;">
+                &#8593; Click <strong>"My profile"</strong> in the top right to create your profile
+              </div>
+            </div>
+          </div>
+          <div class="mock-caption">Go to scholar.google.com — click "My profile" (top right) to get started.</div>
+        </div>
+      </div>
+
+      <!-- Step 3.2 -->
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-content">
+          <div class="step-title">Create Your Profile</div>
+
+          <div class="ui-mock">
+            <div class="ui-titlebar scholar">
+              <span class="ui-dot r"></span><span class="ui-dot y"></span><span class="ui-dot g"></span>
+              <div class="ui-url">scholar.google.com/citations?view_op=new_profile</div>
+            </div>
+            <div class="scholar-header">
+              <span class="platform-logo" style="color:white;">Google Scholar</span>
+            </div>
+            <div class="ui-body">
+              <div style="font-size:13px; font-weight:600; color:#202124; margin-bottom:14px;">Set up your Scholar profile</div>
+              <div class="mock-field">
+                <div class="mock-label">Name</div>
+                <div class="mock-input">Fatima Rahman</div>
+              </div>
+              <div class="mock-field">
+                <div class="mock-label">Affiliation</div>
+                <div class="mock-input">University of Dhaka</div>
+              </div>
+              <div class="mock-field">
+                <div class="mock-label">Verified email at</div>
+                <div style="display:flex; align-items:center; gap:8px;">
+                  <div class="mock-input" style="max-width:220px;">fatima.rahman@du.ac.bd</div>
+                  <span class="mock-verified">✓ Verified</span>
+                </div>
+              </div>
+              <div class="mock-field">
+                <div class="mock-label">Research interests</div>
+                <div style="margin-top:4px;">
+                  <span class="mock-tag">NLP</span>
+                  <span class="mock-tag">Low-Resource Languages</span>
+                  <span class="mock-tag">Deep Learning</span>
+                  <span class="mock-tag">Named Entity Recognition</span>
+                  <span style="font-size:11px; color:#1a73e8; cursor:default; margin-left:4px;">+ Add</span>
+                </div>
+              </div>
+              <div class="mock-field">
+                <div class="mock-label">Homepage URL</div>
+                <div class="mock-input">https://fatimarahman.github.io</div>
+              </div>
+              <div class="mock-field">
+                <div class="mock-label">Photo</div>
+                <div style="width:60px; height:60px; border:2px dashed #dadce0; border-radius:50%; display:flex; align-items:center; justify-content:center; color:#9aa0a6; font-size:20px; cursor:default;">+</div>
+              </div>
+              <div style="margin-top:8px;">
+                <span class="mock-btn blue">Next: add articles</span>
+              </div>
+            </div>
+          </div>
+          <div class="mock-caption">Fill in your name, affiliation, and research interest tags. Link your website.</div>
+        </div>
+      </div>
+
+      <!-- Step 3.3 -->
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-content">
+          <div class="step-title">Add Your Articles</div>
+          <ul class="step-list">
+            <li><div class="bullet-dot"></div><span>Scholar searches for your papers automatically — check and confirm them.</span></li>
+            <li><div class="bullet-dot"></div><span>If papers don't appear, click <strong>"Add article manually"</strong> and enter the details.</span></li>
+          </ul>
+
+          <div class="ui-mock">
+            <div class="ui-titlebar scholar">
+              <span class="ui-dot r"></span><span class="ui-dot y"></span><span class="ui-dot g"></span>
+              <div class="ui-url">scholar.google.com/citations?view_op=list_colleagues</div>
+            </div>
+            <div class="scholar-header">
+              <span class="platform-logo" style="color:white;">Google Scholar</span>
+            </div>
+            <div class="ui-body">
+              <div style="font-size:13px; font-weight:600; color:#202124; margin-bottom:10px;">Articles authored by Fatima Rahman</div>
+              <div style="display:flex; gap:8px; margin-bottom:12px; align-items:center;">
+                <div class="mock-input active" style="max-width:240px;">Fatima Rahman NLP</div>
+                <span class="mock-btn blue" style="font-size:11px;">Search</span>
+                <span style="font-size:11px; color:#1a73e8; cursor:default;">Add manually</span>
+              </div>
+
+              <div style="border:1px solid #dadce0; border-radius:4px; overflow:hidden;">
+                <div style="display:flex; align-items:flex-start; gap:10px; padding:10px 12px; background:#e8f0fe; border-bottom:1px solid #dadce0;">
+                  <div style="width:14px; height:14px; border:2px solid #1a73e8; border-radius:3px; background:#1a73e8; flex-shrink:0; margin-top:2px; display:flex; align-items:center; justify-content:center;">
+                    <span style="color:white; font-size:9px;">✓</span>
+                  </div>
+                  <div>
+                    <div style="font-size:12px; font-weight:500; color:#1a73e8;">BanglaNER: A Transformer-Based Approach to Named Entity Recognition for Low-Resource Bangla</div>
+                    <div style="font-size:11px; color:#5f6368;">F Rahman, M Hossain — EMNLP 2024</div>
+                  </div>
+                </div>
+                <div style="display:flex; align-items:flex-start; gap:10px; padding:10px 12px; background:white;">
+                  <div style="width:14px; height:14px; border:2px solid #dadce0; border-radius:3px; flex-shrink:0; margin-top:2px;"></div>
+                  <div>
+                    <div style="font-size:12px; font-weight:500; color:#1a73e8;">Survey of Low-Resource NLP Techniques for South Asian Languages</div>
+                    <div style="font-size:11px; color:#5f6368;">F Rahman et al. — ACL Findings 2024</div>
+                  </div>
+                </div>
+              </div>
+              <div style="margin-top:10px; display:flex; gap:8px;">
+                <span class="mock-btn blue" style="font-size:11px;">Add selected articles</span>
+                <span class="mock-btn outline" style="font-size:11px;">Skip</span>
+              </div>
+            </div>
+          </div>
+          <div class="mock-caption">Check the papers that are yours → "Add selected articles". Add manually if search misses them.</div>
+        </div>
+      </div>
+
+      <!-- Step 3.4 -->
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-content">
+          <div class="step-title">Configure Settings — Make Profile Public</div>
+
+          <div class="ui-mock">
+            <div class="ui-titlebar scholar">
+              <span class="ui-dot r"></span><span class="ui-dot y"></span><span class="ui-dot g"></span>
+              <div class="ui-url">scholar.google.com/citations?view_op=account_settings</div>
+            </div>
+            <div class="scholar-header">
+              <span class="platform-logo" style="color:white;">Google Scholar</span>
+            </div>
+            <div class="ui-body">
+              <div style="font-size:13px; font-weight:600; color:#202124; margin-bottom:12px;">Scholar Settings</div>
+              <div class="toggle-row">
+                <div class="toggle on"></div>
+                <span><strong>Make my profile public</strong> — anyone can find your profile</span>
+              </div>
+              <div class="toggle-row">
+                <div class="toggle on"></div>
+                <span>Email me when new articles cite my work</span>
+              </div>
+              <div class="toggle-row">
+                <div class="toggle off"></div>
+                <span>Automatically update my profile with new articles</span>
+                <span style="font-size:10.5px; color:#5f6368; margin-left:4px;">(review manually instead)</span>
+              </div>
+              <div style="margin-top:12px; background:#f1f3f4; border-radius:4px; padding:8px 12px; font-size:12px; color:#3c4043;">
+                Your profile URL: <span style="color:#1a73e8;">scholar.google.com/citations?user=XXXXXX</span>
+              </div>
+            </div>
+          </div>
+          <div class="mock-caption">Make profile PUBLIC — a private Scholar profile is invisible to professors.</div>
+        </div>
+      </div>
+
+      <!-- Step 3.5 -->
+      <div class="step">
+        <div class="step-num">5</div>
+        <div class="step-content">
+          <div class="step-title">Your Completed Scholar Profile</div>
+
+          <div class="ui-mock">
+            <div class="ui-titlebar scholar">
+              <span class="ui-dot r"></span><span class="ui-dot y"></span><span class="ui-dot g"></span>
+              <div class="ui-url">scholar.google.com/citations?user=XXXXXX&hl=en</div>
+            </div>
+            <div class="scholar-header" style="padding:8px 14px;">
+              <span class="platform-logo" style="color:white; font-size:12px;">Google Scholar</span>
+            </div>
+            <div class="ui-body">
+              <div style="display:flex; gap:16px; align-items:flex-start; margin-bottom:14px;">
+                <div style="width:70px; height:70px; border-radius:50%; background:linear-gradient(135deg,#e8f0fe,#c5d8fc); display:flex; align-items:center; justify-content:center; font-size:24px; font-weight:700; color:#1a73e8; flex-shrink:0;">F</div>
+                <div>
+                  <div style="font-size:16px; font-weight:700; color:#202124;">Fatima Rahman</div>
+                  <div style="font-size:12px; color:#5f6368; margin-top:2px;">University of Dhaka</div>
+                  <div style="font-size:12px; margin-top:2px;"><span class="mock-verified">✓ Verified email at du.ac.bd</span></div>
+                  <div style="margin-top:6px;">
+                    <span class="mock-tag">NLP</span>
+                    <span class="mock-tag">Low-Resource Languages</span>
+                    <span class="mock-tag">Deep Learning</span>
+                    <span class="mock-tag">NER</span>
+                  </div>
+                </div>
+                <div style="margin-left:auto; display:flex; flex-direction:column; gap:6px;">
+                  <span class="mock-btn scholar-btn" style="font-size:11px;">Follow</span>
+                </div>
+              </div>
+
+              <div class="scholar-metrics">
+                <div class="scholar-metric">
+                  <div class="scholar-metric-num">23</div>
+                  <div class="scholar-metric-label">Citations</div>
+                </div>
+                <div class="scholar-metric">
+                  <div class="scholar-metric-num">3</div>
+                  <div class="scholar-metric-label">h-index</div>
+                </div>
+                <div class="scholar-metric">
+                  <div class="scholar-metric-num">2</div>
+                  <div class="scholar-metric-label">i10-index</div>
+                </div>
+              </div>
+
+              <!-- Simple bar chart -->
+              <div class="bar-chart">
+                <div class="bar" style="height:15%;"></div>
+                <div class="bar" style="height:25%;"></div>
+                <div class="bar" style="height:20%;"></div>
+                <div class="bar" style="height:35%;"></div>
+                <div class="bar" style="height:30%;"></div>
+                <div class="bar" style="height:60%;"></div>
+                <div class="bar" style="height:75%;"></div>
+                <div class="bar" style="height:100%;"></div>
+              </div>
+              <div style="font-size:10px; color:#9aa0a6; margin-bottom:10px; padding:0 4px; display:flex; justify-content:space-between;"><span>2017</span><span>2024</span></div>
+
+              <div style="border-top:1px solid #e8eaed; padding-top:10px;">
+                <div class="paper-row">
+                  <div class="paper-title">BanglaNER: A Transformer-Based Approach to Named Entity Recognition for Low-Resource Bangla</div>
+                  <div class="paper-authors">F Rahman, M Hossain</div>
+                  <div class="paper-venue">EMNLP 2024</div>
+                  <div class="paper-cites">Cited by 14</div>
+                </div>
+                <div class="paper-row">
+                  <div class="paper-title">Survey of Low-Resource NLP Techniques for South Asian Languages</div>
+                  <div class="paper-authors">F Rahman, A Islam, S Chowdhury</div>
+                  <div class="paper-venue">ACL Findings 2024</div>
+                  <div class="paper-cites">Cited by 9</div>
+                </div>
+                <div class="paper-row">
+                  <div class="paper-title">Cross-Lingual Transfer for Bangla Sentiment Analysis</div>
+                  <div class="paper-authors">F Rahman</div>
+                  <div class="paper-venue">MSc Thesis, University of Dhaka, 2023</div>
+                  <div class="paper-cites">Cited by 0</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="mock-caption">Your completed Scholar profile — public, with photo, verified email, interest tags, and publications.</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ── SECTION 4: ORCID ── -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-number">4</div>
+      <div class="section-title">ORCID Registration</div>
+    </div>
+
+    <div class="steps">
+
+      <!-- Step 4.1 -->
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-content">
+          <div class="step-title">Go to ORCID</div>
+
+          <div class="ui-mock">
+            <div class="ui-titlebar orcid">
+              <span class="ui-dot r"></span><span class="ui-dot y"></span><span class="ui-dot g"></span>
+              <div class="ui-url">orcid.org</div>
+            </div>
+            <div class="orcid-header">
+              <span style="font-weight:800; font-size:14px; color:#333; letter-spacing:-0.5px;">ORCID</span>
+              <span style="flex:1;"></span>
+              <span class="mock-btn green-btn" style="font-size:11px; background:#a6ce39; color:#333; border:none;">Register now</span>
+              <span style="font-size:11px; color:#333; margin-left:8px;">Sign in</span>
+            </div>
+            <div class="ui-body" style="background:#f9fafb; text-align:center; padding:20px;">
+              <div style="font-size:14px; font-weight:700; color:#333; margin-bottom:6px;">Your trusted research identifier</div>
+              <div style="font-size:12px; color:#555; max-width:280px; margin:0 auto;">Connect your research and distinguish yourself from other researchers worldwide.</div>
+            </div>
+          </div>
+          <div class="mock-caption">Go to orcid.org — click the green "Register now" button.</div>
+        </div>
+      </div>
+
+      <!-- Step 4.2 -->
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-content">
+          <div class="step-title">Fill Registration Form</div>
+
+          <div class="ui-mock">
+            <div class="ui-titlebar orcid">
+              <span class="ui-dot r"></span><span class="ui-dot y"></span><span class="ui-dot g"></span>
+              <div class="ui-url">orcid.org/register</div>
+            </div>
+            <div class="orcid-header">
+              <span style="font-weight:800; font-size:14px; color:#333;">ORCID</span>
+              <span style="margin-left:8px; font-size:12px; color:#555;">Register</span>
+            </div>
+            <div class="ui-body">
+              <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:10px;">
+                <div class="mock-field" style="margin:0;">
+                  <div class="mock-label">First name</div>
+                  <div class="mock-input" style="max-width:100%;">Fatima</div>
+                </div>
+                <div class="mock-field" style="margin:0;">
+                  <div class="mock-label">Last name</div>
+                  <div class="mock-input" style="max-width:100%;">Rahman</div>
+                </div>
+              </div>
+              <div class="mock-field">
+                <div class="mock-label">Email address</div>
+                <div class="mock-input">fatima.rahman@du.ac.bd</div>
+              </div>
+              <div class="mock-field">
+                <div class="mock-label">Password</div>
+                <div class="mock-input" style="color:#9aa0a6;">••••••••••••</div>
+              </div>
+              <div class="mock-field">
+                <div class="mock-label">Profile visibility</div>
+                <div style="margin-top:4px; display:flex; flex-direction:column; gap:4px;">
+                  <label style="font-size:11.5px; display:flex; align-items:center; gap:6px; color:#3c4043;">
+                    <span style="width:14px;height:14px;border:2px solid #a6ce39;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;background:#a6ce39;flex-shrink:0;">
+                      <span style="color:white;font-size:9px;">●</span>
+                    </span>
+                    Everyone — make my profile public
+                  </label>
+                  <label style="font-size:11.5px; display:flex; align-items:center; gap:6px; color:#9aa0a6;">
+                    <span style="width:14px;height:14px;border:2px solid #dadce0;border-radius:50%;flex-shrink:0;"></span>
+                    Trusted parties only
+                  </label>
+                </div>
+              </div>
+              <div style="margin-top:10px;">
+                <span class="mock-btn green-btn" style="background:#a6ce39; color:#333; border:none;">Register</span>
+              </div>
+            </div>
+          </div>
+          <div class="mock-caption">Choose "Everyone" for visibility — your profile must be public to be useful.</div>
+        </div>
+      </div>
+
+      <!-- Step 4.3 -->
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-content">
+          <div class="step-title">Get Your ORCID iD</div>
+
+          <div class="ui-mock">
+            <div class="ui-titlebar orcid">
+              <span class="ui-dot r"></span><span class="ui-dot y"></span><span class="ui-dot g"></span>
+              <div class="ui-url">orcid.org/0000-0002-1234-5678</div>
+            </div>
+            <div class="orcid-header">
+              <span style="font-weight:800; font-size:14px; color:#333;">ORCID</span>
+            </div>
+            <div class="ui-body" style="text-align:center; padding:20px;">
+              <div style="font-size:28px; margin-bottom:8px; color:#a6ce39;">✓</div>
+              <div style="font-size:15px; font-weight:700; color:#333; margin-bottom:4px;">Welcome, Fatima Rahman!</div>
+              <div style="font-size:12px; color:#555; margin-bottom:12px;">Your ORCID iD has been created.</div>
+              <div style="background:#f1f8e9; border:2px solid #a6ce39; border-radius:8px; padding:12px 18px; display:inline-block; margin-bottom:12px;">
+                <div style="font-size:11px; color:#558b2f; font-weight:600; margin-bottom:4px;">YOUR ORCID iD</div>
+                <div style="font-size:18px; font-weight:700; color:#2e7d32; letter-spacing:0.05em;">0000-0002-1234-5678</div>
+                <div style="font-size:11px; color:#558b2f; margin-top:2px;">orcid.org/0000-0002-1234-5678</div>
+              </div>
+              <div style="display:flex; align-items:center; justify-content:center; gap:16px;">
+                <div style="width:60px; height:60px; border:2px solid #dadce0; border-radius:4px; display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:700; color:#9aa0a6; line-height:1.2; text-align:center;">QR<br>CODE</div>
+                <div style="font-size:11.5px; color:#555; text-align:left; max-width:180px;">This is your unique, permanent researcher identifier. Use it on all publications and profiles.</div>
+              </div>
+            </div>
+          </div>
+          <div class="mock-caption">Save your 16-digit ORCID iD — you'll add it to your CV, website, and email signature.</div>
+        </div>
+      </div>
+
+      <!-- Step 4.4 -->
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-content">
+          <div class="step-title">Add Works to Your ORCID</div>
+          <ul class="step-list">
+            <li><div class="bullet-dot"></div><span>ORCID can auto-import works from CrossRef if your papers have DOIs.</span></li>
+            <li><div class="bullet-dot"></div><span>Use "Search &amp; link" for published papers, or "Add manually" for thesis/preprints.</span></li>
+          </ul>
+
+          <div class="ui-mock">
+            <div class="ui-titlebar orcid">
+              <span class="ui-dot r"></span><span class="ui-dot y"></span><span class="ui-dot g"></span>
+              <div class="ui-url">orcid.org/0000-0002-1234-5678</div>
+            </div>
+            <div class="orcid-header">
+              <span style="font-weight:800; font-size:14px; color:#333;">ORCID</span>
+            </div>
+            <div class="ui-body">
+              <div style="font-size:13px; font-weight:700; color:#333; margin-bottom:10px; display:flex; align-items:center; justify-content:space-between;">
+                Works
+                <div style="display:flex; gap:6px;">
+                  <span class="mock-btn green-btn" style="background:#a6ce39; color:#333; border:none; font-size:11px;">+ Add works ▾</span>
+                </div>
+              </div>
+              <div style="background:#f9fafb; border:1px solid #e8eaed; border-radius:4px; padding:8px 12px; font-size:11.5px; color:#555; margin-bottom:10px;">
+                Options: <strong>Search &amp; link</strong> (CrossRef, DataCite) · <strong>Add manually</strong> · <strong>Import BibTeX</strong>
+              </div>
+              <div class="orcid-work">
+                <div class="orcid-work-title">BanglaNER: A Transformer-Based Approach to Named Entity Recognition for Low-Resource Bangla</div>
+                <div style="font-size:11px; color:#5f6368; margin-top:2px;">F Rahman, M Hossain · EMNLP 2024</div>
+                <div class="orcid-work-doi">DOI: 10.18653/v1/2024.emnlp-main.XXX</div>
+              </div>
+              <div class="orcid-work" style="background:#f9fafb; border-style:dashed; color:#9aa0a6;">
+                <div style="font-size:12px; color:#9aa0a6; text-align:center; padding:4px 0;">+ Add your next publication</div>
+              </div>
+            </div>
+          </div>
+          <div class="mock-caption">Use "Search &amp; link" to auto-import papers with DOIs, or "Add manually" for the rest.</div>
+        </div>
+      </div>
+
+      <!-- Step 4.5 -->
+      <div class="step">
+        <div class="step-num">5</div>
+        <div class="step-content">
+          <div class="step-title">Add Your ORCID to Everything</div>
+          <div class="sub-heading" style="margin-top:8px;">CV header — ORCID in your contact line:</div>
+          <div class="cv-header-mock">
+            <div class="cv-name">FATIMA RAHMAN</div>
+            <div class="cv-links">
+              fatima.rahman@du.ac.bd &nbsp;·&nbsp;
+              <a href="#">fatimarahman.github.io</a> &nbsp;·&nbsp;
+              <a href="#">ORCID: 0000-0002-1234-5678</a> &nbsp;·&nbsp;
+              <a href="#">LinkedIn</a>
+            </div>
+          </div>
+          <div class="sub-heading">Website _config.yml — ORCID field:</div>
+          <div class="code-block"><span class="key">orcid:</span> <span class="val">"https://orcid.org/0000-0002-1234-5678"</span></div>
+          <div class="sub-heading">Journal submission forms:</div>
+          <div class="ui-mock">
+            <div class="ui-titlebar dark">
+              <span class="ui-dot r"></span><span class="ui-dot y"></span><span class="ui-dot g"></span>
+              <div class="ui-url">submission.journalXYZ.com/submit</div>
+            </div>
+            <div class="ui-body" style="background:#f9fafb;">
+              <div style="font-size:11px; color:#5f6368; text-transform:uppercase; font-weight:700; letter-spacing:0.05em; margin-bottom:8px;">Author Details</div>
+              <div class="mock-field">
+                <div class="mock-label">Full Name</div>
+                <div class="mock-input" style="max-width:200px;">Fatima Rahman</div>
+              </div>
+              <div class="mock-field">
+                <div class="mock-label">ORCID iD <span style="background:#a6ce39; color:#333; font-size:9px; padding:1px 5px; border-radius:3px; font-weight:700; margin-left:4px;">REQUIRED</span></div>
+                <div class="mock-input active" style="max-width:220px;">0000-0002-1234-5678</div>
+                <div class="mock-hint green">✓ ORCID iD validated</div>
+              </div>
+            </div>
+          </div>
+          <div class="mock-caption">Many journals now require ORCID on submission. Having it ready saves time.</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ── SECTION 5: ResearchGate ── -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-number">5</div>
+      <div class="section-title">ResearchGate Profile</div>
+    </div>
+
+    <div class="steps">
+
+      <!-- Step 5.1 -->
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-content">
+          <div class="step-title">Sign Up</div>
+
+          <div class="ui-mock">
+            <div class="ui-titlebar rg">
+              <span class="ui-dot r"></span><span class="ui-dot y"></span><span class="ui-dot g"></span>
+              <div class="ui-url">researchgate.net/signup</div>
+            </div>
+            <div class="rg-header">
+              <span class="platform-logo" style="color:white;">ResearchGate</span>
+            </div>
+            <div class="ui-body" style="background:#f9fafb;">
+              <div style="background:white; border-radius:8px; padding:16px; max-width:340px; box-shadow:0 1px 4px rgba(0,0,0,0.08);">
+                <div style="font-size:13px; font-weight:600; color:#333; margin-bottom:12px;">Join ResearchGate</div>
+                <div class="mock-field">
+                  <div class="mock-label">Are you a researcher?</div>
+                  <div style="display:flex; gap:8px; margin-top:4px;">
+                    <div style="background:#00ccbb; color:white; border-radius:4px; padding:4px 12px; font-size:11.5px; font-weight:600; cursor:default;">Yes</div>
+                    <div style="background:#f1f3f4; color:#555; border-radius:4px; padding:4px 12px; font-size:11.5px; cursor:default;">No</div>
+                  </div>
+                </div>
+                <div class="mock-field">
+                  <div class="mock-label">Institution</div>
+                  <div class="mock-input">University of Dhaka</div>
+                </div>
+                <div class="mock-field">
+                  <div class="mock-label">Department</div>
+                  <div class="mock-input">Computer Science and Engineering</div>
+                </div>
+                <div class="mock-field">
+                  <div class="mock-label">Research interests</div>
+                  <div style="margin-top:4px;">
+                    <span class="mock-tag teal-tag">Natural Language Processing</span>
+                    <span class="mock-tag teal-tag">Deep Learning</span>
+                    <span style="font-size:11px; color:#00ccbb; cursor:default; margin-left:2px;">+ Add</span>
+                  </div>
+                </div>
+                <div style="margin-top:10px;">
+                  <span class="mock-btn teal-btn">Join for free</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="mock-caption">Choose "Yes" for researcher, fill institution and department carefully.</div>
+        </div>
+      </div>
+
+      <!-- Step 5.2 -->
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-content">
+          <div class="step-title">Complete Your Profile</div>
+
+          <div class="ui-mock">
+            <div class="ui-titlebar rg">
+              <span class="ui-dot r"></span><span class="ui-dot y"></span><span class="ui-dot g"></span>
+              <div class="ui-url">researchgate.net/profile/Fatima-Rahman/edit</div>
+            </div>
+            <div class="rg-header">
+              <span class="platform-logo" style="color:white;">ResearchGate</span>
+              <span style="font-size:12px; color:rgba(255,255,255,0.85);">Edit profile</span>
+            </div>
+            <div class="ui-body">
+              <div style="display:flex; gap:14px; align-items:flex-start;">
+                <div style="text-align:center; flex-shrink:0;">
+                  <div style="width:72px; height:72px; border-radius:50%; background:#e0f5f3; border:2px dashed #00ccbb; display:flex; align-items:center; justify-content:center; font-size:22px; font-weight:700; color:#00897b; cursor:default;">F</div>
+                  <div style="font-size:10.5px; color:#00ccbb; margin-top:4px; cursor:default;">Upload photo</div>
+                </div>
+                <div style="flex:1;">
+                  <div class="mock-field">
+                    <div class="mock-label">About</div>
+                    <div style="border:1px solid #dadce0; border-radius:4px; padding:7px 10px; font-size:11.5px; color:#555; background:white; min-height:50px; line-height:1.6;">
+                      MSc graduate in Computer Science from University of Dhaka. Research focuses on NLP for low-resource Bangla language...
+                    </div>
+                  </div>
+                  <div class="mock-field">
+                    <div class="mock-label">Skills &amp; Expertise</div>
+                    <div style="margin-top:4px;">
+                      <span class="mock-tag teal-tag">Natural Language Processing</span>
+                      <span class="mock-tag teal-tag">Deep Learning</span>
+                      <span class="mock-tag teal-tag">Python</span>
+                      <span class="mock-tag teal-tag">PyTorch</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div style="margin-top:10px; text-align:right;">
+                <span class="mock-btn teal-btn">Save changes</span>
+              </div>
+            </div>
+          </div>
+          <div class="mock-caption">Upload a professional photo — profiles with photos get significantly more views.</div>
+        </div>
+      </div>
+
+      <!-- Step 5.3 -->
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-content">
+          <div class="step-title">Add Publications</div>
+          <ul class="step-list">
+            <li><div class="bullet-dot"></div><span>Uploading the full-text PDF significantly increases your visibility on ResearchGate.</span></li>
+          </ul>
+
+          <div class="ui-mock">
+            <div class="ui-titlebar rg">
+              <span class="ui-dot r"></span><span class="ui-dot y"></span><span class="ui-dot g"></span>
+              <div class="ui-url">researchgate.net/publication/add</div>
+            </div>
+            <div class="rg-header">
+              <span class="platform-logo" style="color:white;">ResearchGate</span>
+              <span style="font-size:12px; color:rgba(255,255,255,0.85);">Add research</span>
+            </div>
+            <div class="ui-body">
+              <div style="font-size:12px; font-weight:600; color:#333; margin-bottom:8px;">What type of research are you adding?</div>
+              <div style="display:flex; flex-wrap:wrap; gap:6px; margin-bottom:12px;">
+                <div style="background:#00ccbb; color:white; border-radius:4px; padding:5px 12px; font-size:11.5px; font-weight:600; cursor:default;">Conference Paper</div>
+                <div style="background:#f1f3f4; color:#555; border-radius:4px; padding:5px 12px; font-size:11.5px; cursor:default;">Journal Article</div>
+                <div style="background:#f1f3f4; color:#555; border-radius:4px; padding:5px 12px; font-size:11.5px; cursor:default;">Thesis</div>
+                <div style="background:#f1f3f4; color:#555; border-radius:4px; padding:5px 12px; font-size:11.5px; cursor:default;">Preprint</div>
+              </div>
+              <div class="mock-field">
+                <div class="mock-label">Title</div>
+                <div class="mock-input" style="max-width:100%;">BanglaNER: A Transformer-Based Approach to Named Entity Recognition...</div>
+              </div>
+              <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px;">
+                <div class="mock-field" style="margin:0;">
+                  <div class="mock-label">Journal / Conference</div>
+                  <div class="mock-input" style="max-width:100%;">EMNLP 2024</div>
+                </div>
+                <div class="mock-field" style="margin:0;">
+                  <div class="mock-label">Year</div>
+                  <div class="mock-input" style="max-width:100%;">2024</div>
+                </div>
+              </div>
+              <div class="mock-field" style="margin-top:10px;">
+                <div class="mock-label">DOI</div>
+                <div class="mock-input" style="max-width:100%;">10.18653/v1/2024.emnlp-main.XXX</div>
+              </div>
+              <div style="border:2px dashed #00ccbb; border-radius:6px; padding:12px; text-align:center; background:#e0f5f3; margin-top:8px;">
+                <div style="font-size:12px; font-weight:600; color:#00897b; margin-bottom:4px;">Upload full-text PDF</div>
+                <div style="font-size:11px; color:#555;">Uploading increases your reads and visibility significantly</div>
+                <div style="margin-top:8px;"><span class="mock-btn teal-btn" style="font-size:11px;">Choose file</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="mock-caption">Always upload the full PDF if copyright allows — it dramatically increases reads.</div>
+        </div>
+      </div>
+
+      <!-- Step 5.4 -->
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-content">
+          <div class="step-title">Your Completed ResearchGate Profile</div>
+
+          <div class="ui-mock">
+            <div class="ui-titlebar rg">
+              <span class="ui-dot r"></span><span class="ui-dot y"></span><span class="ui-dot g"></span>
+              <div class="ui-url">researchgate.net/profile/Fatima-Rahman</div>
+            </div>
+            <div class="rg-header">
+              <span class="platform-logo" style="color:white;">ResearchGate</span>
+            </div>
+            <div class="ui-body">
+              <div style="display:flex; gap:14px; align-items:flex-start; margin-bottom:12px;">
+                <div style="width:72px; height:72px; border-radius:50%; background:linear-gradient(135deg,#e0f5f3,#b2dfdb); display:flex; align-items:center; justify-content:center; font-size:24px; font-weight:700; color:#00897b; flex-shrink:0;">F</div>
+                <div style="flex:1;">
+                  <div style="font-size:16px; font-weight:700; color:#333;">Fatima Rahman</div>
+                  <div style="font-size:12px; color:#555; margin-top:1px;">University of Dhaka · Computer Science</div>
+                  <div style="margin-top:6px; display:flex; gap:6px;">
+                    <span class="mock-btn teal-btn" style="font-size:11px;">Follow</span>
+                    <span class="mock-btn outline" style="font-size:11px; border-color:#00ccbb; color:#00ccbb;">Message</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="rg-stats">
+                <div class="rg-stat">
+                  <div class="rg-stat-num">3</div>
+                  <div class="rg-stat-label">Publications</div>
+                </div>
+                <div class="rg-stat">
+                  <div class="rg-stat-num">23</div>
+                  <div class="rg-stat-label">Citations</div>
+                </div>
+                <div class="rg-stat">
+                  <div class="rg-stat-num">45</div>
+                  <div class="rg-stat-label">Reads</div>
+                </div>
+                <div class="rg-stat">
+                  <div class="rg-stat-num">2.5</div>
+                  <div class="rg-stat-label">RG Score</div>
+                </div>
+              </div>
+
+              <div style="border-top:1px solid #e8eaed; padding-top:10px;">
+                <div style="font-size:12px; font-weight:600; color:#333; margin-bottom:6px;">Research items</div>
+                <div style="font-size:12px; color:#1a73e8; margin-bottom:3px;">BanglaNER: A Transformer-Based Approach...</div>
+                <div style="font-size:11px; color:#5f6368;">Conference Paper · EMNLP 2024 · 14 citations · 32 reads</div>
+              </div>
+            </div>
+          </div>
+          <div class="mock-caption">Completed ResearchGate profile showing publications, citations, reads, and RG Score.</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ── SECTION 6: Consistent Naming & Cross-Linking ── -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-number">6</div>
+      <div class="section-title">Consistent Naming &amp; Cross-Linking</div>
+    </div>
+
+    <div class="sub-heading" style="margin-top:0;">6.1 — Name Consistency Table</div>
+    <p style="font-size:12.5px; color:var(--text-muted); margin-bottom:10px;">Use the <strong>exact same name, photo, and bio format</strong> on every platform. Inconsistency confuses professors and search engines.</p>
+
+    <div class="table-wrap" style="margin-bottom:16px;">
+      <table class="resource-table">
+        <thead>
+          <tr>
+            <th>Platform</th>
+            <th>Display Name</th>
+            <th>Username / URL</th>
+            <th>Photo</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Email</strong></td>
+            <td>fatima.rahman@du.ac.bd</td>
+            <td>—</td>
+            <td>—</td>
+          </tr>
+          <tr>
+            <td><strong>Website</strong></td>
+            <td>Fatima Rahman</td>
+            <td>fatimarahman.github.io</td>
+            <td>✓ Same</td>
+          </tr>
+          <tr>
+            <td><strong>Google Scholar</strong></td>
+            <td>Fatima Rahman</td>
+            <td>scholar.google.com/citations?user=…</td>
+            <td>✓ Same</td>
+          </tr>
+          <tr>
+            <td><strong>ORCID</strong></td>
+            <td>Fatima Rahman</td>
+            <td>orcid.org/0000-0002-1234-5678</td>
+            <td>✓ Same</td>
+          </tr>
+          <tr>
+            <td><strong>ResearchGate</strong></td>
+            <td>Fatima Rahman</td>
+            <td>researchgate.net/profile/…</td>
+            <td>✓ Same</td>
+          </tr>
+          <tr>
+            <td><strong>LinkedIn</strong></td>
+            <td>Fatima Rahman</td>
+            <td>linkedin.com/in/fatimarahman</td>
+            <td>✓ Same</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="sub-heading">6.2 — CV Header With All Links</div>
+    <div class="cv-header-mock" style="margin-bottom:14px;">
+      <div class="cv-name">FATIMA RAHMAN</div>
+      <div class="cv-links">
+        <a href="#">fatima.rahman@du.ac.bd</a> &nbsp;|&nbsp;
+        <a href="#">fatimarahman.github.io</a><br>
+        <a href="#">Google Scholar</a> &nbsp;|&nbsp;
+        ORCID: <a href="#">0000-0002-1234-5678</a> &nbsp;|&nbsp;
+        <a href="#">LinkedIn</a>
+      </div>
+    </div>
+
+    <div class="sub-heading">6.3 — The "Google Yourself" Test</div>
+    <p style="font-size:12.5px; color:var(--text-muted); margin-bottom:10px;">After setting up all profiles, search your name + research area and verify what professors see.</p>
+
+    <!-- Google search results mockup -->
+    <div class="ui-mock">
+      <div class="ui-titlebar google">
+        <span class="ui-dot r" style="background:#ea4335;"></span>
+        <span class="ui-dot y" style="background:#fbbc05;"></span>
+        <span class="ui-dot g" style="background:#34a853;"></span>
+        <div class="ui-url" style="background:#f1f3f4; color:#202124;">Fatima Rahman NLP researcher</div>
+      </div>
+      <div style="padding:8px 14px; border-bottom:1px solid #e8eaed; background:#fff; display:flex; align-items:center; gap:10px;">
+        <div class="google-logo">
+          <span class="g1">G</span><span class="g2">o</span><span class="g3">o</span><span class="g4">g</span><span class="g5">l</span><span class="g6">e</span>
+        </div>
+        <div style="font-size:11px; color:#5f6368;">About 1,240 results</div>
+      </div>
+      <div class="ui-body">
+        <div class="search-result">
+          <div class="search-result-url">fatimarahman.github.io</div>
+          <div class="search-result-title">Fatima Rahman — NLP Researcher | University of Dhaka</div>
+          <div class="search-result-snippet">MSc in Computer Science. Research: NLP, low-resource Bangla languages, transformer models. Currently seeking PhD positions. CV, publications, and contact info.</div>
+        </div>
+        <div class="search-result">
+          <div class="search-result-url">scholar.google.com › citations › user=XXXXXX</div>
+          <div class="search-result-title">Fatima Rahman — Google Scholar</div>
+          <div class="search-result-snippet">University of Dhaka · Verified email · NLP · Low-Resource Languages · Deep Learning · Cited by 23</div>
+        </div>
+        <div class="search-result">
+          <div class="search-result-url">linkedin.com › in › fatimarahman</div>
+          <div class="search-result-title">Fatima Rahman — MSc, Computer Science — University of Dhaka | LinkedIn</div>
+          <div class="search-result-snippet">Researcher in NLP and low-resource language processing. Graduate from University of Dhaka. 3 publications · 23 citations.</div>
+        </div>
+        <div class="search-result">
+          <div class="search-result-url">researchgate.net › profile › Fatima-Rahman</div>
+          <div class="search-result-title">Fatima Rahman | University of Dhaka — ResearchGate</div>
+          <div class="search-result-snippet">3 publications · 23 citations · 2.5 RG Score. Research in Natural Language Processing, Named Entity Recognition, and Bangla language AI.</div>
+        </div>
+        <div class="search-result" style="margin-bottom:0;">
+          <div class="search-result-url">orcid.org › 0000-0002-1234-5678</div>
+          <div class="search-result-title">Fatima Rahman (0000-0002-1234-5678) — ORCID</div>
+          <div class="search-result-snippet">Researcher at University of Dhaka. 2 works in ORCID registry. Unique, trusted, verified identifier for researchers worldwide.</div>
+        </div>
+        <div style="margin-top:12px; padding:8px 12px; background:#e8f0fe; border-radius:6px; font-size:11.5px; color:#1a73e8; font-weight:600; text-align:center;">
+          ✓ All 5 results are professional and consistent — this is what a professor sees.
+        </div>
+      </div>
+    </div>
+    <div class="mock-caption">When a professor Googles you, every result should be an academic profile. No Facebook, no gaps.</div>
+
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ── SECTION 7: Checklist ── -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-number">7</div>
+      <div class="section-title">Quick Setup Checklist</div>
+    </div>
+    <ul class="checklist">
+      <li><div class="checkbox"></div><span>Professional email created (firstname.lastname format)</span></li>
+      <li><div class="checkbox"></div><span>Email signature set up with name, title, research area, and links</span></li>
+      <li><div class="checkbox"></div><span>Google Scholar profile created and made public</span></li>
+      <li><div class="checkbox"></div><span>At least one publication/article added to Scholar (or "in preparation")</span></li>
+      <li><div class="checkbox"></div><span>Research interests added to Scholar profile</span></li>
+      <li><div class="checkbox"></div><span>ORCID registered — 16-digit iD obtained</span></li>
+      <li><div class="checkbox"></div><span>ORCID added to CV header, website, and email signature</span></li>
+      <li><div class="checkbox"></div><span>ResearchGate profile created with institution and department</span></li>
+      <li><div class="checkbox"></div><span>Publications uploaded to ResearchGate (with PDF if possible)</span></li>
+      <li><div class="checkbox"></div><span>Same name used across ALL platforms</span></li>
+      <li><div class="checkbox"></div><span>Same professional photo used everywhere</span></li>
+      <li><div class="checkbox"></div><span>CV header updated with all profile links</span></li>
+      <li><div class="checkbox"></div><span>Website contact page links to all profiles</span></li>
+      <li><div class="checkbox"></div><span>"Googled yourself" and verified results look professional</span></li>
+      <li><div class="checkbox"></div><span>All profile URLs submitted on NextPhD platform</span></li>
+    </ul>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ── SECTION 8: Common Mistakes ── -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-number">8</div>
+      <div class="section-title">Common Mistakes to Avoid</div>
+    </div>
+    <div class="trouble-list">
+      <div class="trouble-item">
+        <div class="trouble-problem">Different names on different platforms</div>
+        <div class="trouble-solution">"Fatima Rahman" on Scholar but "F. Rahman" on ORCID. Pick one format and use it everywhere — inconsistency looks unprofessional and breaks search engine recognition.</div>
+      </div>
+      <div class="trouble-item">
+        <div class="trouble-problem">No institutional email</div>
+        <div class="trouble-solution">If you don't have one, use firstname.lastname@gmail.com. Never use nicknames, numbers, or underscores. A bad email format undermines your first impression before the professor reads a single word.</div>
+      </div>
+      <div class="trouble-item">
+        <div class="trouble-problem">Private Scholar profile</div>
+        <div class="trouble-solution">Professors can't find you if your profile is set to private. Always make it public — go to Scholar Settings and toggle "Make my profile public" to ON.</div>
+      </div>
+      <div class="trouble-item">
+        <div class="trouble-problem">Empty profiles</div>
+        <div class="trouble-solution">A Scholar profile with zero papers looks worse than no profile. Add at least your thesis or papers "in preparation." An empty shell signals you don't care about your research identity.</div>
+      </div>
+      <div class="trouble-item">
+        <div class="trouble-problem">No photo</div>
+        <div class="trouble-solution">Profiles without photos look abandoned and get far fewer views. Use the same professional headshot across Scholar, ResearchGate, ORCID, LinkedIn, and your website.</div>
+      </div>
+      <div class="trouble-item">
+        <div class="trouble-problem">Outdated information</div>
+        <div class="trouble-solution">If you've graduated or changed institutions, update ALL profiles. Stale data (old affiliation, old email) confuses professors and can make your outreach emails bounce or seem untrustworthy.</div>
+      </div>
+      <div class="trouble-item">
+        <div class="trouble-problem">Facebook/Instagram as top Google results</div>
+        <div class="trouble-solution">If personal social media dominates your Google results, your academic profiles aren't visible enough. Create all the profiles above — they will push professional results to the top within a few weeks.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer class="footer">
+    <div class="footer-main">
+      <div class="footer-left">
+        <strong>NextPhD Bangladesh · ELITE Research Lab</strong><br>
+        Cohort 01 · Week 1 Guide · June 28, 2026
+      </div>
+      <div class="footer-right">
+        Complete all profiles before your first professor<br>
+        outreach email (Week 13). Professors WILL click your links.
+      </div>
+    </div>
+    <div class="footer-links">
+      <strong>Platform Links:</strong>
+      &nbsp;
+      <a href="https://scholar.google.com" target="_blank">Google Scholar</a>
+      &nbsp;·&nbsp;
+      <a href="https://orcid.org/register" target="_blank">ORCID Register</a>
+      &nbsp;·&nbsp;
+      <a href="https://www.researchgate.net/signup" target="_blank">ResearchGate</a>
+      &nbsp;·&nbsp;
+      <a href="https://accounts.google.com/signup" target="_blank">Create Gmail</a>
+      &nbsp;·&nbsp;
+      <a href="https://www.linkedin.com/signup" target="_blank">LinkedIn</a>
+    </div>
+  </footer>
+
+</div>
+</body>
+</html>

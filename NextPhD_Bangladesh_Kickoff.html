@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NextPhD Bangladesh — Onboarding & Kickoff</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', sans-serif; color: #1a1a1a; background: #0a0a0a; }
+
+  /* Slide system */
+  .slide {
+    min-height: 100vh; display: flex; align-items: center; justify-content: center;
+    padding: 60px 40px; position: relative;
+  }
+  .slide-inner { max-width: 960px; width: 100%; }
+
+  /* Slide themes */
+  .slide.dark { background: linear-gradient(135deg, #0a1a10 0%, #0d2818 50%, #0a1a10 100%); color: #e8f0e8; }
+  .slide.white { background: #fafffe; color: #1a1a1a; }
+  .slide.green { background: linear-gradient(135deg, #1a5632 0%, #2d7a4f 100%); color: white; }
+  .slide.dark-alt { background: linear-gradient(135deg, #111827 0%, #1f2937 100%); color: #f3f4f6; }
+
+  /* Typography */
+  .slide-num { position: absolute; top: 30px; right: 40px; font-size: 14px; opacity: 0.4; font-weight: 600; }
+  .eyebrow { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 3px; opacity: 0.6; margin-bottom: 16px; }
+  h1.hero { font-size: 3.5em; font-weight: 900; line-height: 1.1; margin-bottom: 16px; }
+  h1.hero .accent { color: #4ade80; }
+  h2.slide-title { font-size: 2.2em; font-weight: 800; margin-bottom: 24px; line-height: 1.2; }
+  h2.slide-title .accent { color: #4ade80; }
+  .slide.white h2.slide-title .accent { color: #1a5632; }
+  h3.sub { font-size: 1.2em; font-weight: 600; margin-bottom: 12px; color: #4ade80; }
+  .slide.white h3.sub { color: #1a5632; }
+  p.lead { font-size: 1.15em; line-height: 1.7; opacity: 0.85; margin-bottom: 20px; }
+  p.hero-sub { font-size: 1.3em; opacity: 0.7; margin-bottom: 8px; }
+
+  /* Lists */
+  .checklist { list-style: none; padding: 0; }
+  .checklist li { padding: 12px 0; font-size: 1.05em; border-bottom: 1px solid rgba(255,255,255,0.08); display: flex; align-items: flex-start; gap: 12px; }
+  .slide.white .checklist li { border-bottom-color: rgba(0,0,0,0.06); }
+  .checklist li .check { color: #4ade80; font-weight: 700; font-size: 1.1em; flex-shrink: 0; margin-top: 1px; }
+  .slide.white .checklist li .check { color: #16a34a; }
+  .checklist li:last-child { border-bottom: none; }
+
+  /* Grid layouts */
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-top: 20px; }
+  .three-col { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; margin-top: 20px; }
+  .four-col { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 16px; margin-top: 20px; }
+
+  /* Cards */
+  .card { padding: 24px; border-radius: 12px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08); }
+  .slide.white .card { background: #f0fdf4; border-color: #d1e7d8; }
+  .card .card-title { font-weight: 700; font-size: 1em; margin-bottom: 6px; }
+  .card .card-desc { font-size: 0.85em; opacity: 0.7; line-height: 1.5; }
+  .card .card-num { font-size: 2em; font-weight: 800; color: #4ade80; margin-bottom: 4px; }
+  .slide.white .card .card-num { color: #1a5632; }
+
+  /* Timeline */
+  .timeline-row { display: flex; gap: 0; margin-top: 24px; }
+  .tl-item { flex: 1; padding: 20px 16px; text-align: center; position: relative; border-top: 3px solid rgba(255,255,255,0.1); }
+  .tl-item.active { border-top-color: #4ade80; }
+  .tl-item .tl-month { font-weight: 800; font-size: 0.9em; margin-bottom: 4px; color: #4ade80; }
+  .tl-item .tl-label { font-size: 0.75em; opacity: 0.7; line-height: 1.4; }
+  .tl-item .tl-dot { width: 10px; height: 10px; background: #4ade80; border-radius: 50%; margin: 0 auto 8px; }
+
+  /* Month detail card */
+  .month-card { padding: 28px; border-radius: 12px; background: rgba(74,222,128,0.06); border: 1px solid rgba(74,222,128,0.15); margin-bottom: 12px; }
+  .slide.white .month-card { background: #f0fdf4; border-color: #bbf7d0; }
+  .month-card .m-title { font-size: 1.1em; font-weight: 700; color: #4ade80; margin-bottom: 10px; }
+  .slide.white .month-card .m-title { color: #1a5632; }
+  .month-card .m-list { list-style: none; padding: 0; }
+  .month-card .m-list li { font-size: 0.9em; padding: 4px 0; opacity: 0.85; }
+  .month-card .m-list li::before { content: '->'; margin-right: 8px; color: #4ade80; font-weight: 700; }
+  .slide.white .month-card .m-list li::before { color: #16a34a; }
+
+  /* Feature grid */
+  .feat-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 20px; }
+  .feat { padding: 16px; border-radius: 8px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.06); text-align: center; }
+  .slide.white .feat { background: #f8faf8; border-color: #e0e8e0; }
+  .feat .feat-name { font-weight: 700; font-size: 0.8em; margin-top: 6px; }
+  .feat .feat-icon { font-size: 1.4em; }
+
+  /* Stat bar */
+  .stat-bar { display: flex; gap: 32px; margin: 24px 0; }
+  .stat { text-align: center; }
+  .stat .stat-num { font-size: 2.5em; font-weight: 900; color: #4ade80; }
+  .stat .stat-label { font-size: 0.8em; opacity: 0.6; margin-top: 2px; }
+
+  /* Info box */
+  .info-box { padding: 20px 24px; border-radius: 10px; margin: 20px 0; font-size: 0.95em; line-height: 1.6; }
+  .info-box.glow { background: rgba(74,222,128,0.08); border: 1px solid rgba(74,222,128,0.2); }
+
+  /* Navigation dots */
+  .nav-dots { position: fixed; right: 20px; top: 50%; transform: translateY(-50%); display: flex; flex-direction: column; gap: 8px; z-index: 100; }
+  .nav-dots a { width: 8px; height: 8px; border-radius: 50%; background: rgba(255,255,255,0.2); display: block; transition: all 0.3s; }
+  .nav-dots a:hover { background: #4ade80; transform: scale(1.4); }
+
+  @media (max-width: 768px) {
+    .slide { padding: 40px 20px; }
+    h1.hero { font-size: 2em; }
+    h2.slide-title { font-size: 1.5em; }
+    .two-col, .three-col, .four-col, .feat-grid { grid-template-columns: 1fr; }
+    .timeline-row { flex-direction: column; }
+    .stat-bar { flex-wrap: wrap; gap: 16px; }
+    .nav-dots { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Nav dots -->
+<div class="nav-dots">
+  <a href="#s1"></a><a href="#s2"></a><a href="#s3"></a><a href="#s4"></a>
+  <a href="#s5"></a><a href="#s6"></a><a href="#s7"></a><a href="#s8"></a>
+  <a href="#s9"></a><a href="#s10"></a><a href="#s11"></a>
+</div>
+
+<!-- ============ SLIDE 1: Title ============ -->
+<div class="slide green" id="s1">
+  <div class="slide-inner" style="text-align:center;">
+    <div class="eyebrow">Cohort 01 &bull; ELITE Research Lab</div>
+    <h1 class="hero" style="color:white;">NextPhD<br>Bangladesh</h1>
+    <p class="hero-sub" style="color:rgba(255,255,255,0.85);">Onboarding & Kickoff Session</p>
+    <p style="font-size:1em; opacity:0.6; margin-top:20px;">Thursday, June 26, 2026 &bull; 9:30 PM BDT</p>
+  </div>
+  <div class="slide-num">01</div>
+</div>
+
+<!-- ============ SLIDE 2: Welcome ============ -->
+<div class="slide dark" id="s2">
+  <div class="slide-inner">
+    <div class="eyebrow">Welcome</div>
+    <h2 class="slide-title">What is <span class="accent">NextPhD Bangladesh</span>?</h2>
+    <p class="lead">A structured 5-month mentorship program to guide Bangladeshi students through the entire PhD application process for <strong>Fall 2026 / Spring 2027</strong> admissions in the US, Canada, and Australia.</p>
+
+    <div class="stat-bar">
+      <div class="stat"><div class="stat-num">37</div><div class="stat-label">Candidates</div></div>
+      <div class="stat"><div class="stat-num">5</div><div class="stat-label">Months</div></div>
+      <div class="stat"><div class="stat-num">428</div><div class="stat-label">PhD Openings</div></div>
+      <div class="stat"><div class="stat-num">185</div><div class="stat-label">Universities</div></div>
+      <div class="stat"><div class="stat-num">3</div><div class="stat-label">Countries</div></div>
+    </div>
+
+    <ul class="checklist" style="margin-top:20px;">
+      <li><span class="check">+</span> Dedicated dashboard to track your entire application journey</li>
+      <li><span class="check">+</span> Weekly/bi-weekly live sessions with mentors</li>
+      <li><span class="check">+</span> SOP, CV, and writing sample reviews with feedback</li>
+      <li><span class="check">+</span> Professor outreach strategy and cold email templates</li>
+      <li><span class="check">+</span> Interview preparation and mock sessions</li>
+      <li><span class="check">+</span> Peer community via Discord</li>
+    </ul>
+  </div>
+  <div class="slide-num">02</div>
+</div>
+
+<!-- ============ SLIDE 3: 5-Month Overview ============ -->
+<div class="slide dark-alt" id="s3">
+  <div class="slide-inner">
+    <div class="eyebrow">Roadmap</div>
+    <h2 class="slide-title">5-Month <span class="accent">Journey</span></h2>
+    <p class="lead">July through November 2026 &mdash; from research to submitted applications.</p>
+
+    <div class="timeline-row">
+      <div class="tl-item active"><div class="tl-dot"></div><div class="tl-month">JUL</div><div class="tl-label">Foundation<br>& Research</div></div>
+      <div class="tl-item active"><div class="tl-dot"></div><div class="tl-month">AUG</div><div class="tl-label">Shortlisting<br>& Outreach</div></div>
+      <div class="tl-item active"><div class="tl-dot"></div><div class="tl-month">SEP</div><div class="tl-label">Drafting &<br>Refinement</div></div>
+      <div class="tl-item active"><div class="tl-dot"></div><div class="tl-month">OCT</div><div class="tl-label">Applications<br>Begin</div></div>
+      <div class="tl-item active"><div class="tl-dot"></div><div class="tl-month">NOV</div><div class="tl-label">Final<br>Push</div></div>
+    </div>
+  </div>
+  <div class="slide-num">03</div>
+</div>
+
+<!-- ============ SLIDE 4: Month 1 ============ -->
+<div class="slide white" id="s4">
+  <div class="slide-inner">
+    <div class="eyebrow" style="color:#1a5632;">Month 1</div>
+    <h2 class="slide-title">July &mdash; <span class="accent">Foundation & Research</span></h2>
+    <p class="lead" style="color:#444;">Build your profile, explore opportunities, and identify your targets.</p>
+
+    <div class="two-col">
+      <div class="month-card">
+        <div class="m-title">Your Goals</div>
+        <ul class="m-list">
+          <li>Complete dashboard profile to 100%</li>
+          <li>Upload your latest CV</li>
+          <li>Browse 428 PhD Openings &mdash; save interesting ones</li>
+          <li>Explore University Pool &mdash; shortlist 15-20</li>
+          <li>Start browsing Professor Pool</li>
+          <li>Review Research Labs hiring PhD students</li>
+          <li>Complete Document Checklist</li>
+        </ul>
+      </div>
+      <div class="month-card">
+        <div class="m-title">Sessions & Tasks</div>
+        <ul class="m-list">
+          <li>How to read faculty papers effectively</li>
+          <li>Understanding US/CA/AU PhD structure</li>
+          <li>Research area alignment workshop</li>
+          <li>Dashboard walkthrough and Q&A</li>
+        </ul>
+        <div style="margin-top:16px; padding:12px; background:rgba(26,86,50,0.08); border-radius:8px; font-size:0.85em;">
+          <strong>Deliverable:</strong> Shortlist of 15-20 target universities with reasons
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-num">04</div>
+</div>
+
+<!-- ============ SLIDE 5: Month 2 ============ -->
+<div class="slide dark" id="s5">
+  <div class="slide-inner">
+    <div class="eyebrow">Month 2</div>
+    <h2 class="slide-title">August &mdash; <span class="accent">Shortlisting & Outreach</span></h2>
+    <p class="lead">Narrow your target list and start reaching out to professors.</p>
+
+    <div class="two-col">
+      <div class="month-card">
+        <div class="m-title">Your Goals</div>
+        <ul class="m-list">
+          <li>Finalize university shortlist (8-12)</li>
+          <li>Research 20-30 target professors</li>
+          <li>Draft cold emails using template generator</li>
+          <li>Begin sending outreach emails</li>
+          <li>Start SOP first draft</li>
+          <li>Follow Professor News Feed</li>
+        </ul>
+      </div>
+      <div class="month-card">
+        <div class="m-title">Sessions & Tasks</div>
+        <ul class="m-list">
+          <li>Cold email strategy workshop</li>
+          <li>How to find the right advisor</li>
+          <li>SOP structure and storytelling</li>
+          <li>Peer review sessions</li>
+        </ul>
+        <div style="margin-top:16px; padding:12px; background:rgba(74,222,128,0.08); border-radius:8px; font-size:0.85em;">
+          <strong>Deliverables:</strong> 5+ professor emails sent, SOP first draft submitted
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-num">05</div>
+</div>
+
+<!-- ============ SLIDE 6: Month 3 ============ -->
+<div class="slide white" id="s6">
+  <div class="slide-inner">
+    <div class="eyebrow" style="color:#1a5632;">Month 3</div>
+    <h2 class="slide-title">September &mdash; <span class="accent">Drafting & Refinement</span></h2>
+    <p class="lead" style="color:#444;">Refine your SOP, secure recommendation letters, and continue engagement.</p>
+
+    <div class="two-col">
+      <div class="month-card">
+        <div class="m-title">Your Goals</div>
+        <ul class="m-list">
+          <li>Revise SOP (aim for 2-3 drafts)</li>
+          <li>Request recommendation letters</li>
+          <li>Follow up on professor outreach</li>
+          <li>Upload writing samples & papers</li>
+          <li>Start interview preparation</li>
+        </ul>
+      </div>
+      <div class="month-card">
+        <div class="m-title">Sessions & Tasks</div>
+        <ul class="m-list">
+          <li>SOP peer review workshop</li>
+          <li>How to ask for recommendation letters</li>
+          <li>Research statement writing</li>
+          <li>Mock interview introduction</li>
+        </ul>
+        <div style="margin-top:16px; padding:12px; background:rgba(26,86,50,0.08); border-radius:8px; font-size:0.85em;">
+          <strong>Deliverables:</strong> SOP v2 submitted, all rec letters requested
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-num">06</div>
+</div>
+
+<!-- ============ SLIDE 7: Month 4-5 ============ -->
+<div class="slide dark" id="s7">
+  <div class="slide-inner">
+    <div class="eyebrow">Months 4 & 5</div>
+    <h2 class="slide-title">Oct-Nov &mdash; <span class="accent">Apply & Final Push</span></h2>
+
+    <div class="two-col">
+      <div class="month-card">
+        <div class="m-title">October &mdash; Applications Begin</div>
+        <ul class="m-list">
+          <li>Finalize SOP &mdash; customize per university</li>
+          <li>Ensure all rec letters confirmed</li>
+          <li>Submit early-deadline applications</li>
+          <li>Track interviews in dashboard</li>
+          <li>Practice mock interviews</li>
+        </ul>
+      </div>
+      <div class="month-card">
+        <div class="m-title">November &mdash; Final Push</div>
+        <ul class="m-list">
+          <li>Submit all remaining applications</li>
+          <li>Final SOP polish for Dec deadlines</li>
+          <li>Follow up on rec letter submissions</li>
+          <li>Live mock interview sessions</li>
+          <li>Review Application Kanban</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="info-box glow" style="margin-top:20px;">
+      <strong>Target:</strong> 8-12 applications submitted by end of November. Mix of reach, match, and safety schools.
+    </div>
+  </div>
+  <div class="slide-num">07</div>
+</div>
+
+<!-- ============ SLIDE 8: Dashboard ============ -->
+<div class="slide white" id="s8">
+  <div class="slide-inner">
+    <div class="eyebrow" style="color:#1a5632;">Your Tools</div>
+    <h2 class="slide-title">The <span class="accent">Dashboard</span></h2>
+    <p class="lead" style="color:#444;">Everything you need in one place. Access at <strong>nextphd.elitelab.ai</strong></p>
+
+    <div class="feat-grid">
+      <div class="feat"><div class="feat-name">PhD Openings</div><div class="card-desc" style="font-size:0.75em;color:#666;margin-top:4px;">428 curated positions</div></div>
+      <div class="feat"><div class="feat-name">University Pool</div><div class="card-desc" style="font-size:0.75em;color:#666;margin-top:4px;">CS Rankings data</div></div>
+      <div class="feat"><div class="feat-name">Professor Pool</div><div class="card-desc" style="font-size:0.75em;color:#666;margin-top:4px;">Find advisors</div></div>
+      <div class="feat"><div class="feat-name">Research Labs</div><div class="card-desc" style="font-size:0.75em;color:#666;margin-top:4px;">Labs hiring PhDs</div></div>
+      <div class="feat"><div class="feat-name">My Universities</div><div class="card-desc" style="font-size:0.75em;color:#666;margin-top:4px;">Track applications</div></div>
+      <div class="feat"><div class="feat-name">My Professors</div><div class="card-desc" style="font-size:0.75em;color:#666;margin-top:4px;">Outreach tracker</div></div>
+      <div class="feat"><div class="feat-name">SOP Review</div><div class="card-desc" style="font-size:0.75em;color:#666;margin-top:4px;">Mentor feedback</div></div>
+      <div class="feat"><div class="feat-name">My Tasks</div><div class="card-desc" style="font-size:0.75em;color:#666;margin-top:4px;">Assignments & grades</div></div>
+      <div class="feat"><div class="feat-name">Sessions</div><div class="card-desc" style="font-size:0.75em;color:#666;margin-top:4px;">Live workshops</div></div>
+      <div class="feat"><div class="feat-name">My Files</div><div class="card-desc" style="font-size:0.75em;color:#666;margin-top:4px;">CV, SOP, transcripts</div></div>
+      <div class="feat"><div class="feat-name">Rec Letters</div><div class="card-desc" style="font-size:0.75em;color:#666;margin-top:4px;">Track requests</div></div>
+      <div class="feat"><div class="feat-name">Interviews</div><div class="card-desc" style="font-size:0.75em;color:#666;margin-top:4px;">Prep & mock</div></div>
+      <div class="feat"><div class="feat-name">App Kanban</div><div class="card-desc" style="font-size:0.75em;color:#666;margin-top:4px;">Visual pipeline</div></div>
+      <div class="feat"><div class="feat-name">Calendar</div><div class="card-desc" style="font-size:0.75em;color:#666;margin-top:4px;">All deadlines</div></div>
+      <div class="feat"><div class="feat-name">Doc Checklist</div><div class="card-desc" style="font-size:0.75em;color:#666;margin-top:4px;">9-item tracker</div></div>
+      <div class="feat"><div class="feat-name">Prof News</div><div class="card-desc" style="font-size:0.75em;color:#666;margin-top:4px;">Faculty updates</div></div>
+      <div class="feat"><div class="feat-name">Leaderboard</div><div class="card-desc" style="font-size:0.75em;color:#666;margin-top:4px;">Peer comparison</div></div>
+      <div class="feat"><div class="feat-name">My Journal</div><div class="card-desc" style="font-size:0.75em;color:#666;margin-top:4px;">Private notes</div></div>
+      <div class="feat"><div class="feat-name">Book a Slot</div><div class="card-desc" style="font-size:0.75em;color:#666;margin-top:4px;">1:1 with mentors</div></div>
+      <div class="feat"><div class="feat-name">Resources</div><div class="card-desc" style="font-size:0.75em;color:#666;margin-top:4px;">Guides & templates</div></div>
+    </div>
+
+    <div style="margin-top:20px;padding:16px;background:#f0fdf4;border-radius:8px;border:1px solid #bbf7d0;font-size:0.9em;text-align:center;">
+      <strong>Pro Tip:</strong> Press <strong>Ctrl+K</strong> anywhere to search across professors, universities, labs, and more.
+    </div>
+  </div>
+  <div class="slide-num">08</div>
+</div>
+
+<!-- ============ SLIDE 9: Weekly Expectations ============ -->
+<div class="slide dark" id="s9">
+  <div class="slide-inner">
+    <div class="eyebrow">Expectations</div>
+    <h2 class="slide-title">What We Expect <span class="accent">Weekly</span></h2>
+
+    <ul class="checklist">
+      <li><span class="check">01</span><div><strong>Attend Live Sessions</strong><br><span style="opacity:0.6;font-size:0.9em;">Weekly/bi-weekly via Google Meet. Topics rotate each week.</span></div></li>
+      <li><span class="check">02</span><div><strong>Complete Tasks Before Deadlines</strong><br><span style="opacity:0.6;font-size:0.9em;">Graded with rubric-based feedback from mentors.</span></div></li>
+      <li><span class="check">03</span><div><strong>Update Your Dashboard</strong><br><span style="opacity:0.6;font-size:0.9em;">University tracker, professor outreach, document status &mdash; keep it current.</span></div></li>
+      <li><span class="check">04</span><div><strong>Professor Outreach (from August)</strong><br><span style="opacity:0.6;font-size:0.9em;">2-3 personalized emails per week. Track everything on dashboard.</span></div></li>
+      <li><span class="check">05</span><div><strong>Participate on Discord</strong><br><span style="opacity:0.6;font-size:0.9em;">Ask questions, share resources, help peers.</span></div></li>
+    </ul>
+
+    <div class="info-box glow" style="margin-top:20px;">
+      You'll receive a <strong>weekly progress digest</strong> every Sunday at 8 PM BDT, and <strong>deadline reminders</strong> at 30, 14, and 7 days before your university deadlines.
+    </div>
+  </div>
+  <div class="slide-num">09</div>
+</div>
+
+<!-- ============ SLIDE 10: Key Milestones ============ -->
+<div class="slide white" id="s10">
+  <div class="slide-inner">
+    <div class="eyebrow" style="color:#1a5632;">Milestones</div>
+    <h2 class="slide-title">Key <span class="accent">Dates</span></h2>
+
+    <table style="width:100%;border-collapse:collapse;font-size:0.95em;">
+      <thead>
+        <tr style="border-bottom:2px solid #1a5632;">
+          <th style="padding:12px 16px;text-align:left;color:#1a5632;">Date</th>
+          <th style="padding:12px 16px;text-align:left;color:#1a5632;">Milestone</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="border-bottom:1px solid #e8e8e8;"><td style="padding:10px 16px;font-weight:600;">July 15</td><td style="padding:10px 16px;">Profile 100% complete, CV uploaded</td></tr>
+        <tr style="border-bottom:1px solid #e8e8e8;"><td style="padding:10px 16px;font-weight:600;">July 31</td><td style="padding:10px 16px;">PhD Openings reviewed, 15-20 universities shortlisted</td></tr>
+        <tr style="border-bottom:1px solid #e8e8e8;"><td style="padding:10px 16px;font-weight:600;">Aug 15</td><td style="padding:10px 16px;">University shortlist finalized (8-12)</td></tr>
+        <tr style="border-bottom:1px solid #e8e8e8;"><td style="padding:10px 16px;font-weight:600;">Aug 31</td><td style="padding:10px 16px;">Outreach emails sent, SOP first draft submitted</td></tr>
+        <tr style="border-bottom:1px solid #e8e8e8;"><td style="padding:10px 16px;font-weight:600;">Sep 15</td><td style="padding:10px 16px;">All recommendation letters requested</td></tr>
+        <tr style="border-bottom:1px solid #e8e8e8;"><td style="padding:10px 16px;font-weight:600;">Sep 30</td><td style="padding:10px 16px;">SOP v2 reviewed, writing samples uploaded</td></tr>
+        <tr style="border-bottom:1px solid #e8e8e8;"><td style="padding:10px 16px;font-weight:600;">Oct 15</td><td style="padding:10px 16px;">Early applications submitted</td></tr>
+        <tr style="border-bottom:1px solid #e8e8e8;"><td style="padding:10px 16px;font-weight:600;">Oct 31</td><td style="padding:10px 16px;">Majority of applications submitted</td></tr>
+        <tr><td style="padding:10px 16px;font-weight:600;">Nov 30</td><td style="padding:10px 16px;">All applications submitted before December deadlines</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="slide-num">10</div>
+</div>
+
+<!-- ============ SLIDE 11: Let's Begin ============ -->
+<div class="slide green" id="s11">
+  <div class="slide-inner" style="text-align:center;">
+    <div class="eyebrow" style="color:rgba(255,255,255,0.7);">Let's Go</div>
+    <h1 class="hero" style="color:white;font-size:2.8em;">Your PhD Journey<br>Starts <span style="color:#bbf7d0;">Now</span></h1>
+
+    <div style="margin:32px auto;max-width:500px;">
+      <div style="background:rgba(255,255,255,0.15);border-radius:12px;padding:24px;text-align:left;font-size:0.95em;line-height:2;">
+        <strong>This Week's Action Items:</strong><br>
+        1. Log in to <strong>nextphd.elitelab.ai</strong><br>
+        2. Change your default password<br>
+        3. Complete your profile to 100%<br>
+        4. Upload your CV<br>
+        5. Browse PhD Openings &mdash; save 10+<br>
+        6. Join the Discord server
+      </div>
+    </div>
+
+    <p style="opacity:0.7;font-size:0.9em;margin-top:24px;">Dashboard: nextphd.elitelab.ai</p>
+    <p style="opacity:0.5;font-size:0.85em;">NextPhD Bangladesh &bull; Cohort 01 &bull; ELITE Research Lab</p>
+  </div>
+  <div class="slide-num">11</div>
+</div>
+
+</body>
+</html>
